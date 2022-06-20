@@ -1,0 +1,607 @@
+openapi: 3.0.1
+info:
+  title: Intouch IoT Telematics APIs
+  description: >-
+    A set of powerful telematics APIs which users can use to get all the data
+    related to their devices such as live location,trails,alarms etc. These
+    telematics APIs are powered by Mappls's own INTOUCH platform. Mappls
+    InTouch easily integrates into existing cloud services via our tracking &
+    telematics APIs. The API & SDK libraries provide powerful, efficient and
+    accurate positioning for the IoT devices on InTouch applications for
+    Android, iOS and the web. You can find out more about Intouch  at
+    [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)
+  termsOfService: 'https://about.mappls.com/about/terms-conditions'
+  contact:
+    email: apisupport@mappls.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 2.0.0
+externalDocs:
+  description: More About Telematics APIs.
+  url: 'https://about.mappls.com/intouch-platform/#Platform-APIs'
+servers:
+  - url: 'https://intouch.mappls.com/iot/api'
+tags:
+  - name: Intouch IoT Apps
+    description: Everything about IoT apps powered by Intouch
+    externalDocs:
+      description: Find out more
+      url: 'https://about.mappls.com/intouch-platform/'
+paths:
+  /devices:
+    get:
+      tags:
+        - device live data
+      summary: Gets the live data of devices.
+      description: 'This API returns accurate live location and related data of vehicles, assets & people with help of connected devices/sensors/mobiles to provide location awareness to users of your app. The API provides real-time visibility of your tracked objects, giving not just location information, but multiple additional fields which add value to your application. The API is capable of being used for multiple use cases: be it for transport - logistics or for personnel information services for all kinds of web or mobile development platforms.'
+      operationId: getDeviceById
+      parameters:
+        - name: id
+          in: query
+          description: This is the device's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all active devices in the account.
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: includeInActive
+          in: query
+          description: Non mandatory boolean field. If this field is not sent then by default API response will send all active devices. If "true" then API reponse will have inactive devices along with active devices. If "false" then API will return only active devices
+          required: false
+          schema:
+            type: boolean
+        - name: ignoreBeacon
+          in: query
+          required: false
+          description: Non mandatory field. If set to true then API will return all devices except those whose device type is beacon(mobile).
+          schema:
+            type: boolean
+        - name: state
+          in: query
+          required: false
+          description: Non mandatory field. Input timestamp in this field to fetch only those live locations of devices which have come after the input timestamp. If "state" is sent then by default only active devices will be fetched irrespective of the status of "includeInActive" attribute.
+          schema:
+            type: number
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '203':
+          description: Device Not Found
+        '400':
+          description: Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute "id" is integer but string value gets passed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+  /devices/nearby:
+    get:
+      tags:
+        - nearby
+      summary: Gets the list of all the nearby devices.
+      description: 'This API returns accurate live location and related data of all the nearby vehicles, assets & people, within the specified buffer range, with help of connected devices/sensors/mobiles to provide location awareness to users of your app. The API provides real-time visibility of your tracked objects, giving not just location information, but multiple additional fields which add value to your application. The API is capable of being used for multiple use cases: be it for transport - logistics or for personnel information services for all kinds of web or mobile development platforms.'
+      parameters:
+        - name: buffer
+          in: query
+          description: buffer distance (in meters) upto which the api will return the nearby vehicles/assets. Non mandatory attribute. If not sent by default buffer distance will be taken as 50 meters.
+          required: false
+          schema:
+            type: number
+        - name: geometry
+          in: query
+          description: location coordinates in geojson format. vehicles/assets will be fetched around this location as per the configured buffer distance.
+          required: true
+          schema:
+            $ref: '#/components/schemas/geojson'
+            type: string
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '203':
+          description: Device Not Found
+        '400':
+          description: Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute "buffer" is of type number but string value gets passed or invalid coordinates location for location type "polygon" in geometry geojson object etc.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+  /devices/hardwareinfo:
+    get:
+      tags:
+        - device hardware info
+      summary: Gets the hardware info of devices.
+      description: This API returns the hardware related info of devices such as their IMEI number, GSM number etc.
+      parameters:
+        - name: id
+          in: query
+          description: This is the physical device's ID, a non-mandatory parameter. If not passed then by default the API will return the hardware info of all active devices in the account.
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/devicehardwareinfoobject'
+        '204':
+          description: No content found
+        '400':
+          description: Bad Request - Invalid device ID supplied or device id is missing or invalid data type. For example, input attribute id is integer but string value gets passed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+  /devices/info:
+    get:
+      tags:
+        - device basic info
+      summary: Gets the basic info of devices.
+      description: This API returns the basic info of devices such as their registration number, tyre size, manufacturer etc.
+      parameters:
+        - name: id
+          in: query
+          description: id of the device, a non-mandatory parameter. If not passed then by default the API will return the basic info of all active devices in the account.
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/devicebasicinfoobject'
+        '204':
+          description: No content found
+        '400':
+          description: Bad Request - Invalid device ID supplied or device id is missing or invalid data type. For example, input attribute id is integer but string value gets passed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+components:
+  schemas:
+    geojson:
+      type: object
+      properties:
+        type:
+          type: string
+          description: it can be "Point" or "Polygon" depending upon the type of location around which nearby vehicles/assets need to be fetched. "Point" is used for circular geofence, and "Polygon" is used for a multiple point polygon geofence.
+          example: Point
+        coordinates:
+          type: array
+          items:
+            type: number
+            description: an array of coordinates in longitude, latitude format. In case of type set as "Polygon" then minimum three location points must be sent in coordinates, otherwise api will return 400 - bad request.
+          example:
+            - 77.4567
+            - 28.2345
+    devicebasicinfoobject:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: id of the device.
+              name:
+                type: string
+                description: name of the device.
+                example: my vehicle 1878
+              type:
+                type: integer
+                description: 0 - car, 1 - person, 2 - asset, 3 - bike, 4 - bus, 5 - truck, 6 - tracktor.
+                example: 2
+              creationOn:
+                type: number
+                description: the date when the device was created.
+                example: 1585541181
+              updationOn:
+                type: number
+                description: date when device got updated
+                example: 1585541181
+              expiryDate:
+                type: number
+                description: date when device will get expired
+                example: 1585541181
+              active:
+                type: boolean
+                description: whether device is active or not
+                example: true
+              registrationNumber:
+                type: string
+                description: device's registraion number
+                example: DL03555
+              manufacturer:
+                type: string
+                description: device manufactured by
+                example: BMW
+              model:
+                type: string
+                description: device's model type
+                example: X3
+              color:
+                type: string
+                description: color of the device
+              geofenceIds:
+                type: array
+                items:
+                  type: number
+                  example: 283044
+                  description: geofence IDs of the geofences associated with the device
+              tag:
+                type: array
+                items:
+                  type: string
+                  example: xyz_mytag
+                  description: tag a vehicle with custom string value
+              chasisNo:
+                type: string
+                description: chasis number of the device.
+                example: EXASDSSSSADC
+              initialOdometer:
+                type: number
+                description: initial odometer reading.
+                example: 0
+    devicehardwareinfoobject:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: id of the physical hardware device
+              name:
+                type: string
+                description: name of the physical hardware device
+                example: MMI314295
+              deviceType:
+                type: integer
+                description: type of device for eg; drivate, vt etc
+                example: '868728030749458'
+              deviceTypeName:
+                type: string
+                description: name of the type of device
+                example: drive mate pro
+              trackingCode:
+                type: string
+                description: tracking code/unique code number of the device
+                example: '868728030749458'
+              deviceCode:
+                type: string
+                description: another unique number, genrally same as tracking code
+                example: '868728030749458'
+              active:
+                type: boolean
+                description: true means device is active. false means device is not active
+                example: true
+              mappedDeviceIds:
+                type: array
+                items:
+                  type: number
+                  description: the ids of the entities which are linked to the id of the physical hardware device.
+                  example: 887876
+              odometerType:
+                type: integer
+                description: 0 - odometer not suported, 1- GPS based odometer(comes from the device), 2 - CAN based Odometer(comes from vehicle's CAN bus)
+                example: 2
+              installDate:
+                type: number
+                description: timstamp when the device got installed
+                example: 1581273000
+              expiryDate:
+                type: number
+                description: timestamp when the device will get expired
+                example: 1600713000
+    Device:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceData'
+      xml:
+        name: Device
+    DeviceData:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        active:
+          type: string
+          example: true
+          description: device active status
+          enum:
+            - true
+            - false
+        status:
+          type: number
+          example: 1
+          description: device movement status<br> 1 -> moving<br>2 -> idle i,e ignition is on and speed <= 7km/hr<br>3 -> stopped i,e engine is off<br>4 -> towing i,e ignition is off, but vehicle speed<br>5 -> no data i,e no communication of device with intouch server or no GPRS signal<br>6 -> power off<br>7 -> no gps i,e satellite count is less than 4<br>8 -> on trip i,e device is currently on an active trip<br>9 -> free vehicle i,e device is not on any active trip
+        vehicleBattery:
+          type: number
+          example: 13568.98
+        location:
+          type: object
+          properties:
+            gpsTime:
+              type: number
+              example: 1574736922
+            gprsTime:
+              type: number
+              example: 1574736922
+            latitude:
+              type: number
+              example: 28.551255163434
+            longitude:
+              type: number
+              example: 77.2687
+            address:
+              type: string
+              example: 244, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 2 m from Usha Exim Pvt Ltd pin-110020
+            altitude:
+              type: number
+              example: 234
+            heading:
+              type: number
+              example: 196.868
+            speedKph:
+              type: number
+              example: 27.85
+            odometer:
+              type: number
+              example: 12548.22
+        deviceDetails:
+          type: object
+          properties:
+            name:
+              type: string
+              example: DL3CCM8097
+            registrationNumber:
+              type: string
+              example: DL3CCM8097
+            deviceType:
+              type: string
+              example: car
+              enum:
+                - car
+                - truck
+                - bus
+                - bike
+                - tracktor
+                - JCB
+                - excavator
+        alerts:
+          $ref: '#/components/schemas/AlertObject'
+        canInfo:
+          type: object
+          properties:
+            calcEngineVal:
+              type: integer
+              example: 0
+            greenDriveType:
+              type: string
+              example: HA
+              description: HA(Harsh acceleration), HB(Harsh Breaking), HC(Harsh Cornering)
+            canTimestamp:
+              type: number
+              example: 1568362645
+              description: Exact time at which the CAN data got generated by the device
+            coolantTemp:
+              type: number
+              example: 87
+            engineRPM:
+              type: integer
+              example: 796
+            accelPedal:
+              type: number
+              example: 8.4
+              description: This is accelerator pedal value in percentage.
+            parkBrake:
+              type: number
+              example: 0
+              description: This is parking break. 0 means parking break is disengaged & 1 means parking break is engaged
+            breakPedal:
+              type: number
+              example: 0
+              description: 1 means break pedal is engaged & 0 means break pedal is disengaged
+            fuelLevel:
+              type: integer
+              example: 14
+              description: Level of the fuel in liters
+            driverDoor:
+              type: number
+              example: 0
+              description: 1 means door is open & 0 means door is closed
+            headLights:
+              type: number
+              example: 1
+              description: 1 means ON & 0 means OFF
+            blinker:
+              type: number
+              example: 0
+              description: 1 means ON & 0 means OFF
+            gearState:
+              type: number
+              example: 0
+              description: 0 is Neutral, 1 is Drive, 2 is Sports, 3 is Reverse
+            intakeAirTemp:
+              type: number
+              example: 62
+              description: This is the intake air temperature of the engine.
+            intakeabsolutePress:
+              type: number
+              example: 42
+              description: This is the intake absolute pressure of the engine. It is defined in Pa(Pascal)
+            ac:
+              type: integer
+              example: 0
+              description: 1 means AC is ON & 0 means AC is OFF
+            fuelConsAVG:
+              type: integer
+              example: 99
+              description: Fuel constant average
+        deviceFaults:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceFaults'
+        currentGeofence:
+          type: array
+          items:
+            type: number
+        todaysDrive:
+          type: object
+          properties:
+            todayKms:
+              type: number
+              example: 55.67
+            todayMovementTime:
+              type: number
+              description: Value is in seconds
+              example: 67654
+            todayIdleTime:
+              type: number
+              description: Value is in seconds
+              example: 4444
+            todayDriveCount:
+              type: integer
+              example: 5
+        externalSensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/externalSensorObject'
+        fuelLiters:
+          type: number
+          description: Fuel level in liters, Value is calculated using external fuel sensor. 
+          example: 78.8
+    AlertObject:
+      properties:
+        deviceId:
+          type: number
+          example: 8989
+          description: Will come only in case of /alarmLog GET API response
+        timestamp:
+          type: number
+          example: 1577589789
+          description: Time at which the alert got generated
+        latitude:
+          type: number
+          example: 28.550962381896
+        longitude:
+          type: number
+          example: 77.26890675033
+        address:
+          type: string
+          example: 237, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Wipro BPO Corporate Office pin-110020
+          description: Location address at which the alarm got generated
+        alarmType:
+          type: integer
+          example: 28
+          description: 'Type of alarm to create. Following are the alarm types & their corresponding IDs.<br> IGNITION: 21, OVERSPEED: 22, UNPLUGGED: 23, PANIC: 24, GEOFENCE: 26, STOPPAGE: 27, IDLE: 28, TOWING: 29, GPRS CONNECTIVITY: 126, VEHICLE BATTERY: 129, MILEAGE: 133, GPS CONNECTIVITY: 146, DISTANCE COVERED: 151, INTERNAL BATTERY VOLTAGE:161'
+        limit:
+          type: integer
+          example: 44
+          description: Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr
+        duration:
+          type: integer
+          example: 20
+          description: Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs
+        actualLimit:
+          type: integer
+          example: 57
+          description: The actual data received from the device at that particular moment when the alarm got generated
+        actualDuration:
+          type: integer
+          example: 25
+          description: Actual duration for which the device breached the alarm config limit
+        severity:
+          type: integer
+          example: 1
+          description: 0 - Low Severity. 1 - High Severity
+        data:
+          type: integer
+          example: 1
+          description: 'Describes the state of the alarm. IGNITION(type = 21), 0: OFF & 1: ON. AC(type=25), 0: OFF, 1: ON. GEOFENCE(type=26), 1: Entry & Exit Geofence 2: Entry Geofence, 3: Leaving Geofence & 4: Long Stay In Geofence'
+        geofenceId:
+          type: number
+          example: 987876
+          description: This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence.
+    DeviceFaults:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 1001
+        timetamp:
+          type: number
+          example: 787654544
+        status:
+          type: integer
+          example: 0
+          description: 'Describes the status of the fault which was detected. 0: OPEN & 1: Close.'
+        closedOn:
+          type: number
+          example: 556567872
+    externalSensorObject:
+      type: object
+      properties:
+        sensorId:
+          type: string
+          example: 1
+        temperature:
+          type: number
+          example: 28.32
+    
+    ApiResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status Code Name
+        message:
+          type: string
+          description: Describes the type of error based on the type of response code.
+        error:
+          type: string
+          description: describes the type of error
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerToken: []

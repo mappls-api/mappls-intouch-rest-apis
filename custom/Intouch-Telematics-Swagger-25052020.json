@@ -1,0 +1,1844 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Intouch IoT Telematics APIs",
+    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by Mappls's own INTOUCH platform. Mappls InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can find out more about Intouch  at [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)",
+    "termsOfService": "https://about.mappls.com/about/terms-conditions",
+    "contact": {
+      "email": "apisupport@mappls.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0.0"
+  },
+  "externalDocs": {
+    "description": "More About Telematics APIs.",
+    "url": "https://about.mappls.com/intouch-platform/#Platform-APIs"
+  },
+  "servers": [
+    {
+      "url": "https://intouch.mappls.com/iot/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Intouch IoT Apps",
+      "description": "Everything about IoT apps powered by Intouch",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://about.mappls.com/intouch-platform/"
+      }
+    }
+  ],
+  "paths": {
+    "/device": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "Gets the live data of devices.",
+        "description": "This API returns accurate live location and related data of vehicles, assets & people with help of connected devices/sensors/mobiles to provide location awareness to users of your app. The API provides real-time visibility of your tracked objects, giving not just location information, but multiple additional fields which add value to your application. The API is capable of being used for multiple use cases: be it for transport - logistics or for personnel information services for all kinds of web or mobile development platforms.",
+        "operationId": "getDeviceById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "This is the device's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all active devices in the account.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "includeInActive",
+            "in": "query",
+            "description": "Non mandatory boolean field. If this field is not sent then by default API response will send all active devices. If \"true\" then API reponse will have inactive devices along with active devices. If \"false\" then API will return only active devices",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "ignoreBeacon",
+            "in": "query",
+            "required": false,
+            "description": "Non mandatory field. If set to true then API will return all devices except those whose device type is beacon(mobile).",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "description": "Non mandatory field. Input timestamp in this field to fetch only those live locations of devices which have come after the input timestamp. If \"state\" is sent then by default only active devices will be fetched irrespective of the status of \"includeInActive\" attribute.",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Device"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "description": "Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute \"id\" is integer but string value gets passed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/device/drive": {
+      "get": {
+        "tags": [
+          "drives"
+        ],
+        "summary": "Gets drive details of a device.",
+        "description": "This API is used to request the drive details of a vehicle in an account on our telematics platform. A vehicle can be a device/sensor connected to our telematics platform directly or via a third party data aggregator who utilises our telematics platform for tracking services. Drive is a list of reported geo-positions of any object (such as vehicles, assets or people) according to pre-defined conditions",
+        "operationId": "getDrives",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "ID of the device for which the drives need to be fetched",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "The starting timsstamp from which the drives need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "The end timestamp till which the drives need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceDrive"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "description": "Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute \"id\" is integer but string value gets passed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/device/{deviceId}/events": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Gets the historical location events of a device.",
+        "description": "This API is used to get the historical location information as well as related additional information for a vehicle. This API can be used thus to create customized reports for users of your apps for different use cases, e.g.: plot the vehicle's past movements on map or get a historical graph of change in a vehicle's altitude.",
+        "operationId": "getLocationEvents",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "path",
+            "description": "ID of the device for which the events need to be fetched",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "The starting timsstamp from which the events need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "The end timestamp till which the events need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skipPeriod",
+            "in": "query",
+            "example": 2,
+            "description": "Defined in minitues. For example, if say 2 is passed then each returned data packet will have a minimum difference of 2 mins.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceEvents"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "description": "Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute \"id\" is integer but string value gets passed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/alarm": {
+      "post": {
+        "tags": [
+          "alarm"
+        ],
+        "summary": "This API will create an alarm.",
+        "description": "Based on the input parameters provided to this POST alarm API, a new alarm will get created for a single or multiple devices",
+        "operationId": "createAlarm",
+        "requestBody": {
+          "description": "Alarm object that needs to be added to the store",
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "alarmType": {
+                    "type": "integer",
+                    "example": 26,
+                    "description": "Type of alarm to create. Following are the alarm types & their corresponding IDs.<br> IGNITION: 21, OVERSPEED: 22, UNPLUGGED: 23, PANIC: 24, GEOFENCE: 26, STOPPAGE: 27, IDLE: 28, TOWING: 29, GPRS CONNECTIVITY: 126, VEHICLE BATTERY: 129, MILEAGE: 133, GPS CONNECTIVITY: 146, DISTANCE COVERED: 151, INTERNAL BATTERY VOLTAGE:161"
+                  },
+                  "deviceId": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "example": [
+                      1009,
+                      9090
+                    ],
+                    "description": "Device IDs of those devices for which the alarm configuration is done."
+                  },
+                  "type": {
+                    "type": "integer",
+                    "example": 1,
+                    "description": "For Geofence(alarmType = 26), value of type are as follows:<br>2 - entry, 3 - Exit, 1 - Entry & Exit, 4 - long stay in geofence<br>For ignition(alarmType = 21), types values are as follows:<br>1 - Both ON & OFF, 2 - Ignition On, 3 - Ignition Off, 5 - Day's First Ignition ON<br> For mileage(alarmType = 133), value of type are as follows:<br> 0 - Daily, 1 - Monthly<br>For DIstance Covered(alarmType = 151), value of type are as follows:<br> 1 - At Least, 2 - At Most"
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "example": 11,
+                    "description": "Only required in case of overspeed, stoppage, idle, towing, GPRS connectivity, vehicle battery, GPS connectivity, distance covered, internal battery alarm"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 55,
+                    "description": "Only required in case of overspeed, vehicle battery, mileage, distance covered, internal battery alarm"
+                  },
+                  "geofenceId": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "example": [
+                      23434,
+                      45454
+                    ],
+                    "description": "Only required when alarmType is 26 (Geofence). You can pass a single geofence ID or multiple geofence IDs separated by comma"
+                  },
+                  "severity": {
+                    "type": "integer",
+                    "example": 0,
+                    "description": "This basically defines the severity of the alarm. You can pass 0 for normal severity & 1 for high severity."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "alarm"
+        ],
+        "summary": "This API will get all the alarm configurations for a user.",
+        "description": "Based on the passed token key, the API will return the list of all alarm configs.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "example": "23889,89876",
+            "description": "This is the alarm's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all alarm configurations in the account. You can pass single value or comma separated alarm IDs for multiple values.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "example": "24567,10018",
+            "description": "This is device ID. API will return data based on the configs set for the passed device IDs. You can pass a single device ID or comma seperated multiple device IDs.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          {
+            "name": "alarmType",
+            "in": "query",
+            "example": "177,90",
+            "description": "This is alarm type. API will return data based on the passed alarm types. You can pass a single alarm type or comma seperated multiple alarm types.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlarmConfig"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/alarm/{id}": {
+      "post": {
+        "tags": [
+          "alarm"
+        ],
+        "summary": "Updates An Alarm Config",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Mandatory field. This is the ID of the alarm config which needs to be updated.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Alarm object that needs to be added to the store",
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "deviceId": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "example": [
+                      6678,
+                      9876
+                    ],
+                    "description": "ID of the device for which the alarm config has to be updated. If there are multiple devices then you can pass them separated by comma."
+                  },
+                  "type": {
+                    "type": "integer",
+                    "example": 1,
+                    "description": "For Geofence(alarmType = 26), value of type are as follows:<br>2 - entry, 3 - Exit, 1 - Entry & Exit, 4 - long stay in geofence<br>For ignition(alarmType = 21), types values are as follows:<br>1 - Both ON & OFF, 2 - Ignition On, 3 - Ignition Off, 5 - Day's First Ignition ON<br> For mileage(alarmType = 133), value of type are as follows:<br> 0 - Daily, 1 - Monthly<br>For DIstance Covered(alarmType = 151), value of type are as follows:<br> 1 - At Least, 2 - At Most"
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "example": 11,
+                    "description": "Only required in case of overspeed, stoppage, idle, towing, GPRS connectivity, vehicle battery, GPS connectivity, distance covered, internal battery alarm"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 55,
+                    "description": "Only required in case of overspeed, vehicle battery, mileage, distance covered, internal battery alarm"
+                  },
+                  "geofenceId": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "example": [
+                      23434,
+                      45454
+                    ],
+                    "description": "Only required when alarmType is 26 (Geofence). You can pass a single geofence ID or multiple geofence IDs separated by comma"
+                  },
+                  "severity": {
+                    "type": "integer",
+                    "example": 0,
+                    "description": "This basically defines the severity of the alarm. You can pass 0 for normal severity & 1 for high severity."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "403": {
+            "description": "ID Not Found"
+          },
+          "404": {
+            "description": "URL Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "alarm"
+        ],
+        "summary": "Deletes An Alarm Config",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the alarm config which you want to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "204": {
+            "description": "No Content Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "URL Not Found"
+          }
+        }
+      }
+    },
+    "/alarm/alarmLog/": {
+      "get": {
+        "tags": [
+          "alarm"
+        ],
+        "summary": "Gets The List Of Alarm Config(s)",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "Not Mandatory field. This is the ID of the device for which the alarm log need to be fetched. You can pass single device ID or multiple device IDs separated by comma",
+            "required": false,
+            "example": "1909,2545",
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          {
+            "name": "alarmType",
+            "in": "query",
+            "description": "Not Mandatory field. This is the type of alarm for which the alarm log need to be fetched. You can pass single alarm type or multiple device IDs separated by comma.<br> Type of alarm to create. Following are the alarm types & their corresponding IDs.<br> IGNITION: 21, OVERSPEED: 22, UNPLUGGED: 23, PANIC: 24, GEOFENCE: 26, STOPPAGE: 27, IDLE: 28, TOWING: 29, GPRS CONNECTIVITY: 126, VEHICLE BATTERY: 129, MILEAGE: 133, GPS CONNECTIVITY: 146, DISTANCE COVERED: 151, INTERNAL BATTERY VOLTAGE:161",
+            "required": false,
+            "example": "21,26",
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "Mandatory field. This is start timestamp in seconds",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "Mandatory field. This is end timestamp in seconds",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AlertObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/geofence/": {
+      "summary": "Geofence APIs",
+      "description": "The geofence APIs allow you to manage virtual geographical areas or geofences for your account on MapmyIndia's telematics platform. Geographic areas are defined as geometries in the form of geographic polygons, circles, or points that are relevant for any connected device/sensor: The presence or absence (entry or exit) of a vehicle to such geographic areas needs to be monitored and/or events generated on the basis of such transitions. The events might be alarms or reports of vehicles entering or exiting such geofences. These Geofence APIs allow you to create/edit/assign/delink/update geofences.",
+      "get": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Gets All The Configured Geofence(s)",
+        "description": "This API returns the list of all the configured geofences ",
+        "parameters": [
+          {
+            "name": "ignoreGeometry",
+            "in": "query",
+            "example": false,
+            "description": "Flag to get geometry data.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GeofenceObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Create A New Geofence",
+        "description": "This API helps to create a new geofence",
+        "requestBody": {
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the geofence.",
+                    "example": "market"
+                  },
+                  "buffer": {
+                    "type": "integer",
+                    "example": 1000,
+                    "description": "Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters"
+                  },
+                  "geometry": {
+                    "type": "string",
+                    "example": {
+                      "type": "Point",
+                      "coordinates": [
+                        77.2334,
+                        28.7676
+                      ]
+                    },
+                    "description": "This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/geofence/{id}": {
+      "get": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Get A Single Or Multiple Geofence(s).",
+        "description": "This API helps to fetch the details of a particular geofence",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id. This path variable will take precedence even if multiple geofence ids are passed in the query param.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "geofence id. Use this if you want to get details of specific multiple geofence IDs.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              },
+              "example": "51777,89777"
+            }
+          },
+          {
+            "name": "ignoreGeometry",
+            "in": "query",
+            "description": "Non mandatory field, boolean value to fetch geometry details.",
+            "required": false,
+            "example": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GeofenceObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Update A Geofence.",
+        "description": "This API helps to update a particular geofence.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Form data to be passed to update a geofence.",
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the geofence.",
+                    "example": "market"
+                  },
+                  "buffer": {
+                    "type": "integer",
+                    "example": 1000,
+                    "description": "Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters"
+                  },
+                  "geometry": {
+                    "type": "string",
+                    "example": {
+                      "type": "Point",
+                      "coordinates": [
+                        77.2334,
+                        28.7676
+                      ]
+                    },
+                    "description": "This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Delete A Geofence.",
+        "description": "This API helps to delete a geofence.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeviceEvents": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "drivingBehaviourCount": {
+                "type": "object",
+                "properties": {
+                  "haCount": {
+                    "type": "integer",
+                    "example": 2,
+                    "description": "Harsh Acceleration Count"
+                  },
+                  "hbCount": {
+                    "type": "integer",
+                    "example": 1,
+                    "description": "Harsh Breaking Count"
+                  },
+                  "hcCount": {
+                    "type": "integer",
+                    "example": 3,
+                    "description": "Harsh Cornering Count"
+                  }
+                }
+              },
+              "summary": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number",
+                    "example": 23.67,
+                    "description": "Total Drive Distance in KMs"
+                  },
+                  "duration": {
+                    "type": "number",
+                    "example": 300,
+                    "description": "Total drive duration in seconds"
+                  },
+                  "avgSpeed": {
+                    "type": "number",
+                    "example": 45.54,
+                    "description": "Average speed in km/hr"
+                  },
+                  "startAddress": {
+                    "type": "string",
+                    "example": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 15 m from The Bodhi Tree pin-560038 (India)"
+                  },
+                  "endAddress": {
+                    "type": "string",
+                    "example": "3645, 13th F Main Road, Dupanahalli, Indiranagar, Bengaluru, Karnataka. 12 m from Meenakshi Enclave pin-560038 (India)"
+                  },
+                  "startTimestamp": {
+                    "type": "number",
+                    "example": 1577644204,
+                    "description": "Start time of the device i,e the time at which the data first came from the device for the selected day."
+                  },
+                  "endTimestamp": {
+                    "type": "number",
+                    "example": 1577684913,
+                    "description": "End time of the device i,e the time at which the last data came from the device for the selected day."
+                  }
+                }
+              },
+              "positionList": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DeviceLocationEvents"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeviceLocationEvents": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "example": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 15 m from The Bodhi Tree pin-560038 (India)",
+            "description": "Address of the location event"
+          },
+          "timestamp": {
+            "type": "number",
+            "example": 1574937348
+          },
+          "longitude": {
+            "type": "number",
+            "example": 77.74937348
+          },
+          "latitude": {
+            "type": "number",
+            "example": 55.74937348
+          },
+          "heading": {
+            "type": "number",
+            "example": 298,
+            "description": "device heading direction in degrees from North."
+          },
+          "speed": {
+            "type": "number",
+            "example": 33.33,
+            "description": "Device speed at this particular location"
+          },
+          "ignition": {
+            "type": "number",
+            "example": 0,
+            "description": "whether vehicle ignition is On or Off. 0 means ignition is OFF and 1 means ignition is ON."
+          },
+          "powerSupplyVoltage": {
+            "type": "number",
+            "example": 12769,
+            "description": "battery voltage value in milli volts."
+          },
+          "gpsFix": {
+            "type": "boolean",
+            "example": true,
+            "description": "GPS is fix or not for the device. true meanse GPS is fixed and false means GPS is not fixed."
+          },
+          "validGPS": {
+            "type": "boolean",
+            "example": true,
+            "description": "Checks whether GPS is valid or not.",
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "accOff": {
+            "type": "boolean",
+            "description": "checks for whether adaptive cruise control is enabled or not.",
+            "example": true,
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "movementStatus": {
+            "type": "integer",
+            "example": 1,
+            "description": "Checks the movement status of the device. 1:Moving 2:Idle 3:Stopped 4:Towing 5:No Data 6:Power Off 7:No Gps 8:On Trip 9:Free Vehicle"
+          },
+          "durationTime": {
+            "type": "number",
+            "example": 670,
+            "description": "duration(in secsonds) time spent at current location"
+          },
+          "greenDriveType": {
+            "type": "string",
+            "example": "HA",
+            "description": "HA(Harsh acceleration), HB(Harsh Breaking), HC(Harsh Cornering)"
+          },
+          "tripStatus": {
+            "type": "integer",
+            "example": 0,
+            "description": "0 - On Trip, 1 - Free Vehicle",
+            "enum": [
+              "On Trip",
+              "Free Vehicle"
+            ]
+          },
+          "mobileInfo": {
+            "type": "object",
+            "properties": {
+              "locationSource": {
+                "type": "number",
+                "example": 0,
+                "description": "1 - GPS connected, distanceaccuracy less that 50mtrs, 2 - GPRS connected, distance accracy more than 50 mtr.",
+                "enum": [
+                  "GPS Connected",
+                  "GPRS Connected"
+                ]
+              },
+              "mockLocation": {
+                "type": "boolean",
+                "example": true,
+                "description": "true - mock location being sent by the user. false - real location being sent by the user."
+              },
+              "isAirplanemode": {
+                "type": "boolean",
+                "example": true,
+                "description": "Checks whether mobile's airplane mode is ON(i,e true) or OFF(i,e false)"
+              },
+              "callStatus": {
+                "type": "number",
+                "example": 0,
+                "description": "0-CALL_STATE_IDLE, 1-CALL_STATE_RINGING, 2-CALL_STATE_OFFHOOK",
+                "enum": [
+                  "CALL_STATE_IDLE",
+                  "CALL_STATE_RINGING",
+                  "CALL_STATE_OFFHOOK"
+                ]
+              },
+              "deviceStatus": {
+                "type": "integer",
+                "example": 0,
+                "description": "status of the device in the current location. Values as mentioned in the below enum are possible.",
+                "enum": [
+                  "IN_VEHICLE",
+                  "ON_BICYCLE",
+                  "ON_FOOT",
+                  "STILL",
+                  "UNKNOWN",
+                  "TILTING",
+                  "WALKING",
+                  "RUNNING"
+                ]
+              },
+              "phoneEvent": {
+                "type": "integer",
+                "example": 5,
+                "description": "Checks the location permission that the user enables/disables in the mobile phone.",
+                "enum": [
+                  "EVENT_LOCATION_PERMISSION_DENIED = 5",
+                  "EVENT_LOCATION_PROVIDER_OFF = 6",
+                  "EVENT_LOCATION_STOP_PROGRAMMATICALLY = 7"
+                ]
+              }
+            }
+          },
+          "alerts": {
+            "$ref": "#/components/schemas/AlertObject"
+          }
+        }
+      },
+      "DeviceDrive": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriveData"
+            }
+          }
+        },
+        "xml": {
+          "name": "Device"
+        }
+      },
+      "DriveData": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "number",
+            "example": 67790,
+            "description": "Your Device's ID."
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "startAddress": {
+                "type": "string",
+                "example": "3605, 13th G Main Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 35 m from Supraja Meru pin-560038 (India)"
+              },
+              "startTimestamp": {
+                "type": "number",
+                "description": "this is epoc timestamp",
+                "example": 1574913781
+              },
+              "endAddress": {
+                "type": "string",
+                "example": "1139, Sweth Ambara, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 32 m from AMC Cookware India Pvt Ltd pin-560038"
+              },
+              "endTimestamp": {
+                "type": "number",
+                "example": 1574914046,
+                "description": "this is epoc timestamp"
+              },
+              "avgSpeed": {
+                "type": "number",
+                "example": 45.34,
+                "description": "speed in km/hr"
+              }
+            }
+          },
+          "movement": {
+            "type": "object",
+            "properties": {
+              "duration": {
+                "type": "number",
+                "description": "duration in seconds",
+                "example": 265
+              },
+              "distance": {
+                "type": "number",
+                "example": 12.34,
+                "description": "Distance im KMs"
+              },
+              "idleTime": {
+                "type": "number",
+                "description": "idle time in seconds",
+                "example": 265
+              },
+              "movementTime": {
+                "type": "number",
+                "description": "movement time in seconds",
+                "example": 800
+              },
+              "stoppageTime": {
+                "type": "number",
+                "description": "stoppage time in seconds",
+                "example": 1300
+              }
+            }
+          },
+          "drivingBehaviourCount": {
+            "type": "object",
+            "properties": {
+              "haCount": {
+                "type": "integer",
+                "example": 2,
+                "description": "Harsh Acceleration count"
+              },
+              "hbCount": {
+                "type": "integer",
+                "example": 5,
+                "description": "Harsh Breaking Count"
+              },
+              "hcCount": {
+                "type": "integer",
+                "example": 1,
+                "description": "Harsh Cornering Count"
+              }
+            }
+          }
+        }
+      },
+      "Device": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceData"
+            }
+          }
+        },
+        "xml": {
+          "name": "Device"
+        }
+      },
+      "DeviceData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "active": {
+            "type": "string",
+            "example": true,
+            "description": "device active status",
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "status": {
+            "type": "integer",
+            "example": 1,
+            "description": "1 is Moving<br> 2 is idle<br> 3 is stopped<br>4 is towing<br>5 is No Data<br>6 is power off i,e the device's battery is disconnected from the vehicle battery<br>7 is No GPS<br>12 is Activation Pending i,e the device is not yet active and is yet to send the first ping."
+          },
+          "vehicleBattery": {
+            "type": "number",
+            "example": 13568.98
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "gpsTime": {
+                "type": "number",
+                "example": 1574736922,
+                "description": "time at which the device captures the packet"
+              },
+              "gprsTime": {
+                "type": "number",
+                "example": 1574736922,
+                "description": "time at which the Intouch server receives the device packet"
+              },
+              "latitude": {
+                "type": "number",
+                "example": 28.551255163434
+              },
+              "longitude": {
+                "type": "number",
+                "example": 77.2687
+              },
+              "address": {
+                "type": "string",
+                "example": "244, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 2 m from Usha Exim Pvt Ltd pin-110020"
+              },
+              "altitude": {
+                "type": "number",
+                "example": 234
+              },
+              "heading": {
+                "type": "number",
+                "example": 196.868,
+                "description": "value in degrees from the North"
+              },
+              "speedKph": {
+                "type": "number",
+                "example": 27.85
+              },
+              "odometer": {
+                "type": "number",
+                "example": 12548.22
+              }
+            }
+          },
+          "deviceDetails": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "DL3CCM8097"
+              },
+              "registrationNumber": {
+                "type": "string",
+                "example": "DL3CCM8097"
+              },
+              "deviceType": {
+                "type": "string",
+                "example": "car",
+                "enum": [
+                  "car",
+                  "truck",
+                  "bus",
+                  "bike",
+                  "tracktor",
+                  "JCB",
+                  "excavator"
+                ]
+              }
+            }
+          },
+          "alerts": {
+            "$ref": "#/components/schemas/AlertObject"
+          },
+          "canInfo": {
+            "type": "object",
+            "properties": {
+              "calcEngineVal": {
+                "type": "integer",
+                "example": 0
+              },
+              "greenDriveType": {
+                "type": "string",
+                "example": "HA",
+                "description": "HA(Harsh acceleration), HB(Harsh Breaking), HC(Harsh Cornering)"
+              },
+              "canTimestamp": {
+                "type": "number",
+                "example": 1568362645,
+                "description": "Exact time at which the CAN data got generated by the device"
+              },
+              "coolantTemp": {
+                "type": "number",
+                "example": 87
+              },
+              "engineRPM": {
+                "type": "integer",
+                "example": 796
+              },
+              "accelPedal": {
+                "type": "number",
+                "example": 8.4,
+                "description": "This is accelerator pedal value in percentage."
+              },
+              "parkBrake": {
+                "type": "number",
+                "example": 0,
+                "description": "This is parking break. 0 means parking break is disengaged & 1 means parking break is engaged"
+              },
+              "breakPedal": {
+                "type": "number",
+                "example": 0,
+                "description": "1 means break pedal is engaged & 0 means break pedal is disengaged"
+              },
+              "fuelLevel": {
+                "type": "integer",
+                "example": 14,
+                "description": "Level of the fuel in liters"
+              },
+              "driverDoor": {
+                "type": "number",
+                "example": 0,
+                "description": "1 means door is open & 0 means door is closed"
+              },
+              "headLights": {
+                "type": "number",
+                "example": 1,
+                "description": "1 means ON & 0 means OFF"
+              },
+              "blinker": {
+                "type": "number",
+                "example": 0,
+                "description": "1 means ON & 0 means OFF"
+              },
+              "intakeAirTemp": {
+                "type": "number",
+                "example": 62,
+                "description": "This is the intake air temperature of the engine."
+              },
+              "intakeabsolutePress": {
+                "type": "number",
+                "example": 42,
+                "description": "This is the intake absolute pressure of the engine. It is defined in Pa(Pascal)"
+              },
+              "ac": {
+                "type": "integer",
+                "example": 0,
+                "description": "1 means AC is ON & 0 means AC is OFF"
+              },
+              "fuelConsAVG": {
+                "type": "integer",
+                "example": 99,
+                "description": "Fuel constant average"
+              },
+              "ignition": {
+                "type": "integer",
+                "example": 0,
+                "description": "0 is ignition off<br>1 is ignition on"
+              },
+              "gearState": {
+                "type": "integer",
+                "example": 2,
+                "description": "shows the current state of gear of the EV"
+              },
+              "stateOfCharge": {
+                "type": "integer",
+                "example": 87,
+                "description": "Value is in percentage, i,e the current percentage value at which the EV's battery is charged"
+              },
+              "distanceToEmpty": {
+                "type": "integer",
+                "example": 100,
+                "description": "distnace in KMs after which the EV will need to be charged"
+              }
+            }
+          },
+          "deviceFaults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceFaults"
+            }
+          },
+          "currentGeofence": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "todaysDrive": {
+            "type": "object",
+            "properties": {
+              "todayKms": {
+                "type": "number",
+                "example": 55.67
+              },
+              "todayMovementTime": {
+                "type": "number",
+                "description": "Value is in seconds",
+                "example": 67654
+              },
+              "todayIdleTime": {
+                "type": "number",
+                "description": "Value is in seconds",
+                "example": 4444
+              },
+              "todayDriveCount": {
+                "type": "integer",
+                "example": 5
+              }
+            }
+          },
+          "externalSensors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/externalSensorObject"
+            }
+          },
+          "fuelLiters": {
+            "type": "number",
+            "description": "Fuel level in liters, This is calculated using external fuel sensor.",
+            "example": 78.8
+          }
+        }
+      },
+      "AlertObject": {
+        "properties": {
+          "deviceId": {
+            "type": "number",
+            "example": 8989,
+            "description": "Will come only in case of /alarmLog GET API response"
+          },
+          "timestamp": {
+            "type": "number",
+            "example": 1577589789,
+            "description": "Time at which the alert got generated"
+          },
+          "latitude": {
+            "type": "number",
+            "example": 28.550962381896
+          },
+          "longitude": {
+            "type": "number",
+            "example": 77.26890675033
+          },
+          "address": {
+            "type": "string",
+            "example": "237, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Wipro BPO Corporate Office pin-110020",
+            "description": "Location address at which the alarm got generated"
+          },
+          "alarmType": {
+            "type": "integer",
+            "example": 28,
+            "description": "Type of alarm to create. Following are the alarm types & their corresponding IDs.<br> IGNITION: 21, OVERSPEED: 22, UNPLUGGED: 23, PANIC: 24, GEOFENCE: 26, STOPPAGE: 27, IDLE: 28, TOWING: 29, GPRS CONNECTIVITY: 126, VEHICLE BATTERY: 129, MILEAGE: 133, GPS CONNECTIVITY: 146, DISTANCE COVERED: 151, INTERNAL BATTERY VOLTAGE:161"
+          },
+          "limit": {
+            "type": "integer",
+            "example": 44,
+            "description": "Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr"
+          },
+          "duration": {
+            "type": "integer",
+            "example": 20,
+            "description": "Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs"
+          },
+          "actualLimit": {
+            "type": "integer",
+            "example": 57,
+            "description": "The actual data received from the device at that particular moment when the alarm got generated"
+          },
+          "actualDuration": {
+            "type": "integer",
+            "example": 25,
+            "description": "Actual duration for which the device breached the alarm config limit"
+          },
+          "severity": {
+            "type": "integer",
+            "example": 1,
+            "description": "0 - Low Severity. 1 - High Severity"
+          },
+          "data": {
+            "type": "integer",
+            "example": 1,
+            "description": "Describes the state of the alarm. IGNITION(type = 21), 0: OFF & 1: ON. AC(type=25), 0: OFF, 1: ON. GEOFENCE(type=26), 1: Entry & Exit Geofence 2: Entry Geofence, 3: Leaving Geofence & 4: Long Stay In Geofence"
+          },
+          "geofenceId": {
+            "type": "number",
+            "example": 987876,
+            "description": "This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence."
+          }
+        }
+      },
+      "GeofenceObject": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Geofence ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the geofence.",
+            "example": "market"
+          },
+          "geometry": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "Point",
+                "description": "This defines the type of geofence, it can be point or polygon."
+              },
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "example": [
+                  77.456,
+                  28.2345
+                ]
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "example": "Circle",
+            "description": "Depending on the type of geofence this value can be Circle(buffer > 50 meters), Polygon or Point(buffer = 50 mtrs)"
+          },
+          "buffer": {
+            "type": "number",
+            "example": 65.76,
+            "description": "Radius(in meters) of a circlular geofence"
+          },
+          "creationTime": {
+            "type": "number",
+            "description": "timestamp, in seconds, at which the geofence was created."
+          },
+          "updationTime": {
+            "type": "number",
+            "description": "timestamp, in seconds, at which the geofence was updated."
+          }
+        }
+      },
+      "DeviceFaults": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 1001
+          },
+          "timetamp": {
+            "type": "number",
+            "example": 787654544
+          },
+          "status": {
+            "type": "integer",
+            "example": 0,
+            "description": "Describes the status of the fault which was detected. 0: OPEN & 1: Close."
+          },
+          "closedOn": {
+            "type": "number",
+            "example": 556567872
+          }
+        }
+      },
+      "DeviceGeofence": {
+        "type": "object",
+        "properties": {
+          "geofenceId": {
+            "type": "string",
+            "example": "110019"
+          }
+        }
+      },
+      "AlarmConfig": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetAlarmConfig"
+            }
+          }
+        }
+      },
+      "GetAlarmConfig": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 2345598,
+            "description": "This is alarm ID"
+          },
+          "deviceId": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "example": [
+              67700,
+              8987
+            ],
+            "description": "Device ID(s) on which the alarm config got created."
+          },
+          "alarmType": {
+            "type": "integer",
+            "example": 28,
+            "description": "Type of alarm, for eg - ignition, overspeed etc."
+          },
+          "limit": {
+            "type": "integer",
+            "example": 28
+          },
+          "duration": {
+            "type": "integer",
+            "example": 28,
+            "description": "Type of alarm, for eg - ignition, overspeed etc."
+          },
+          "type": {
+            "type": "integer",
+            "example": 0,
+            "description": "Values depends on the type of alarm configured."
+          },
+          "creationTime": {
+            "type": "number",
+            "example": 1567654565,
+            "description": "Time at which the alarm got configured."
+          },
+          "updationTime": {
+            "type": "integer",
+            "example": 1567654565,
+            "description": "Time at which the alarm got updated."
+          },
+          "geofenceId": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "example": [
+              1001,
+              2002
+            ],
+            "description": "If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured."
+          },
+          "severity": {
+            "type": "integer",
+            "example": 0
+          }
+        }
+      },
+      "externalSensorObject": {
+        "type": "object",
+        "properties": {
+          "sensorId": {
+            "type": "string",
+            "example": 1
+          },
+          "temperature": {
+            "type": "number",
+            "example": 28.32
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status Code Name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Describes the type of error based on the type of response code."
+          },
+          "error": {
+            "type": "string",
+            "description": "describes the type of error"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerToken": []
+    }
+  ]
+}

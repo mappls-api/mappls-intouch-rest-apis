@@ -1,0 +1,284 @@
+openapi: 3.0.1
+info:
+  title: Intouch IoT Telematics APIs
+  description: >-
+    A set of powerful telematics APIs which users can use to get all the data
+    related to their devices such as live location,trails,alarms etc. These
+    telematics APIs are powered by Mappls's own INTOUCH platform. Mappls
+    InTouch easily integrates into existing cloud services via our tracking &
+    telematics APIs. The API & SDK libraries provide powerful, efficient and
+    accurate positioning for the IoT devices on InTouch applications for
+    Android, iOS and the web. You can find out more about Intouch  at
+    [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)
+  termsOfService: 'https://about.mappls.com/about/terms-conditions'
+  contact:
+    email: apisupport@mappls.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 2.0.0
+externalDocs:
+  description: More About Telematics APIs.
+  url: 'https://about.mappls.com/intouch-platform/#Platform-APIs'
+servers:
+  - url: 'https://intouch.mappls.com/iot/api'
+tags:
+  - name: Intouch IoT Apps
+    description: Everything about IoT apps powered by Intouch
+    externalDocs:
+      description: Find out more
+      url: 'https://about.mappls.com/intouch-platform/'
+paths:
+  /group:
+    post:
+      tags:
+        - group
+      summary: This API will create a group.
+      description: >-
+        Based on the input parameters provided to this POST group API, a new
+        group will get created for a single or multiple devices
+      #operationId: create group
+      parameters:
+        - name: name
+          in: query
+          description: >-
+            This the name of the group which you want to create.
+          required: true
+          schema:
+            type: string
+        - name: deviceId
+          in: query
+          description: >-
+            These are the IDs of the devices which you want to have in this group. You can pass a single device id or a set of multiple ids separated by comma.
+          required: false
+          schema:
+            type: array
+            items:
+              type: number
+            example:
+              - 1009,6765,8798
+        - name: colorCode
+          in: query
+          description: >-
+            This the color code(in hex format) which you want to associated with the group.
+          required: false
+          schema:
+            type: string 
+            example: "#24545"
+      responses:
+        '201':
+          description: Created
+        '203':
+          description: Device Not Found or invalid device id
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+    get:
+      tags:
+        - group
+      summary: This API will get all the groups for a user.
+      description: >-
+        Based on the passed token key, the API will return the list of all groups.
+      parameters:
+        - name: id
+          in: query
+          example: '23889,89876'
+          description: >-
+            This is the alarm's ID, a non-mandatory parameter. If not passed
+            then by default the API will return the list of all alarm
+            configurations in the account. You can pass single value or comma
+            separated alarm IDs for multiple values.
+          required: false
+          schema:
+            type: string
+            items:
+              type: number
+        - name: deviceId
+          in: query
+          example: '24567,10018'
+          description: >-
+            This is device ID. API will return data based on the configs set for
+            the passed device IDs. You can pass a single device ID or comma
+            seperated multiple device IDs.
+          required: false
+          schema:
+            type: string
+            items:
+              type: number
+        - name: alarmType
+          in: query
+          example: '177,90'
+          description: >-
+            This is alarm type. API will return data based on the passed alarm
+            types. You can pass a single alarm type or comma seperated multiple
+            alarm types.
+          required: false
+          schema:
+            type: string
+            items:
+              type: number
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupobj'
+        '203':
+          description: Device Not Found
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+  '/group/{id}':
+    post:
+      tags:
+        - group
+      summary: Updates a group
+      parameters:
+        - name: id
+          in: path
+          description: >-
+            This the ID of the group which you want to update.
+          required: true
+          schema:
+            type: number
+        - name: name
+          in: query
+          description: >-
+            This the name of the group which you want to update.
+          required: true
+          schema:
+            type: string
+        - name: deviceId
+          in: query
+          description: >-
+            These are the IDs of the devices which you want to update in this group. You can pass a single device id or a set of multiple ids separated by comma.
+          required: false
+          schema:
+            type: array
+            items:
+              type: number
+            example:
+              - 1009,6765,8798
+        - name: colorCode
+          in: query
+          description: >-
+            This the color code(in hex format) which you want to associated with the group.
+          required: false
+          schema:
+            type: string 
+            example: "#24545"  
+      responses:
+        '200':
+          description: OK - successful operation
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: URL Not Found
+    delete:
+      tags:
+        - group
+      summary: Deletes a group
+      parameters:
+        - name: id
+          in: path
+          description: id of the group which you want to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK - successful operation
+        '204':
+          description: No Content Found
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: URL Not Found
+  
+      
+components:
+  schemas: 
+    groupobj:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupobjresponse'
+    groupobjresponse:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 7656
+          description: This is group ID
+        deviceId:
+          type: array
+          items:
+            type: number
+          example:
+            - 67700
+            - 8987
+          description: Device ID(s) which associated with the group.
+        name:
+          type: string
+          example: my group
+          description: 'name of the group'
+        createdOn:
+          type: number
+          example: 1567654565
+          description: Time at which the group got created.
+        updatedOn:
+          type: integer
+          example: 1567654565
+          description: Time at which the group got updated.
+        colorCode:
+          type: string
+          example: #8787878
+          description: color associated with the group
+    ApiResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status Code Name
+        message:
+          type: string
+          description: Describes the type of error based on the type of response code.
+        error:
+          type: string
+          description: describes the type of error
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerToken: []

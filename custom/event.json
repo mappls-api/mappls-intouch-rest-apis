@@ -1,0 +1,544 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Intouch IoT Telematics APIs",
+    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by Mappls's own INTOUCH platform. Mappls InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can find out more about Intouch  at [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)",
+    "termsOfService": "https://about.mappls.com/about/terms-conditions",
+    "contact": {
+      "email": "apisupport@mappls.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0.0"
+  },
+  "externalDocs": {
+    "description": "More About Telematics APIs.",
+    "url": "https://about.mappls.com/intouch-platform/#Platform-APIs"
+  },
+  "servers": [
+    {
+      "url": "https://intouch.mappls.com/iot/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Intouch IoT Apps",
+      "description": "Everything about IoT apps powered by Intouch",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://about.mappls.com/intouch-platform/"
+      }
+    }
+  ],
+  "paths": {
+    "/device/{deviceId}/events": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Gets the historical location events of a device.",
+        "description": "This API is used to get the historical location information as well as related additional information for a vehicle. This API can be used thus to create customized reports for users of your apps for different use cases, e.g.: plot the vehicle's past movements on map or get a historical graph of change in a vehicle's altitude.",
+        "operationId": "getLocationEvents",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "path",
+            "description": "ID of the device for which the events need to be fetched",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "The starting timsstamp from which the events need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "The end timestamp till which the events need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "skipPeriod",
+            "in": "query",
+            "example": 2,
+            "description": "Defined in minitues. For example, if say 2 is passed then each returned data packet will have a minimum difference of 2 mins.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceEvents"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "description": "Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute \"id\" is integer but string value gets passed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeviceEvents": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "drivingBehaviourCount": {
+                "type": "object",
+                "properties": {
+                  "haCount": {
+                    "type": "integer",
+                    "example": 2,
+                    "description": "Harsh Acceleration Count"
+                  },
+                  "hbCount": {
+                    "type": "integer",
+                    "example": 1,
+                    "description": "Harsh Breaking Count"
+                  },
+                  "hcCount": {
+                    "type": "integer",
+                    "example": 3,
+                    "description": "Harsh Cornering Count"
+                  }
+                }
+              },
+              "summary": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number",
+                    "example": 23.67,
+                    "description": "Total Drive Distance in KMs"
+                  },
+                  "duration": {
+                    "type": "number",
+                    "example": 300,
+                    "description": "Total drive duration in seconds"
+                  },
+                  "avgSpeed": {
+                    "type": "number",
+                    "example": 45.54,
+                    "description": "Average speed in km/hr"
+                  },
+                  "startAddress": {
+                    "type": "string",
+                    "example": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 15 m from The Bodhi Tree pin-560038 (India)"
+                  },
+                  "endAddress": {
+                    "type": "string",
+                    "example": "3645, 13th F Main Road, Dupanahalli, Indiranagar, Bengaluru, Karnataka. 12 m from Meenakshi Enclave pin-560038 (India)"
+                  },
+                  "startTimestamp": {
+                    "type": "number",
+                    "example": 1577644204,
+                    "description": "Start time of the device i,e the time at which the data first came from the device for the selected day."
+                  },
+                  "endTimestamp": {
+                    "type": "number",
+                    "example": 1577684913,
+                    "description": "End time of the device i,e the time at which the last data came from the device for the selected day."
+                  }
+                }
+              },
+              "positionList": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DeviceLocationEvents"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeviceLocationEvents": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "example": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 15 m from The Bodhi Tree pin-560038 (India)",
+            "description": "Address of the location event"
+          },
+          "timestamp": {
+            "type": "number",
+            "example": 1574937348
+          },
+          "longitude": {
+            "type": "number",
+            "example": 77.74937348
+          },
+          "latitude": {
+            "type": "number",
+            "example": 55.74937348
+          },
+          "heading": {
+            "type": "number",
+            "example": 298,
+            "description": "device heading direction in degrees from North."
+          },
+          "speed": {
+            "type": "number",
+            "example": 33.33,
+            "description": "Device speed at this particular location"
+          },
+          "ignition": {
+            "type": "number",
+            "example": 0,
+            "description": "whether vehicle ignition is On or Off. 0 means ignition is OFF and 1 means ignition is ON."
+          },
+          "powerSupplyVoltage": {
+            "type": "number",
+            "example": 12769,
+            "description": "battery voltage value in milli volts."
+          },
+          "gpsFix": {
+            "type": "boolean",
+            "example": true,
+            "description": "GPS is fix or not for the device. true meanse GPS is fixed and false means GPS is not fixed."
+          },
+          "validGPS": {
+            "type": "boolean",
+            "example": true,
+            "description": "Checks whether GPS is valid or not.",
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "accOff": {
+            "type": "boolean",
+            "description": "checks for whether adaptive cruise control is enabled or not.",
+            "example": true,
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "movementStatus": {
+            "type": "integer",
+            "example": 1,
+            "description": "Checks the movement status of the device. 1:Moving 2:Idle 3:Stopped 4:Towing 5:No Data 6:Power Off 7:No Gps 8:On Trip 9:Free Vehicle"
+          },
+          "durationTime": {
+            "type": "number",
+            "example": 670,
+            "description": "duration(in secsonds) time spent at current location"
+          },
+          "greenDriveType": {
+            "type": "string",
+            "example": "HA",
+            "description": "HA(Harsh acceleration), HB(Harsh Breaking), HC(Harsh Cornering)"
+          },
+          "tripStatus": {
+            "type": "integer",
+            "example": 0,
+            "description": "0 - On Trip, 1 - Free Vehicle",
+            "enum": [
+              "On Trip",
+              "Free Vehicle"
+            ]
+          },
+          "mobileInfo": {
+            "type": "object",
+            "properties": {
+              "locationSource": {
+                "type": "number",
+                "example": 0,
+                "description": "1 - GPS connected, distanceaccuracy less that 50mtrs, 2 - GPRS connected, distance accracy more than 50 mtr.",
+                "enum": [
+                  "GPS Connected",
+                  "GPRS Connected"
+                ]
+              },
+              "mockLocation": {
+                "type": "boolean",
+                "example": true,
+                "description": "true - mock location being sent by the user. false - real location being sent by the user."
+              },
+              "isAirplanemode": {
+                "type": "boolean",
+                "example": true,
+                "description": "Checks whether mobile's airplane mode is ON(i,e true) or OFF(i,e false)"
+              },
+              "callStatus": {
+                "type": "number",
+                "example": 0,
+                "description": "0-CALL_STATE_IDLE, 1-CALL_STATE_RINGING, 2-CALL_STATE_OFFHOOK",
+                "enum": [
+                  "CALL_STATE_IDLE",
+                  "CALL_STATE_RINGING",
+                  "CALL_STATE_OFFHOOK"
+                ]
+              },
+              "deviceStatus": {
+                "type": "integer",
+                "example": 0,
+                "description": "status of the device in the current location. Values as mentioned in the below enum are possible.",
+                "enum": [
+                  "IN_VEHICLE",
+                  "ON_BICYCLE",
+                  "ON_FOOT",
+                  "STILL",
+                  "UNKNOWN",
+                  "TILTING",
+                  "WALKING",
+                  "RUNNING"
+                ]
+              },
+              "phoneEvent": {
+                "type": "integer",
+                "example": 5,
+                "description": "Checks the location permission that the user enables/disables in the mobile phone.",
+                "enum": [
+                  "EVENT_LOCATION_PERMISSION_DENIED = 5",
+                  "EVENT_LOCATION_PROVIDER_OFF = 6",
+                  "EVENT_LOCATION_STOP_PROGRAMMATICALLY = 7"
+                ]
+              }
+            }
+          },
+          "alerts": {
+            "$ref": "#/components/schemas/AlertObject"
+          }
+        }
+      },
+      "DeviceDrive": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriveData"
+            }
+          }
+        },
+        "xml": {
+          "name": "Device"
+        }
+      },
+      "DriveData": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "number",
+            "example": 67790,
+            "description": "Your Device's ID."
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "startAddress": {
+                "type": "string",
+                "example": "3605, 13th G Main Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 35 m from Supraja Meru pin-560038 (India)"
+              },
+              "startTimestamp": {
+                "type": "number",
+                "description": "this is epoc timestamp",
+                "example": 1574913781
+              },
+              "endAddress": {
+                "type": "string",
+                "example": "1139, Sweth Ambara, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 32 m from AMC Cookware India Pvt Ltd pin-560038"
+              },
+              "endTimestamp": {
+                "type": "number",
+                "example": 1574914046,
+                "description": "this is epoc timestamp"
+              },
+              "avgSpeed": {
+                "type": "number",
+                "example": 45.34,
+                "description": "speed in km/hr"
+              }
+            }
+          },
+          "movement": {
+            "type": "object",
+            "properties": {
+              "duration": {
+                "type": "number",
+                "description": "duration in seconds",
+                "example": 265
+              },
+              "distance": {
+                "type": "number",
+                "example": 12.34,
+                "description": "Distance im KMs"
+              },
+              "idleTime": {
+                "type": "number",
+                "description": "idle time in seconds",
+                "example": 265
+              },
+              "movementTime": {
+                "type": "number",
+                "description": "movement time in seconds",
+                "example": 800
+              },
+              "stoppageTime": {
+                "type": "number",
+                "description": "stoppage time in seconds",
+                "example": 1300
+              }
+            }
+          },
+          "drivingBehaviourCount": {
+            "type": "object",
+            "properties": {
+              "haCount": {
+                "type": "integer",
+                "example": 2,
+                "description": "Harsh Acceleration count"
+              },
+              "hbCount": {
+                "type": "integer",
+                "example": 5,
+                "description": "Harsh Breaking Count"
+              },
+              "hcCount": {
+                "type": "integer",
+                "example": 1,
+                "description": "Harsh Cornering Count"
+              }
+            }
+          }
+        }
+      },
+      "AlertObject": {
+        "properties": {
+          "deviceId": {
+            "type": "number",
+            "example": 8989,
+            "description": "Will come only in case of /alarmLog GET API response"
+          },
+          "timestamp": {
+            "type": "number",
+            "example": 1577589789,
+            "description": "Time at which the alert got generated"
+          },
+          "latitude": {
+            "type": "number",
+            "example": 28.550962381896
+          },
+          "longitude": {
+            "type": "number",
+            "example": 77.26890675033
+          },
+          "address": {
+            "type": "string",
+            "example": "237, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Wipro BPO Corporate Office pin-110020",
+            "description": "Location address at which the alarm got generated"
+          },
+          "alarmType": {
+            "type": "integer",
+            "example": 28,
+            "description": "Type of alarm to create. Following are the alarm types & their corresponding IDs.<br> IGNITION: 21, OVERSPEED: 22, UNPLUGGED: 23, PANIC: 24, GEOFENCE: 26, STOPPAGE: 27, IDLE: 28, TOWING: 29, GPRS CONNECTIVITY: 126, VEHICLE BATTERY: 129, MILEAGE: 133, GPS CONNECTIVITY: 146, DISTANCE COVERED: 151, INTERNAL BATTERY VOLTAGE:161"
+          },
+          "limit": {
+            "type": "integer",
+            "example": 44,
+            "description": "Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr"
+          },
+          "duration": {
+            "type": "integer",
+            "example": 20,
+            "description": "Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs"
+          },
+          "actualLimit": {
+            "type": "integer",
+            "example": 57,
+            "description": "The actual data received from the device at that particular moment when the alarm got generated"
+          },
+          "actualDuration": {
+            "type": "integer",
+            "example": 25,
+            "description": "Actual duration for which the device breached the alarm config limit"
+          },
+          "severity": {
+            "type": "integer",
+            "example": 1,
+            "description": "0 - Low Severity. 1 - High Severity"
+          },
+          "data": {
+            "type": "integer",
+            "example": 1,
+            "description": "Describes the state of the alarm. IGNITION(type = 21), 0: OFF & 1: ON. AC(type=25), 0: OFF, 1: ON. GEOFENCE(type=26), 1: Entry & Exit Geofence 2: Entry Geofence, 3: Leaving Geofence & 4: Long Stay In Geofence"
+          },
+          "geofenceId": {
+            "type": "number",
+            "example": 987876,
+            "description": "This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence."
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status Code Name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Describes the type of error based on the type of response code."
+          },
+          "error": {
+            "type": "string",
+            "description": "describes the type of error"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerToken": []
+    }
+  ]
+}

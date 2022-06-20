@@ -1,0 +1,582 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Intouch IoT Telematics APIs",
+    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by Mappls's own INTOUCH platform. Mappls InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can find out more about Intouch  at [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)",
+    "termsOfService": "https://about.mappls.com/about/terms-conditions",
+    "contact": {
+      "email": "apisupport@mappls.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0.0"
+  },
+  "externalDocs": {
+    "description": "More About Telematics APIs.",
+    "url": "https://about.mappls.com/intouch-platform/#Platform-APIs"
+  },
+  "servers": [
+    {
+      "url": "https://intouch.mappls.com/iot/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Intouch IoT Apps",
+      "description": "Everything about IoT apps powered by Intouch",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://about.mappls.com/intouch-platform/"
+      }
+    }
+  ],
+  "paths": {
+    "/geofence/": {
+      "summary": "Geofence APIs",
+      "description": "The geofence APIs allow you to manage virtual geographical areas or geofences for your account on MapmyIndia's telematics platform. Geographic areas are defined as geometries in the form of geographic polygons, circles, or points that are relevant for any connected device/sensor: The presence or absence (entry or exit) of a vehicle to such geographic areas needs to be monitored and/or events generated on the basis of such transitions. The events might be alarms or reports of vehicles entering or exiting such geofences. These Geofence APIs allow you to create/edit/assign/delink/update geofences.",
+      "get": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Gets All The Configured Geofence(s)",
+        "description": "This API returns the list of all the configured geofences ",
+        "parameters": [
+          {
+            "name": "ignoreGeometry",
+            "in": "query",
+            "example": false,
+            "description": "Flag to get geometry data.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GeofenceObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Create A New Geofence",
+        "description": "This API helps to create a new geofence",
+        "requestBody": {
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the geofence.",
+                    "example": "market"
+                  },
+                  "buffer": {
+                    "type": "integer",
+                    "example": 1000,
+                    "description": "Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters"
+                  },
+                  "geometry": {
+                    "type": "string",
+                    "example": {
+                      "type": "Point",
+                      "coordinates": [
+                        77.2334,
+                        28.7676
+                      ]
+                    },
+                    "description": "This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/geofence/{id}": {
+      "get": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Get A Single Or Multiple Geofence(s).",
+        "description": "This API helps to fetch the details of a particular geofence",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id. This path variable will take precedence even if multiple geofence ids are passed in the query param.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "geofence id. Use this if you want to get details of specific multiple geofence IDs.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              },
+              "example": "51777,89777"
+            }
+          },
+          {
+            "name": "ignoreGeometry",
+            "in": "query",
+            "description": "Non mandatory field, boolean value to fetch geometry details.",
+            "required": false,
+            "example": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GeofenceObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Update A Geofence.",
+        "description": "This API helps to update a particular geofence.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Form data to be passed to update a geofence.",
+          "content": {
+            "application/form-data": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the geofence.",
+                    "example": "market"
+                  },
+                  "buffer": {
+                    "type": "integer",
+                    "example": 1000,
+                    "description": "Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters"
+                  },
+                  "geometry": {
+                    "type": "string",
+                    "example": {
+                      "type": "Point",
+                      "coordinates": [
+                        77.2334,
+                        28.7676
+                      ]
+                    },
+                    "description": "This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Delete A Geofence.",
+        "description": "This API helps to delete a geofence.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "geofence id.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    },
+    "/geofence/activity": {
+      "get": {
+        "tags": [
+          "geofence"
+        ],
+        "summary": "Get all the activities done by devices w.r.t various geofences",
+        "description": "This API helps to fetch the details of all the activities, such as geofence entry time, exit time etc, which devices perform w.r.t various geofences across a defined date/time range.",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "id of the device(s) for which you want to fetch the geofence activities. For multiple devices, you can pass comma separated device ids as well in the query string.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              },
+              "example": "51777,89777"
+            }
+          },
+          {
+            "name": "geofenceId",
+            "in": "query",
+            "description": "id of the geofence(s) for which you want to fetch the geofence activities done by the device. For multiple geofences, you can pass comma separated geofence ids as well in the query string.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "number"
+              },
+              "example": "4543,8787"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "Value in timestamp. Start time from where you want to fetch the geofence activities",
+            "required": true,
+            "example": 1589942787,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "Value in timestamp. End time till where you want to fetch the geofence activities.",
+            "required": true,
+            "example": 1589942529,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GeofenceActivityObject"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK - successful operation"
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            },
+            "description": "Bad Request - Invalid ID supplied or invalid data type."
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GeofenceActivityObject": {
+        "properties": {
+          "entryLongitude": {
+            "type": "number",
+            "description": "longitude where the particular device entered the geofence.",
+            "example": 28.8765
+          },
+          "entryLatitude": {
+            "type": "number",
+            "description": "latitude where the particular device entered the geofence.",
+            "example": 56.8765
+          },
+          "exitLongitude": {
+            "type": "number",
+            "description": "longitude where the particular device exited the geofence.",
+            "example": 38.8765
+          },
+          "exitLatitude": {
+            "type": "number",
+            "description": "latitude where the particular device exited the geofence.",
+            "example": 46.8765
+          },
+          "entryTimestamp": {
+            "type": "number",
+            "description": "time at which the device entered the particular geofence.",
+            "example": 1580105880
+          },
+          "exitTimestamp": {
+            "type": "number",
+            "description": "time at which the device exited the particular geofence.",
+            "example": 1580105880
+          },
+          "geofenceName": {
+            "example": "my geofence",
+            "type": "string",
+            "description": "name of the geofence"
+          },
+          "geofenceId": {
+            "example": 767676,
+            "type": "number",
+            "description": "the id of the geofence where the activity took place"
+          },
+          "deviceId": {
+            "example": 87676,
+            "type": "number",
+            "description": "the id of the device which is performing the activities w.r.t the geofence"
+          }
+        }
+      },
+      "GeofenceObject": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Geofence ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the geofence.",
+            "example": "market"
+          },
+          "geometry": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "Point",
+                "description": "This defines the type of geofence, it can be point or polygon."
+              },
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "example": [
+                  77.456,
+                  28.2345
+                ]
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "example": "Circle",
+            "description": "Depending on the type of geofence this value can be Circle(buffer > 50 meters), Polygon or Point(buffer = 50 mtrs)"
+          },
+          "buffer": {
+            "type": "number",
+            "example": 65.76,
+            "description": "Radius(in meters) of a circlular geofence"
+          },
+          "creationTime": {
+            "type": "number",
+            "description": "timestamp, in seconds, at which the geofence was created."
+          },
+          "updationTime": {
+            "type": "number",
+            "description": "timestamp, in seconds, at which the geofence was updated."
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status Code Name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Describes the type of error based on the type of response code."
+          },
+          "error": {
+            "type": "string",
+            "description": "describes the type of error"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerToken": []
+    }
+  ]
+}

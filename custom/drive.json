@@ -1,0 +1,242 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Intouch IoT Telematics APIs",
+    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by Mappls's own INTOUCH platform. Mappls InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can find out more about Intouch  at [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)",
+    "termsOfService": "https://about.mappls.com/about/terms-conditions",
+    "contact": {
+      "email": "apisupport@mappls.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0.0"
+  },
+  "externalDocs": {
+    "description": "More About Telematics APIs.",
+    "url": "https://about.mappls.com/intouch-platform/#Platform-APIs"
+  },
+  "servers": [
+    {
+      "url": "https://intouch.mappls.com/iot/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Intouch IoT Apps",
+      "description": "Everything about IoT apps powered by Intouch",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://about.mappls.com/intouch-platform/"
+      }
+    }
+  ],
+  "paths": {
+    "/device/drive": {
+      "get": {
+        "tags": [
+          "drives"
+        ],
+        "summary": "Gets drive details of a device.",
+        "description": "This API is used to request the drive details of a vehicle in an account on our telematics platform. A vehicle can be a device/sensor connected to our telematics platform directly or via a third party data aggregator who utilises our telematics platform for tracking services. Drive is a list of reported geo-positions of any object (such as vehicles, assets or people) according to pre-defined conditions",
+        "operationId": "getDrives",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "ID of the device for which the drives need to be fetched",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "The starting timsstamp from which the drives need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "The end timestamp till which the drives need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceDrive"
+                }
+              }
+            }
+          },
+          "203": {
+            "description": "Device Not Found"
+          },
+          "400": {
+            "description": "Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute \"id\" is integer but string value gets passed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Request. Access to API is forbidden."
+          },
+          "404": {
+            "description": "Not Found - URL Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeviceDrive": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriveData"
+            }
+          }
+        },
+        "xml": {
+          "name": "Device"
+        }
+      },
+      "DriveData": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "number",
+            "example": 67790,
+            "description": "Your Device's ID."
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "startAddress": {
+                "type": "string",
+                "example": "3605, 13th G Main Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 35 m from Supraja Meru pin-560038 (India)"
+              },
+              "startTimestamp": {
+                "type": "number",
+                "description": "this is epoc timestamp",
+                "example": 1574913781
+              },
+              "endAddress": {
+                "type": "string",
+                "example": "1139, Sweth Ambara, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 32 m from AMC Cookware India Pvt Ltd pin-560038"
+              },
+              "endTimestamp": {
+                "type": "number",
+                "example": 1574914046,
+                "description": "this is epoc timestamp"
+              },
+              "avgSpeed": {
+                "type": "number",
+                "example": 45.34,
+                "description": "speed in km/hr"
+              }
+            }
+          },
+          "movement": {
+            "type": "object",
+            "properties": {
+              "duration": {
+                "type": "number",
+                "description": "duration in seconds",
+                "example": 265
+              },
+              "distance": {
+                "type": "number",
+                "example": 12.34,
+                "description": "Distance im KMs"
+              },
+              "idleTime": {
+                "type": "number",
+                "description": "idle time in seconds",
+                "example": 265
+              },
+              "movementTime": {
+                "type": "number",
+                "description": "movement time in seconds",
+                "example": 800
+              },
+              "stoppageTime": {
+                "type": "number",
+                "description": "stoppage time in seconds",
+                "example": 1300
+              }
+            }
+          },
+          "drivingBehaviourCount": {
+            "type": "object",
+            "properties": {
+              "haCount": {
+                "type": "integer",
+                "example": 2,
+                "description": "Harsh Acceleration count"
+              },
+              "hbCount": {
+                "type": "integer",
+                "example": 5,
+                "description": "Harsh Breaking Count"
+              },
+              "hcCount": {
+                "type": "integer",
+                "example": 1,
+                "description": "Harsh Cornering Count"
+              }
+            }
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status Code Name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Describes the type of error based on the type of response code."
+          },
+          "error": {
+            "type": "string",
+            "description": "describes the type of error"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerToken": []
+    }
+  ]
+}

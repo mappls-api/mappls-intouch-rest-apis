@@ -1,0 +1,555 @@
+openapi: 3.0.1
+info:
+  title: Intouch IoT Telematics APIs
+  description: >-
+    A set of powerful telematics APIs which users can use to get all the data
+    related to their devices such as live location,trails,alarms etc. These
+    telematics APIs are powered by Mappls's own INTOUCH platform. Mappls
+    InTouch easily integrates into existing cloud services via our tracking &
+    telematics APIs. The API & SDK libraries provide powerful, efficient and
+    accurate positioning for the IoT devices on InTouch applications for
+    Android, iOS and the web. You can find out more about Intouch  at
+    [http://about.mappls.com/intouch](https://about.mappls.com/intouch-platform/)
+  termsOfService: 'https://about.mappls.com/about/terms-conditions'
+  contact:
+    email: apisupport@mappls.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 2.0.0
+externalDocs:
+  description: More About Telematics APIs.
+  url: 'https://about.mappls.com/intouch-platform/#Platform-APIs'
+servers:
+  - url: 'https://intouch.mappls.com/iot/api'
+tags:
+  - name: Intouch IoT Apps
+    description: Everything about IoT apps powered by Intouch
+    externalDocs:
+      description: Find out more
+      url: 'https://about.mappls.com/intouch-platform/'
+paths:
+  /trips:
+    post:
+      tags:
+        - trips
+      summary: This API will create a trip.
+      description: 'Based on the input parameters provided, a new trip will get created.'
+      requestBody:
+        description: This request body needs to be sent in order to create a trip.
+        content:
+          application/raw:
+            schema:
+              properties:
+                deviceId:
+                  type: number
+                  description: id of the device for which the trip is getting created.
+                name:
+                  type: string
+                  description: name of the trip
+                forceClose:
+                  type: boolean
+                  description: >-
+                    boolean value - if true then trip will get automatically
+                    closed as soon as the device gets associated with another
+                    trip.
+                  example: true
+                closureType:
+                  type: integer
+                  description: >-
+                    type of trip closure. 1 - trip will get closed based on the
+                    planned end time. 2 - trip will close when the device
+                    enters the destination area/geofence. 3 - trip will get
+                    closed manually by the user
+                  example: 1
+                plannedEndTime:
+                  type: number
+                  example: 1591891234
+                  description: >-
+                    tentative time when trip will end. Mandatory field when user
+                    selects closure type as 1
+                metadata:
+                  type: object
+                  properties:
+                    myattribute:
+                      type: string
+                      example: sample text
+                      description: >-
+                        dummy meta data value. this can be any key-value data
+                        pair.
+                destination:
+                  type: object
+                  description: >-
+                    Destination of the trip. This is not a mandatory. If the
+                    user does not provide this object still the trip will get
+                    created.
+                  properties:
+                    geometry:
+                      type: object
+                      description: This is standard geo json format.
+                      properties:
+                        type:
+                          type: string
+                          example: Point
+                          description: >-
+                            supports the following geometry types - Point,
+                            Polygon.
+                        coordinates:
+                          type: array
+                          items:
+                            type: number
+                          example:
+                            - 77.234
+                            - 28.456
+                    radius:
+                      type: number
+                      example: 100
+                      description: radius of the point
+                    name:
+                      type: string
+                      description: name of the geofence/point
+                    plannedTime:
+                      type: number
+                      description: planned time at which device reach the destination
+                    metadata:
+                      type: object
+                      properties:
+                        myattribute:
+                          type: string
+                          example: sample text
+                          description: >-
+                            dummy meta data value. this can be any key-value
+                            data pair.
+                geofences:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      geometry:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: Point
+                            description: >-
+                              supports the following geometry types - Point,
+                              Polygon.
+                          coordinates:
+                            type: array
+                            items:
+                              type: number
+                            example:
+                              - 77.234
+                              - 28.456
+                      radius:
+                        type: number
+                        example: 100
+                        description: radius of the point
+                      name:
+                        type: string
+                        description: name of the geofence/point
+                      plannedTime:
+                        type: number
+                        description: >-
+                          planned timestamp at which device reach the
+                          destination
+                        example: null
+                      metadata:
+                        type: object
+                        properties:
+                          myattribute:
+                            type: string
+                            example: sample text
+                            description: >-
+                              dummy meta data value. this can be any key-value
+                              data pair.
+      responses:
+        '201':
+          description: Created
+        '203':
+          description: Device Not Found or invalid device id
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+    get:
+      tags:
+        - trips
+      summary: This API will get all the trips for a user.
+      description: >-
+        Based on the passed token key, the API will return the list of all the
+        trips.
+      parameters:
+        - name: limit
+          in: query
+          example: 10
+          description: >-
+            will limit the records as per the passed value.
+          required: false
+          schema:
+            type: integer
+        - name: status
+          in: query
+          example: 1
+          description: >-
+            pass 1 to get active trips & 2 for completed trips. 
+          required: false
+          schema:
+            type: integer
+        - name: deviceId
+          in: query
+          example: 2223,7654
+          description: >-
+            Pass device IDs if you want to get trips associated with partcular devices.
+          required: false
+          schema:
+            type: string
+            items:
+              type: number
+        - name: startTime
+          in: query
+          example: 56765542
+          description: >-
+            Pass if you wnat to get trips after this start timestamp.
+          required: false
+          schema:
+            type: number
+        - name: endTime
+          in: query
+          example: 56765542
+          description: >-
+            Pass if you wnat to get trips after this start timestamp.
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tripobj'
+        '203':
+          description: Device Not Found
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+  '/trips/{id}':
+    get:
+      tags:
+        - trips
+      summary: Gets the details of a single trip
+      parameters:
+        - name: id
+          in: path
+          description: This is the ID of the trip which you want to fetch.
+          required: true
+          schema:
+            type: number
+        - name: polyline
+          in: query
+          description: Will return the entire polyline locations of the route which was created for the trip.
+          required: false
+          schema:
+            type: boolean
+        - name: deviceLocation
+          in: query
+          description: >-
+            Will return the last know device location details
+          required: false
+          schema:
+            type: boolean
+        - name: event
+          in: query
+          description: >-
+            Will return all the position events of the device.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tripobj'
+        '203':
+          description: Invalid ID - Invalid trip id or trip id does not exist.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: URL Not Found
+  '/trips/{id}/close':
+    post:
+      tags:
+        - trips
+      summary: POST API to close a trip.
+      parameters:
+        - name: id
+          in: path
+          description: This the ID of the trip which you want to close.
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: OK - successful operation
+        '203':
+          description: invalid param. For eg; if trip id is not correct.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+          description: Bad Request - Invalid ID supplied or invalid data type.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: URL Not Found
+components:
+  schemas:
+    tripobj:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/tripobjresponse'
+    tripobjresponse:
+      type: object
+      properties:
+        tripId:
+          type: string
+          example: 5ef5a9e98a92df3a4a894db0
+          description: id of the trip
+        deviceId:
+          type: number
+          description: id of the device which is associated with the trip.
+        status:
+          type: integer
+          example: 1
+          description: 1 - active trip. 2 - completed trip
+        closureType:
+          type: integer
+          example: 1
+          description: >-
+            type of trip closure. 1 - trip will get closed based on the
+            planned end time. 2 - trip will close when the device enters the
+            destination area/geofence. 3 - trip will get closed manually by the
+            user
+        forceClose:
+          type: boolean
+          example: false
+          description: >-
+            boolean value - if true then trip will get automatically closed as
+            soon as the device gets associated with another trip.
+        name:
+          type: string
+          example: my trip
+          description: name of the trip
+          
+        polylinePoints:
+          type: object
+          description: This is the route polyline. It Will get returned for single trip only if polyline query param is set to true in the API.
+          properties:
+            coordinates:
+              type: array
+              items:
+                type: object
+                properties:
+                  lng:
+                    type: number
+                    description: longitude point
+                  lat:
+                    type: number
+                    description: latititude point
+                  
+        location:
+          type: object
+          description: "location data of the device. This will get returned only for a single trip when the 'deviceLocation' query param is set to true in the API."
+          properties:
+            gpsTime:
+              type: number
+              description: gps time of the device
+              example: 1593261959
+            gprsTime:
+              type: number
+              description: gps time of the device
+              example: 1593261959
+            latitude:
+              type: number
+              description: latitude
+              example: 29.507586
+            longitude:
+              type: number
+              description: longitude
+              example: 79.507586
+            address:
+              type: string
+              description: last location address of the device
+            status:
+              type: number
+              example: 3
+              description: "movement status of the device<br> 1 is Moving <br> 2 is idle 3 is stopped <br> 4 is towing<br> 5 is No Data <br> 6 is power off i,e the device's battery is disconnected from the vehicle battery<br>7 is No GPS <br> 12 is Activation Pending i,e the device is not yet active and is yet to send the first ping."
+        positionEvents:
+          type: array
+          items:
+            type: object
+            description: "Position events data of the device. This will get returned only for a single trip when the event query param is set to true in the API."
+            properties:
+              timestamp:
+                type: number
+                example: 1593261
+              longitude:
+                type: number
+                example: 28.876
+              latitude:
+                type: number
+                example: 77.87
+        destination:
+          $ref: '#/components/schemas/pointobj'
+          description: >-
+            This object will only get returned if the user has given a specific
+            desntination as input while creating a trip
+        geofences:
+          $ref: '#/components/schemas/geofenceArrayObj'
+          description: various points of the trip. This will only get returned in case the these geofence points were explicitly mentioned while creating a trip
+        start:
+          $ref: '#/components/schemas/pointobj'
+          description: start point of the trip. This will only get returned in case the start point was explicitly mentioned while creating a trip
+        summary:
+          type: object
+          properties:
+            startedOn:
+              type: number
+              description: the actual start timestamp of the trip.
+            duration:
+              type: number
+              description: the actual duration time (in seconds) of the trip.
+            distance:
+              type: number
+              description: the actual distance (in meters) covered in the trip.
+              example: 7876.33
+            endedOn: 
+              example: 1593157994
+              type: number
+              description: the actual end timestamp of the trip.
+            delayedBy:
+              type: number
+              description: the actual timestamp by which the trip got delayed.
+            plannedEndTime:
+              type: number
+              description: the planned end timestamp of the trip.
+              example:
+            plannedStartTime:
+              type: number
+              description: the planned start timestamp of the trip.
+              example: 1593157994
+            plannedDuration:
+              type: number
+              description: the planned duration time (in seconds) of the trip.
+            plannedDistance: 
+              type: number
+              description: the planned distance (in meters) of the trip.
+    geofenceArrayObj:
+      type: array
+      description: A trip may have various points. This will only get returned in case the these geofence points were explicitly mentioned while creating a trip
+      items:
+        $ref: '#/components/schemas/pointobj'
+    pointobj:
+      type: object
+      description: This will only get returned in case this object was explicitly defined while creating a trip.
+      properties:
+        geometry:
+          type: object
+          description: This is standard geo json format.
+          properties:
+            type:
+              type: string
+              example: Point
+              description: >-
+                supports the following geometry types - Point,
+                Polygon.
+            coordinates:
+              type: array
+              items:
+                type: number
+              example:
+                - 77.234
+                - 28.456
+        radius:
+          type: number
+          example: 100
+          description: radius of the point
+        plannedTime:
+          type: number
+          description: planned timestamp at which device reach the destination
+        name:
+          type: string
+          description: name of the geofence point
+        arrivalTime:
+          type: number
+          description: actual timestamp at which device reach the destination
+        departureTime:
+          type: number
+          description: departure timestamp at which device leaves the destination  
+        address:
+          type: string
+          description: address of the desntination point
+        time:
+          type: number
+          description: planned timestamp taken to reach the destination from previous point
+        distance:
+          type: number
+          description: planned distance taken to reach the destination from previous point
+        pointName:
+          type: string
+          description: name given to the destination point.
+        metadata:
+          type: object
+          description: will get returned only if it was mentioned while creating a trip.
+          properties:
+            myattribute:
+              type: string
+              example: sample text
+              description: >-
+                dummy meta data value. this can be any key-value
+                data pair.
+    ApiResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status Code Name
+        message:
+          type: string
+          description: Describes the type of error based on the type of response code.
+        error:
+          type: string
+          description: describes the type of error
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerToken: []
