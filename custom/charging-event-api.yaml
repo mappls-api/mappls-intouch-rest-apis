@@ -1,0 +1,162 @@
+openapi: 3.0.1
+info:
+  title: Intouch Charging Event API
+  description: >-
+    Charging Events API is used to get all the vital EV charging parameters for efficient EV Fleet Management.
+    You can find out more about Intouch  at
+    [http://mapmyindia.com/intouch](http://mapmyindia.com/intouch)
+  termsOfService: 'https://www.mapmyindia.com/about/terms-conditions'
+  contact:
+    email: apisupport@mappls.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 2.0.0
+servers:
+  - url: 'https://intouch.mapmyindia.com/iot/api/devices/chargingEvents'
+tags:
+  - name: Intouch Charging Events API
+    description: For EV Fleet management
+paths:
+  /devices/chargingEvents:
+    summary: Charging Events APIs
+    description: >-
+      The charging events API returns all the charging events recorded for a single or set of devices for a mentioned duration with list of vital parameters such as entityId, startTime, endTime, latitude, longitude, startSoc, endSoc, startDte, endDte, chargeAccumulated. 
+    get:
+      tags: 
+      - Charging Events
+      summary: Get EV Charging Events details
+      description: This API returns list of charging event parameters
+      parameters:
+        - name: deviceId
+          in: query
+          description: ID of the device for which the events need to be fetched
+          required: true
+          schema:
+            type: integer
+        - name: startTime
+          in: query
+          description: The starting timsstamp from which the events need to be fetched.
+          required: true
+          schema:
+            type: number
+        - name: endTime
+          in: query
+          description: The end timestamp till which the events need to be fetched.
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/Response'
+        '203':
+          description: Device Not Found
+        '400':
+          description: >-
+            Bad Request - Invalid device ID supplied or invalid data type. For
+            example, input attribute "id" is integer but string value gets
+            passed.
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
+          
+components:
+  schemas:
+    Response:
+      title: Response
+      description: The response of the API with data
+      type: object
+      required: 
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CE1'
+    CE1:
+      title: data
+      type: object
+      required: 
+        - entityId
+        - startTime
+        - endTime
+        - duration
+        - latitude
+        - longitude
+        - chargingType
+        - startSoc
+        - endSoc
+        - startDte
+        - endDte
+        - chargeAccumulated
+      properties:
+        entityId:
+          type: array
+          items:
+            title: id
+            type: object
+            required:
+              - id
+          description: 'The device ID'
+          format: number
+          example: 435530
+        startTime:
+          type: number
+          description: 'Start time of the charging event in epoch values.'
+          format: number
+          example: 1661026455
+        endTime:
+          type: integer
+          description: 'End time of the charging eventin epoch values.'
+          format: number
+          example: 1661029580
+        duration:
+          type: integer
+          description: 'Duration of the charging event in seconds.'
+          format: number
+          example: 3125
+        latitude:
+          type: integer
+          format: integer
+          example: 28.621429419646432
+          description: 'Latitude coordinate of the charging event location.'
+        longitude:
+          type: integer
+          format: integer
+          example: 77.3567914740013
+          description: 'Longitude coordinate of the charging event location.' 
+        chargingType:
+          type: boolean
+          format: number
+          example: 0
+          description: 'Fast charge - 1, Slow charge - 0'
+        startSoc:
+          type: integer
+          format: number
+          example: 63
+          description: 'SOC percentage at the beginning of the charging event'
+        endSoc:
+          type: integer
+          format: number
+          example: 100
+          description: 'SOC percentage at the end of the charging event.'
+        startDte:
+          type: integer
+          format: number
+          example: 89
+          description: 'DTE (in kms) at the beginning of the charging event'
+        endDte:
+          type: integer
+          format: number
+          example: 145
+          description: DTE (in kms) at the end of the charging event.
+        chargeAccumulated:
+          type: integer
+          format: number
+          example: 37
+          description: 'Total charge accumulated (in kWh) at during the charging event.'

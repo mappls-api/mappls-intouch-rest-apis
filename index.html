@@ -49,9 +49,38 @@
       const ui = SwaggerUIBundle({
         urls: [
         {
-          url: "./custom/Intouch-Telematics-Swagger-25052020.json",
-          name: "InTouch IoT (Telematics) APIs"
+          url: "./custom/alarm.yaml",
+          name: "InTouch IoT Alarms APIs"
+        },
+        {
+          url: "./custom/device.yaml",
+          name: "InTouch IoT Devices APIs"
+        },
+        {
+          url: "./custom/drive.yaml",
+          name: "InTouch IoT Drives APIs"
+        },
+        {
+          url: "./custom/event.yaml",
+          name: "InTouch IoT Events APIs"
+        },
+        {
+          url: "./custom/geofence.yaml",
+          name: "InTouch IoT Geofence APIs"
+        },
+        {
+          url: "./custom/group.yaml",
+          name: "InTouch IoT Group APIs"
+        },
+        {
+          url: "./custom/trip.yaml",
+          name: "InTouch IoT Trip APIs"
+        },
+        {
+          url: "./custom/charging-event-api.yaml",
+          name: "InTouch IoT Charging Event API"
         }
+        //
         ],
         dom_id: '#swagger-ui',
         deepLinking: true,
