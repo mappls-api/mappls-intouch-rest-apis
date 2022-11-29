@@ -247,11 +247,11 @@ components:
                 - GPS Connected
                 - GPRS Connected
             mockLocation:
-              type: boolean
-              example: true
+              type: integer
+              example: 1
               description: >-
-                true - mock location being sent by the user. false - real
-                location being sent by the user.
+                1 - mock location being sent by the user. 
+                0 - real location being sent by the user.
             isAirplanemode:
               type: boolean
               example: true
