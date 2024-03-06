@@ -186,6 +186,69 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: Not Found - URL Not Found
+  /device/{deviceId}/distance:
+    get:
+      tags:
+        - Device Get Distance
+      summary: Gets the distance traveled of the device in a specified period.
+      description: 'This API returns accurate distances travelled and related data of vehicles, assets & people with help of connected devices/sensors/mobiles to provide location awareness to users of your app. The distance traveled during a specific period is returned.'
+      operationId: getDistance
+      parameters:
+        - name: deviceId
+          in: path
+          description: This is the device's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all active devices in the account.
+          required: true
+          schema:
+            type: integer
+            format: long
+        - name: startTime
+          in: query
+          description: epoch time value specifying the start time after which distance is to be calculated.
+          required: true
+          schema:
+            type: integer
+            format: long
+        - name: endTime
+          in: query
+          description: epoch time value specifying the start time after which distance is to be calculated.
+          required: true
+          schema:
+            type: integer
+            format: long
+        - name: driveDistance
+          in: query
+          required: false
+          description: .
+          schema:
+            type: integer
+            format: integer
+        - name: eventsOnly
+          in: query
+          required: false
+          description: .
+          schema:
+            type: integer
+            format: integer
+      responses:
+        '200':
+          description: OK - successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distance'
+        '204':
+          description: Device Not Found
+        '400':
+          description: >-
+            Bad Request - Invalid device ID supplied or invalid data type. For example, input attribute "id" is integer but string value gets passed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized Request. Access to API is forbidden.
+        '404':
+          description: Not Found - URL Not Found
 components:
   schemas:
     geojson:
@@ -584,8 +647,7 @@ components:
           example: 1
         temperature:
           type: number
-          example: 28.32
-    
+          example: 28.32    
     ApiResponse:
       type: object
       properties:
@@ -598,6 +660,75 @@ components:
         error:
           type: string
           description: describes the type of error
+    distance:
+      type: object
+      required: 
+        - driveDistance
+        - distance
+        - totalEvents
+        - movementTime
+        - nogps
+        - type
+        - idleTime
+        - duration
+        - obdConnection
+        - idealEvents
+        - startTime
+        - endTime
+        - nogpsDistance
+      properties:
+        driveDistance:
+          type: number
+          description: .
+          example: 18.590760091268244
+        distance:
+          type: number
+          description: .
+          example: 18.590760091268244
+        totalEvents:
+          type: integer
+          description: .
+          example: 4976
+        movementTime:
+          type: integer
+          description: .
+          example: 2086
+        nogps:
+          type: integer
+          description: .
+          example: 2611
+        type:
+          type: integer
+          description: .
+          example: 0
+        idleTime:
+          type: integer
+          description: .
+          example: 14636
+        duration:
+          type: integer
+          description: .
+          example: 19333
+        obdConnection:
+          type: integer
+          description: .
+          example: null
+        idealEvents:
+          type: integer
+          description: .
+          example: 1944
+        startTime:
+          type: integer
+          description: .
+          example: 1709619447
+        endTime:
+          type: integer
+          description: .
+          example: 1709638780
+        nogpsDistance:
+          type: number
+          description: .
+          example: 0.36677663593731297
   securitySchemes:
     bearerToken:
       type: http
