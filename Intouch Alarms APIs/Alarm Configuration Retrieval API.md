@@ -9,7 +9,7 @@ The *Alarm Configuration Retrieval API* allows users to fetch alarm configuratio
 
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 

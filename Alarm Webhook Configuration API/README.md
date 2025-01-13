@@ -8,7 +8,7 @@
 This API allows you to trigger alarms based on device status changes such as *`Ignition On`* or *`Ignition Off`*. The alarm is sent to a specified Webhook URL, and the device’s location is included in the payload. The alarm can be triggered for different *`device IDs`* based on the *`event type`* (e.g., ignition change).
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -18,7 +18,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Input URL:**
 
- > https://intouch.mapmyindia.com/iot/api/alarm/
+ > https://intouch.mappls.com/iot/api/alarm/
 
 ### **Input Method:** 
 - POST
@@ -56,7 +56,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 ## **Sample curl Request**
 
 ```bash
-curl --location 'https://intouch.mapmyindia.com/iot/api/alarm/' \
+curl --location 'https://intouch.mappls.com/iot/api/alarm/' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly' \

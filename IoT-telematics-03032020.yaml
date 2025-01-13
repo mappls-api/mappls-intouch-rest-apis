@@ -19,7 +19,7 @@ externalDocs:
   url: 'https://www.mapmyindia.com/intouch/#telematics-tracking'
   
 servers:
-  - url: 'https://intouch.mapmyindia.com/iot/api'
+  - url: 'https://intouch.mappls.com/iot/api'
 tags:
   # - name: Telematics APIs
   #   description: Everything about your Devices

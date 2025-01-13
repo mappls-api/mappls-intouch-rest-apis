@@ -10,7 +10,7 @@ The ***`Create a Trip`*** API is designed to facilitate the creation of new trip
 The API is highly customizable, allowing you to specify various parameters such as trip name, destination coordinates, geofence setup, and more. Additionally, it offers flexible options for trip closure and metadata management. With this API, users can not only create trips but also ensure that the trips are optimized and efficiently managed within the system.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -185,7 +185,7 @@ curl --location 'https://intouch.mappls.com/iot/api/v2.0/trips' \
             "sequence": 1,
             "jobId": "676cef71f7b03b1054a1cf8b",
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/jobs/#/676cef71f7b03b1054a1cf8b?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                "embedUrl": "https://intouch.mappls.com/widget/jobs/#/676cef71f7b03b1054a1cf8b?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
             }
         }
     ],

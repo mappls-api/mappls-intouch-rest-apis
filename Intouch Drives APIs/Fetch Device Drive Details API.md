@@ -8,7 +8,7 @@
 This API *`retrieves the drive details of a vehicle`* associated with an account on our telematics platform. A vehicle can be a device or sensor directly connected to the platform, or it could be linked via a third-party data aggregator that uses our telematics services. A "drive" consists of a list of geo-positions reported for any object (such as vehicles, assets, or people), based on pre-defined conditions.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 

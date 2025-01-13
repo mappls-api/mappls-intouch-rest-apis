@@ -9,7 +9,7 @@
 The *`Trip Closure via Trip ID`* API allows users to close a specific trip by providing the trip's unique ID. The trip is then marked as completed or closed within the system. This operation is essential for managing trips, particularly when a trip has been completed or needs to be officially closed for any other reason.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -117,7 +117,7 @@ curl --location --request POST 'https://intouch.mappls.com/iot/api/v2.0/trips/67
                 "status": 0,
                 "jobId": "676cef71f7b03b1054a1cf8b",
                 "links": {
-                    "embedUrl": "https://intouch.mapmyindia.com/widget/jobs/#/676cef71f7b03b1054a1cf8b?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                    "embedUrl": "https://intouch.mappls.com/widget/jobs/#/676cef71f7b03b1054a1cf8b?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
                 }
             }
         ],
@@ -143,7 +143,7 @@ curl --location --request POST 'https://intouch.mappls.com/iot/api/v2.0/trips/67
             "plannedTime": 1735192433
         },
         "links": {
-            "embedUrl": "https://intouch.mapmyindia.com/widget/trips/#/676cef71f7b03b1054a1cf8a?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+            "embedUrl": "https://intouch.mappls.com/widget/trips/#/676cef71f7b03b1054a1cf8a?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
         }
     }
 }

@@ -8,7 +8,7 @@
 The ***`Trips Retrieval for a User API`*** allows you to fetch a comprehensive list of trips associated with a specific user. By providing a token key, this API returns detailed information about each trip, including `status`, `destination`, `geofence data`, `start and end details`, and the `associated device information`. It enables users to retrieve active or completed trips within a specified time frame and filter the data based on various parameters such as device ID and trip status.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -90,7 +90,7 @@ Ensure the correct data type is used for the query parameters.
     - `pointName`(string): name given to the destination point.
     - `jobId`(string): unique ID of the jobId. `example: 638f1045cc3758363bc89437`
     - `address`(string): Address of the destination point.
-    - `links`-Embed URL(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `example: https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
+    - `links`-Embed URL(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `example: https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
     - `metadata`: will get returned only if it was mentioned while creating a trip.
       - `myattribute`(string): Dummy meta data value. This can be any key-value data pair. `example: sample text`
 
@@ -203,7 +203,7 @@ https://intouch.mappls.com/iot/api/v2.0/trips?limit=5&status=1&deviceId=10647019
                 "plannedTime": 1735188134
             },
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/trip/#/676cdea677ccd110137e8aa6?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                "embedUrl": "https://intouch.mappls.com/widget/trip/#/676cdea677ccd110137e8aa6?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
             }
         },
         {
@@ -288,7 +288,7 @@ https://intouch.mappls.com/iot/api/v2.0/trips?limit=5&status=1&deviceId=10647019
                 "plannedTime": 1735191855
             },
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/trip/#/676ced2f77ccd110137e8c2c?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                "embedUrl": "https://intouch.mappls.com/widget/trip/#/676ced2f77ccd110137e8c2c?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
             }
         },
         {
@@ -355,7 +355,7 @@ https://intouch.mappls.com/iot/api/v2.0/trips?limit=5&status=1&deviceId=10647019
                 "plannedTime": 1735192433
             },
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/trip/#/676cef71f7b03b1054a1cf8a?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                "embedUrl": "https://intouch.mappls.com/widget/trip/#/676cef71f7b03b1054a1cf8a?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
             }
         }
     ]

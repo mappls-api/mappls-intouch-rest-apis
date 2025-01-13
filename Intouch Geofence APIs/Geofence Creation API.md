@@ -14,7 +14,7 @@ This API helps to *`create a new geofence`*. A geofence is a user-defined bounda
 3. **`Polygon Geofence`**: To create a polygon geofence, input a list of at least three Latitude and Longitude points. More points can be added to create a custom-shaped geofence. The points should be provided in a comma-separated format.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 

@@ -8,7 +8,7 @@
 The *Update Alarm Configuration API* allows users to update an existing alarm configuration. Using a valid bearer token and the ID of the alarm configuration, users can modify various parameters such as device IDs, geofence IDs, alarm type, severity, and more.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 

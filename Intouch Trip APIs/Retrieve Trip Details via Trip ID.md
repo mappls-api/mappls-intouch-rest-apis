@@ -9,7 +9,7 @@
 
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -101,7 +101,7 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
     - *`pointName`*(string): name given to the destination point..
     - *`jobId`*(string): unique ID of the jobId. `example: 638f1045cc3758363bc89437`
     - *`links`*(string): Contains URLs related to the destination.
-        - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
+        - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
     - *`metadata`*(object): will get returned only if it was mentioned while creating a trip.
        - `myattribute`(string): Dummy meta data value. this can be any key-value data pair. `example: sample text`
 - *`geofences`*(array):A trip may have various points. This will only get returned in case the these geofence points were explicitly mentioned while creating a trip
@@ -120,7 +120,7 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 -*`pointName`*(string): name given to the destination point.
 - *`jobId`*(string): Unique ID of the jobId. `example: 638f1045cc3758363bc89437`
 - *`links`*(string): Contains URLs related to the destination.
-        - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
+        - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
     - *`metadata`*(object): will get returned only if it was mentioned while creating a trip.
        - `myattribute`(string): Dummy meta data value. this can be any key-value data pair. `example: sample text`
 - *`start`*(object): This will only get returned in case this object was explicitly defined while creating a trip.
@@ -138,7 +138,7 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
     -*`pointName`*(string): name given to the destination point.
     - *`jobId`*(string): Unique ID of the jobId. `example: 638f1045cc3758363bc89437`
     - *`links`*(string): Contains URLs related to the destination.
-      - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
+      - *`embedUrl`*(string): embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`). `Example: example: https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6`
       - *`metadata`*(object): will get returned only if it was mentioned while creating a trip.
        - `myattribute`(string): Dummy meta data value. this can be any key-value data pair. `example: sample text`
 - *`summary`*(object): Provides a summary of the trip’s overall details.
@@ -211,7 +211,7 @@ https://intouch.mappls.com/iot/api/v2.0/trips/5ef5a9e98a92df3a4a894db0?polyline=
       "pointName": "string",
       "jobId": "638f1045cc3758363bc89437",
       "links": {
-        "embedUrl": "https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+        "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
       },
       "metadata": {
         "myattribute": "sample text"
@@ -237,7 +237,7 @@ https://intouch.mappls.com/iot/api/v2.0/trips/5ef5a9e98a92df3a4a894db0?polyline=
         "pointName": "string",
         "jobId": "638f1045cc3758363bc89437",
         "links": {
-          "embedUrl": "https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+          "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
         },
         "metadata": {
           "myattribute": "sample text"
@@ -263,14 +263,14 @@ https://intouch.mappls.com/iot/api/v2.0/trips/5ef5a9e98a92df3a4a894db0?polyline=
       "pointName": "string",
       "jobId": "638f1045cc3758363bc89437",
       "links": {
-        "embedUrl": "https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+        "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
       },
       "metadata": {
         "myattribute": "sample text"
       }
     },
     "links": {
-      "embedUrl": "https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+      "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
     },
     "summary": {
       "startedOn": 0,

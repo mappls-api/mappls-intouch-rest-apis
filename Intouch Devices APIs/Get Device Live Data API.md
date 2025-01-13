@@ -9,7 +9,7 @@
 The *`Get Device Live Data API`* provides accurate, real-time location and related *data of vehicles*, *assets*, and people using *connected devices*, *sensors*, or *mobiles*. This API enables your app to have real-time visibility of tracked objects, offering not only location information but additional valuable metrics. This API is ideal for various use cases, including transport logistics and personnel tracking services, and can be used in both web and mobile platforms.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -264,7 +264,7 @@ https://intouch.mappls.com/iot/api/devices?id=10647019&includeInActive=false&ign
             },
             "todaysDrive": {},
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/live/devices/#/10647019?access_token=f4b8474f-7d88-4271-bead-7a55b1854141"
+                "embedUrl": "https://intouch.mappls.com/widget/live/devices/#/10647019?access_token=f4b8474f-7d88-4271-bead-7a55b1854141"
             },
             "dinputs": {
                 "1": 0,

@@ -8,7 +8,7 @@
 This API retrieves the live location and associated data of all nearby vehicles, assets, and people within a specified buffer range. Leveraging connected devices, sensors, and mobile technology, the API ensures precise location awareness for app users. It provides real-time visibility of tracked objects, delivering not only location data but also various additional fields that enhance application functionality. This API is suitable for multiple use cases, including transportation, logistics, and personnel information services, across web and mobile development platforms.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -238,7 +238,7 @@ https://intouch.mappls.com/iot/api/devices/nearby?buffer=1000&geometry={"type": 
                 "todayDriveCount": 0
             },
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/live/devices/#/1468319?access_token=13ddd950-48da-437c-938c-b928b2a9e814"
+                "embedUrl": "https://intouch.mappls.com/widget/live/devices/#/1468319?access_token=13ddd950-48da-437c-938c-b928b2a9e814"
             },
             "dinputs": {
                 "1": 0,
@@ -284,7 +284,7 @@ https://intouch.mappls.com/iot/api/devices/nearby?buffer=1000&geometry={"type": 
                 "todayDriveCount": 0
             },
             "links": {
-                "embedUrl": "https://intouch.mapmyindia.com/widget/live/devices/#/1414058?access_token=13ddd950-48da-437c-938c-b928b2a9e814"
+                "embedUrl": "https://intouch.mappls.com/widget/live/devices/#/1414058?access_token=13ddd950-48da-437c-938c-b928b2a9e814"
             },
             "dinputs": {
                 "1": 0,

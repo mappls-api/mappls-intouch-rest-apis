@@ -7,7 +7,7 @@
 This API *`returns a list of all configured geofences`* and allows retrieving the geofence response with or without shapes by setting the ignoreGeometry parameter to true or false. Geofence types may include Point, Polygon, or Circle.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 

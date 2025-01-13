@@ -754,7 +754,7 @@ components:
         embedUrl: 
           type: string
           description: embeddable URL of the job or trip widget depending on within which object the link object is present. (type maybe `job` or `trip`)
-          example: "https://intouch.mapmyindia.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=62da3a8a-e39a-4e0b-a452-c40692d8fd00"
+          example: "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=62da3a8a-e39a-4e0b-a452-c40692d8fd00"
   securitySchemes:
     bearerToken:
       type: http

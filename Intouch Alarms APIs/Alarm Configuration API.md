@@ -8,7 +8,7 @@
 The Alarm Configuration API allows the creation of alarms for single or multiple devices based on the provided input parameters. It supports a variety of alarm types and configurations for effective device monitoring. Some of the key alarms supported include *Geofence, Ignition, OverSpeed, Unplugged, Panic, Stoppage, Idle, Towing, GPRS Connectivity, Vehicle Battery, Mileage, GPS Connectivity, Distance Covered, and Internal Battery Voltage*.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
 
 ## **Request Headers**
 
@@ -88,7 +88,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 ## **Sample curl resquest**
 
 ```bash
-curl --location 'https://intouch.mapmyindia.com/apis/api/alarm/' \
+curl --location 'https://intouch.mappls.com/apis/api/alarm/' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Contant-type: application/form-data' \
 --header 'Cookie: HttpOnly' \
