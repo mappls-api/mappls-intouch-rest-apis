@@ -1,21 +1,22 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
+# Intouch Alarms APIs
 
-# Comprehensive Route & Fleet Management APIs
+The Intouch Alarms APIs provide a comprehensive suite of tools for configuring, managing, and retrieving logs of alarms related to device tracking. These APIs are ideal for applications in fleet management, asset tracking, and device monitoring, offering real-time alerts and extensive configuration options for different alarm types like Geofence, OverSpeed, Panic, and more.
 
-This repository provides comprehensive documentation for APIs designed to streamline route planning, fleet management, and associated operations. These APIs enable efficient tracking, reporting, and optimization of workflows, ensuring seamless integration into logistics systems.
+# Table Of Content
 
-## Table Of Content
+- <u>[Alarm Configuration API](./Alarm%20Configuration%20API.md)</u>
 
-- [Intouch Trip APIs](./Intouch%20Trip%20APIs)
-- [Intouch Events APIs](./Intouch%20Events%20APIs)
-- [Intouch Drives APIs](./Intouch%20Drives%20APIs)
-- [Intouch Devices APIs](./Intouch%20Devices%20APIs)
-- [Intouch Alarms APIs](./Intouch%20Alarms%20APIs)
-- [Intouch Geofence APIs](./Intouch%20Geofence%20APIs)
-- [Intouch Charging Events APIs](./Intouch%20Charging%20Events%20APIs)
-- [Intouch Group APIs](./Intouch%20Group%20APIs)
+- <u>[Alarm Configuration Retrieval API](./Alarm%20Configuration%20Retrieval%20API.md)</u>
+
+- <u>[Update Alarm Configuration API](./Update%20Alarm%20Configuration%20API.md)</u>
+
+- <u>[Delete Configured Alarm API.md](./Delete%20Configured%20Alarm%20API.md)</u>
+
+- <u>[Fetch Alarm Logs for Configured Alarms API](./Fetch%20Alarm%20Logs%20for%20Configured%20Alarms%20API.md)</u>
+
 
 
 <br></br>

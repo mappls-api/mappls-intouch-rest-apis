@@ -2,20 +2,19 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Comprehensive Route & Fleet Management APIs
+# Intouch Trip APIs
 
-This repository provides comprehensive documentation for APIs designed to streamline route planning, fleet management, and associated operations. These APIs enable efficient tracking, reporting, and optimization of workflows, ensuring seamless integration into logistics systems.
+This repository provides comprehensive documentation for the Intouch Trip APIs, which are designed to streamline trip creation, management, and closure processes. These APIs enable efficient tracking, reporting, and operation of trips, ensuring seamless integration into fleet and route management systems.
 
 ## Table Of Content
 
-- [Intouch Trip APIs](./Intouch%20Trip%20APIs)
-- [Intouch Events APIs](./Intouch%20Events%20APIs)
-- [Intouch Drives APIs](./Intouch%20Drives%20APIs)
-- [Intouch Devices APIs](./Intouch%20Devices%20APIs)
-- [Intouch Alarms APIs](./Intouch%20Alarms%20APIs)
-- [Intouch Geofence APIs](./Intouch%20Geofence%20APIs)
-- [Intouch Charging Events APIs](./Intouch%20Charging%20Events%20APIs)
-- [Intouch Group APIs](./Intouch%20Group%20APIs)
+- <u>[Retrieve Job Details via Job ID API](./Retrieve%20Job%20Details%20via%20Job%20ID%20API.md)</u>
+- <u>[Retrieve Trip Details via Trip ID](./Retrieve%20Trip%20Details%20via%20Trip%20ID.md)</u>
+- <u>[Trip Closure API via Trip ID](./Trip%20Closure%20API%20via%20Trip%20ID.md)</u>
+- <u>[Trip Creation API](./Trip%20Creation%20API.md)</u>
+- <u>[Trips Retrieval for a Single User](./Trips%20Retrieval%20for%20a%20Single%20User.md)</u>
+
+
 
 
 <br></br>

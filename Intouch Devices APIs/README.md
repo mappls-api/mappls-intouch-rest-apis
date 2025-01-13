@@ -1,21 +1,28 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
+# Intouch Devices APIs
 
-# Comprehensive Route & Fleet Management APIs
-
-This repository provides comprehensive documentation for APIs designed to streamline route planning, fleet management, and associated operations. These APIs enable efficient tracking, reporting, and optimization of workflows, ensuring seamless integration into logistics systems.
+The Intouch Devices APIs include a set of APIs that enable interaction with devices, tracking their data, and retrieving hardware and location information. These APIs support real-time location tracking, hardware details, and distance-traveled metrics for assets, vehicles, and personnel. They are designed for use in logistics, asset management, and personnel monitoring, applicable on both web and mobile platforms.
 
 ## Table Of Content
 
-- [Intouch Trip APIs](./Intouch%20Trip%20APIs)
-- [Intouch Events APIs](./Intouch%20Events%20APIs)
-- [Intouch Drives APIs](./Intouch%20Drives%20APIs)
-- [Intouch Devices APIs](./Intouch%20Devices%20APIs)
-- [Intouch Alarms APIs](./Intouch%20Alarms%20APIs)
-- [Intouch Geofence APIs](./Intouch%20Geofence%20APIs)
-- [Intouch Charging Events APIs](./Intouch%20Charging%20Events%20APIs)
-- [Intouch Group APIs](./Intouch%20Group%20APIs)
+- <u>[Get Device Live Data API](./Get%20Device%20Live%20Data%20API.md)</u>
+- <u>[Nearby Device Locator API](./Nearby%20Device%20Locator%20API.md)</u>
+- <u>[Retrieve Device Hardware Information API](./Retrieve%20Device%20Hardware%20Information%20API.md)</u>
+- <u>[Retrieve Device Hardware Information API](./Retrieve%20Device%20Hardware%20Information%20API.md)</u>
+- <u>[Get Distance Traveled of the Device API](./Get%20Distance%20Traveled%20of%20the%20Device%20API.md)</u>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br></br>

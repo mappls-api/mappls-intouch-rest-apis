@@ -2,20 +2,21 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Comprehensive Route & Fleet Management APIs
+# Intouch Geofence APIs
 
-This repository provides comprehensive documentation for APIs designed to streamline route planning, fleet management, and associated operations. These APIs enable efficient tracking, reporting, and optimization of workflows, ensuring seamless integration into logistics systems.
+A geofence is a user-defined bounded area to trigger Entry and Exit alert of the user/vehicle. Custom areas or places can be created as a Geofence under your account, For example, it could be a hotel, Restaurant, Office, work area, retail store, and so on.
+
+Mappls InTouch SDK supports Point, Circle, and Polygon (Custom Region/Area) geofences. You can Create, Update, or Delete geofences using the below methods. Also, get the total time spent inside the geofence using the below methods.
 
 ## Table Of Content
 
-- [Intouch Trip APIs](./Intouch%20Trip%20APIs)
-- [Intouch Events APIs](./Intouch%20Events%20APIs)
-- [Intouch Drives APIs](./Intouch%20Drives%20APIs)
-- [Intouch Devices APIs](./Intouch%20Devices%20APIs)
-- [Intouch Alarms APIs](./Intouch%20Alarms%20APIs)
-- [Intouch Geofence APIs](./Intouch%20Geofence%20APIs)
-- [Intouch Charging Events APIs](./Intouch%20Charging%20Events%20APIs)
-- [Intouch Group APIs](./Intouch%20Group%20APIs)
+- [Geofence Creation API](./Geofence%20Creation%20API.md)
+- [Fetch All Configured Geofences API](./Fetch%20All%20Configured%20Geofences%20API.md)
+- [Geofence(s) Retrieval API-Single or Multiple](./Geofence(s)%20Retrieval%20API-Single%20or%20Multiple.md)
+- [Updated Geofence API.md](./Updated%20Geofence%20API.md)
+- [Delete Geofence API](./Delete%20Geofence%20API.md)
+- [Fetch Device Activities with Respect to Geofences API](./Fetch%20Device%20Activities%20with%20Respect%20to%20Geofences%20API.md)
+
 
 
 <br></br>
