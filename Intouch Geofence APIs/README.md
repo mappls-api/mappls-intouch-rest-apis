@@ -4,10 +4,9 @@
 
 # Intouch Geofence APIs
 
-A geofence is a user-defined bounded area to trigger Entry and Exit alert of the user/vehicle. Custom areas or places can be created as a Geofence under your account, For example, it could be a hotel, Restaurant, Office, work area, retail store, and so on.
+The Intouch Geofence APIs provide a comprehensive solution for creating, managing, and monitoring geofences. With these APIs, users can define geofences of various geometries like circles or polygons and fetch details of single or multiple geofences, whether configured or newly created. Updates to existing geofences are supported to refine boundaries or attributes, while geofences can also be deleted as needed.
 
-Mappls InTouch SDK supports Point, Circle, and Polygon (Custom Region/Area) geofences. You can Create, Update, or Delete geofences using the below methods. Also, get the total time spent inside the geofence using the below methods.
-
+Additionally, the APIs allow tracking of device activities within geofences, such as entry and exit times, offering valuable insights across a defined timeframe. These capabilities make the APIs ideal for fleet management, access control, and location-based monitoring.
 ## Table Of Content
 
 - [Geofence Creation API](./Geofence%20Creation%20API.md)
