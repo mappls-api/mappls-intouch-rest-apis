@@ -15,7 +15,7 @@ This repository provides comprehensive documentation for APIs designed to stream
 - [Intouch Alarms APIs](./Intouch%20Alarms%20APIs)
 - [Intouch Geofence APIs](./Intouch%20Geofence%20APIs)
 - [Intouch Charging Events APIs](./Intouch%20Charging%20Events%20APIs)
-- [Intouch Group APIs](./Intouch%20Group%20APIs)
+- [Intouch Device Group APIs](./Intouch%20Device%20Group%20APIs)
 
 
 <br></br>
