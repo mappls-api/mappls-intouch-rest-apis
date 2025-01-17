@@ -20,8 +20,8 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
-- **Content-Type: `application/form-data`**
+- **Authorization: `{token_type} {access_token}.`**
+- **Content-Type: `multipart/form-data`**
 
 
 ## **Input Method:**
@@ -53,9 +53,9 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 ## **Sample Request cURL**
 
 ```bash
-curl --location 'https://intouch.mapmyindia.in/iot/api/geofence/' \
+curl --location 'https://intouch.mappls.com/iot/api/geofence/' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly; HttpOnly; HttpOnly' \
+--header 'Cookie: HttpOnly; HttpOnly; HttpOnly; HttpOnly; HttpOnly' \
 --form 'name="Air-port Entrance"' \
 --form 'geometry="{\"type\": \"Polygon\", \"coordinates\":[[[77.08128001958539,28.568242691456405],[77.08128001958539,28.539969794077948],[77.11440689368595,28.539969794077948],[77.11440689368595,28.568242691456405],[77.08128001958539,28.568242691456405]]]}"'
 ```
@@ -64,7 +64,7 @@ curl --location 'https://intouch.mapmyindia.in/iot/api/geofence/' \
 
 ```json
 {
-    "id":1191004
+    "id":1191703
 }
 ```
 

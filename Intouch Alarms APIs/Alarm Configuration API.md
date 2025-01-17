@@ -14,9 +14,9 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}.`**
 
-- **Content-Type: `application/form-data`**
+- **Content-Type: `multipart/form-data`**
 
 ## **Input Method:** 
 - POST
@@ -90,7 +90,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 ```bash
 curl --location 'https://intouch.mappls.com/apis/api/alarm/' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Contant-type: application/form-data' \
+--header 'Contant-type: multipart/form-data' \
 --header 'Cookie: HttpOnly' \
 --form 'alarmType="28"' \
 --form 'entityIds="10647019"' \

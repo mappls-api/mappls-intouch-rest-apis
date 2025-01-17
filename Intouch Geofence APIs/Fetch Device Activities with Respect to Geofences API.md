@@ -13,7 +13,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}.`**
 - **Content-Type: `application/json`**
 
 
@@ -66,13 +66,22 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Sample Input**
 ```
-https://intouch.mappls.com/iot/api/geofence?id=1190516, 1190511&ignoreGeometry=true
+https://intouch.mappls.com/iot/api/geofence?id=1190516,190511&ignoreGeometry=true
 ```
 ## **Sample ouput**
 
 ```json
 {
-  "data": []
+    "data": [
+        {
+            "id": 1190516,
+            "name": "AIIMS",
+            "type": "Circle",
+            "buffer": 1000.0,
+            "creationTime": 1736150681,
+            "updatedTime": 1736150681
+        }
+    ]
 }
 ```
 

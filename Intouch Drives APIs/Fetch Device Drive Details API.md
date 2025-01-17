@@ -14,7 +14,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}.`**
 - **Content-Type: `application/json`**
 
 
@@ -82,7 +82,34 @@ https://intouch.mappls.com/iot/api/device/drive?deviceId=10807208&startTime=1736
 
 ```json
 {
-    "data": []
+    "data": [
+        {
+            "deviceId": 10807208,
+            "location": {
+                "startAddress": "Acharya Shree Tulsi Das Marg, Aravalli Biodiversity Park, Gurugram, Haryana. 2 m from Metro Pillar No 9, Pin-122002 (India)",
+                "endAddress": "Lado Sarai, New Delhi, Delhi. 248 m from Delhi Jal Board Government of NCT (India)",
+                "startTimestamp": 1736388443,
+                "endTimestamp": 1736389221,
+                "avgSpeed": 42.39,
+                "startLat": 28.4816017,
+                "startLon": 77.112845,
+                "endlat": 28.515034,
+                "endLon": 77.1923069
+            },
+            "movement": {
+                "duration": 778,
+                "distance": 12.71,
+                "idleTime": 130,
+                "movementTime": 466,
+                "stoppageTime": 182
+            },
+            "drivingBehaviourCount": {
+                "haCount": 0,
+                "hbCount": 0,
+                "hcCount": 0
+            }
+        }
+    ]
 }
 ```
 

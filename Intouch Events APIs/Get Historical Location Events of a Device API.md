@@ -15,7 +15,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}.`**
 - **Content-Type: `application/json`**
 
 
@@ -201,48 +201,393 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 ## **Sample Input**
 
 ```
-https://intouch.mappls.com/iot/api/device/10647019/events?startTime=1736411146000&endTime=1736416846000&skipPeriod=2
+https://intouch.mappls.com/iot/api/device/10647019/events?startTime=1736861445&endTime=1736864985&skipPeriod=2
 ```
 
 ## **Sample ouput**
 
 ```json
 {
-  "data": {
-    "drivingBehaviourCount": {
-      "haCount": 2,
-      "hbCount": 1,
-      "hcCount": 3
-    },
-    "summary": {
-      "distance": 23.67,
-      "duration": 300,
-      "avgSpeed": 45.54,
-      "startAddress": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka.",
-      "endAddress": "3645, 13th F Main Road, Indiranagar, Bengaluru, Karnataka.",
-      "startTimestamp": 1577644204,
-      "endTimestamp": 1577684913
-    },
-    "positionList": [
-      {
-        "address": "213, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka.",
-        "timestamp": 1574937348,
-        "longitude": 77.74937348,
-        "latitude": 55.74937348,
-        "heading": 298,
-        "speed": 33.33,
-        "ignition": 0,
-        "powerSupplyVoltage": 12769,
-        "gpsFix": true,
-        "validGPS": true,
-        "accOff": true,
-        "movementStatus": 1,
-        "durationTime": 670,
-        "greenDriveType": "HA",
-        "tripStatus": 0
-      }
-    ]
-  }
+    "data": {
+        "deviceId": 10647019,
+        "summary": {
+            "distance": 13.76,
+            "duration": 2890,
+            "avgSpeed": 36.53,
+            "startAddress": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 10 m from MapmyIndia Head Office New Delhi, Pin-110020 (India)",
+            "endAddress": "East Sapphire, Unnamed Road, Block E, Sector 42, Noida, Uttar Pradesh. 1 m from Green Empire Fruits and Vegetables, Pin-201303 (India)",
+            "startTimestamp": 1736861501,
+            "endTimestamp": 1736864391
+        },
+        "positionList": [
+            {
+                "address": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 10 m from MapmyIndia Head Office New Delhi, Pin-110020 (India)",
+                "timestamp": 1736861501,
+                "longitude": 77.2689302,
+                "latitude": 28.5508126,
+                "heading": 0.0,
+                "speed": 0.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 10 m from MapmyIndia Head Office New Delhi, Pin-110020 (India)",
+                "timestamp": 1736861832,
+                "longitude": 77.2689254,
+                "latitude": 28.5508131,
+                "heading": 331.0,
+                "speed": 0.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 10 m from MapmyIndia Head Office New Delhi, Pin-110020 (India)",
+                "timestamp": 1736862163,
+                "longitude": 77.2689352,
+                "latitude": 28.5508265,
+                "heading": 0.0,
+                "speed": 0.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 21 m from MapmyIndia Head Office New Delhi, Pin-110020 (India)",
+                "timestamp": 1736862464,
+                "longitude": 77.2688886,
+                "latitude": 28.5508783,
+                "heading": 203.0,
+                "speed": 3.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "64, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 26 m from Wadhwa International, Pin-110020 (India)",
+                "timestamp": 1736862585,
+                "longitude": 77.2679843,
+                "latitude": 28.5497468,
+                "heading": 156.0,
+                "speed": 26.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "Sri Maa Anandamayee Ashram Marg, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 106 m from Banarsidas Chandiwala Institute of Medical Science, Pin-110020 (India)",
+                "timestamp": 1736862705,
+                "longitude": 77.2658245,
+                "latitude": 28.5448512,
+                "heading": 259.0,
+                "speed": 15.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "281, Shri Maa Anandmai Marg, Okhla Industrial Estate Phase 2, New Delhi, Delhi. 37 m from Kalkaji Depot Bus Stop, Pin-110020 (India)",
+                "timestamp": 1736862825,
+                "longitude": 77.2664922,
+                "latitude": 28.5393592,
+                "heading": 158.0,
+                "speed": 44.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "9/3, Tum Road, Block B, Okhla Industrial Estate Phase 2, New Delhi, Delhi. 14 m from Air Servo House, Pin-110020 (India)",
+                "timestamp": 1736862945,
+                "longitude": 77.2736562,
+                "latitude": 28.5364293,
+                "heading": 150.0,
+                "speed": 34.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "30, Okhla Estate Marg, Block E, Okhla Industrial Estate Phase 2, New Delhi, Delhi. 48 m from Uma Shanker Khandelwal and Company, Pin-110020 (India)",
+                "timestamp": 1736863067,
+                "longitude": 77.2784955,
+                "latitude": 28.5328891,
+                "heading": 70.0,
+                "speed": 20.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "3,4, GD Birla Marg, Institutional Area, Jasola, New Delhi, Delhi. 63 m from Asia Pacific Institute of Management, Pin-110025 (India)",
+                "timestamp": 1736863190,
+                "longitude": 77.2932075,
+                "latitude": 28.5392253,
+                "heading": 66.0,
+                "speed": 51.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "1, GD Birla Marg, Jasola, New Delhi, Delhi. 87 m from The Eden Hotel, Pin-110025 (India)",
+                "timestamp": 1736863326,
+                "longitude": 77.2996334,
+                "latitude": 28.5418571,
+                "heading": 71.0,
+                "speed": 7.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "52, GD Birla Marg, Block G, Shaheen Bagh, New Delhi, Delhi. 18 m from Shaheen Bagh Bus Stop, Pin-110025 (India)",
+                "timestamp": 1736863450,
+                "longitude": 77.303003,
+                "latitude": 28.5430659,
+                "heading": 65.0,
+                "speed": 15.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "86, GD Birla Marg, Block G, Shaheen Bagh, New Delhi, Delhi. 3 m from Kalindi Kunj Bus Stop, Pin-110025 (India)",
+                "timestamp": 1736863575,
+                "longitude": 77.305957,
+                "latitude": 28.5451783,
+                "heading": 18.0,
+                "speed": 2.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "GD Birla Marg, Saidabad, New Delhi, Delhi. 119 m from Atlantic Water World, Pin-110076 (India)",
+                "timestamp": 1736863695,
+                "longitude": 77.308154,
+                "latitude": 28.5450756,
+                "heading": 133.0,
+                "speed": 14.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "Kalindi Kunj Bridge, Saidabad, New Delhi, Delhi. 79 m from Madanpur Khadr Police Chowki, Pin-110076 (India)",
+                "timestamp": 1736863815,
+                "longitude": 77.3118731,
+                "latitude": 28.5457547,
+                "heading": 47.0,
+                "speed": 34.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "Amrapali Marg, Sector 95, Noida, Uttar Pradesh. 13 m from Puncture Shop, Pin-201301 (India)",
+                "timestamp": 1736863935,
+                "longitude": 77.3222445,
+                "latitude": 28.5545551,
+                "heading": 44.0,
+                "speed": 37.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "Amrapali Marg, Sector 38 A, Noida, Uttar Pradesh. 30 m from Noida Sector 37 Bus Stop, Pin-201303 (India)",
+                "timestamp": 1736864055,
+                "longitude": 77.3374139,
+                "latitude": 28.5613758,
+                "heading": 64.0,
+                "speed": 62.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "114, Dadri Main Road, Block C, Sector 40, Noida, Uttar Pradesh. 112 m from Delhi Lawyer, Pin-201303 (India)",
+                "timestamp": 1736864175,
+                "longitude": 77.3539658,
+                "latitude": 28.5618688,
+                "heading": 102.0,
+                "speed": 44.0,
+                "ignition": true,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "moving",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            },
+            {
+                "address": "193, Unnamed Road, Block E, Sector 42, Noida, Uttar Pradesh. 129 m from Cine Wedding Arts, Pin-201303 (India)",
+                "timestamp": 1736864296,
+                "longitude": 77.3568671,
+                "latitude": 28.5566046,
+                "heading": 192.0,
+                "speed": 4.0,
+                "ignition": false,
+                "gpsFix": false,
+                "validGPS": true,
+                "accOff": false,
+                "movementStatus": "stopped",
+                "mobileInfo": {
+                    "locationSource": 1,
+                    "mockLocation": 0,
+                    "isAirplanemode": false,
+                    "callStatus": 0
+                }
+            }
+        ],
+        "drivingBehaviourCount": {
+            "haCount": 0,
+            "hbCount": 0,
+            "hcCount": 0
+        }
+    }
 }
 ```
 

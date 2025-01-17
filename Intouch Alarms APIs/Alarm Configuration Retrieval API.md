@@ -15,7 +15,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}.`**
 
 - **Content-Type: `application/json`**
 
@@ -65,12 +65,8 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Sample cURL Request**
 
-```bash
-curl --location 'https://intouch.mappls.com/iot/api/alarm?id=13400690&deviceId=10619089&alarmType=24' \
---header 'accept: application/json' \
---header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Content-Type: application/json' \
---header 'Cookie: HttpOnly'
+```
+https://intouch.mappls.com/iot/api/alarm?id=13431162&deviceId=10647019&alarmType=24
 ```
 
 ## **Sample Output**
@@ -79,14 +75,14 @@ curl --location 'https://intouch.mappls.com/iot/api/alarm?id=13400690&deviceId=1
 {
     "data": [
         {
-            "id": 13400690,
+            "id": 13431162,
             "deviceId": [
-                10619089
+                10647019
             ],
             "alarmType": 24,
-            "creationTime": 1735285180,
-            "updationTime": 1735285180,
-            "severity": 0
+            "creationTime": 1736140629,
+            "updationTime": 1736140629,
+            "webhookUrl": ""
         }
     ]
 }
