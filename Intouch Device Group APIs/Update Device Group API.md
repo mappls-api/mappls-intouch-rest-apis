@@ -17,7 +17,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
 
 - **Authorization: `{token_type} {access_token}.`**
-- **Content-Type: `application/form-data`**
+- **Content-Type: `multipart/form-data`**
  
 
 ## **Input Method:** 
@@ -69,7 +69,7 @@ curl --location 'https://intouch.mappls.com/iot/api/group/8228#027853' \
 ## **Sample output**
 
 ```json
-
+{}
 ```
 
 <br></br>
