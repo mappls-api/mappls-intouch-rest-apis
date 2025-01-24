@@ -5,7 +5,7 @@
 
 ## **Introduction**
 
-*Retrieve Trip Details via Trip ID API* allows users to access detailed information about *a specific trip* using its unique trip ID. It provides insights into the trip’s status, location, route, and associated metadata, making it useful for real-time tracking and trip analysis.
+*`Retrieve Trip Details via Trip ID API`* allows users to access detailed information about *`a specific trip`* using its unique trip ID. It provides insights into the trip’s status, location, route, and associated metadata, making it useful for real-time tracking and trip analysis.
 
 
 ## **Security Type**
@@ -41,7 +41,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are optional.
 
-1. **`id`** (number):Represents the unique identifier of the trip you want to fetch.
+1. **`id`** (string):Represents the unique identifier of the trip you want to fetch.
 2. *`polyline`* (boolean): Includes the entire polyline route of the trip if set to true.
 3. *`deviceLocation`* (boolean): Returns the last known location details of the device if set to true.
 4. *`event`* (boolean): Retrieves all the position events associated with the device if set to true.
