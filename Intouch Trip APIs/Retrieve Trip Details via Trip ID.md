@@ -155,135 +155,114 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 ## **Sample Input**
 
 ```
-https://intouch.mappls.com/iot/api/v2.0/trips/5ef5a9e98a92df3a4a894db0?polyline=true&deviceLocation=true&event=true
+https://intouch.mappls.com/iot/api/v2.0/trips/67932d2ee1b7d91042866e25?polyline=true&deviceLocation=true&event=true
 ```
 
 ## **Sample Output**
 
 ```json
-    {
-  "data": {
-    "tripId": "5ef5a9e98a92df3a4a894db0",
-    "deviceId": 0,
-    "status": 1,
-    "closureType": 1,
-    "forceClose": false,
-    "name": "my trip",
-    "polylinePoints": {
-      "coordinates": [
-        {
-          "lng": 0,
-          "lat": 0
-        }
-      ]
-    },
-    "location": {
-      "gpsTime": 1593261959,
-      "gprsTime": 1593261959,
-      "latitude": 29.507586,
-      "longitude": 79.507586,
-      "address": "string",
-      "status": 3
-    },
-    "positionEvents": [
-      {
-        "timestamp": 1593261,
-        "longitude": 28.876,
-        "latitude": 77.87
-      }
-    ],
-    "destination": {
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          77.234,
-          28.456
-        ]
-      },
-      "radius": 100,
-      "plannedTime": 0,
-      "name": "string",
-      "arrivalTime": 0,
-      "departureTime": 0,
-      "address": "string",
-      "time": 0,
-      "distance": 0,
-      "pointName": "string",
-      "jobId": "638f1045cc3758363bc89437",
-      "links": {
-        "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
-      },
-      "metadata": {
-        "myattribute": "sample text"
-      }
-    },
-    "geofences": [
-      {
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            77.234,
-            28.456
-          ]
+{
+    "data": {
+        "tripId": "67932d2ee1b7d91042866e25",
+        "deviceId": 10647019,
+        "deviceName": "Vandana-test",
+        "destination": {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.234,
+                    28.456
+                ]
+            },
+            "radius": 100,
+            "plannedTime": 1591891234,
+            "metadata": {
+                "myattribute": "sample text"
+            },
+            "address": "unnamed road, asola, new delhi, delhi. pin-110074 (india)",
+            "time": 3597,
+            "distance": 23.1108,
+            "name": "string"
         },
-        "radius": 100,
-        "plannedTime": 0,
-        "name": "string",
-        "arrivalTime": 0,
-        "departureTime": 0,
-        "address": "string",
-        "time": 0,
-        "distance": 0,
-        "pointName": "string",
-        "jobId": "638f1045cc3758363bc89437",
-        "links": {
-          "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+        "geofences": [
+            {
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [77.26823336070498,28.55580522473032],
+                            [77.27371718795376,28.54945215626816],
+                            [77.26906334536983,28.545806779996497],
+                            [77.26784801068226,28.54570262453474],
+                            [77.26429093354909,28.54424443725499],
+                            [77.26212704495794,28.54929592844502],
+                            [77.26570430916473,28.55509008319774],
+                            [77.26831283239613,28.555845140648714],
+                            [77.26823336070498,28.55580522473032]
+                        ]
+                    ]
+                },
+                "radius": 100,
+                "plannedTime": 1737698606,
+                "metadata": {
+                    "myattribute": "sample text"
+                },
+                "address": "60, unnamed road, okhla industrial estate phase 3, new delhi, delhi. 17 m from precision pipes and profile company ltd, pin-110020 (india)",
+                "time": 0,
+                "distance": 0.0,
+                "name": "string",
+                "status": 0,
+                "jobId": "67932d2ee1b7d91042866e26",
+                "links": {
+                    "embedUrl": "https://intouch.mapmyindia.com/widget/jobs/#/67932d2ee1b7d91042866e26?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+                }
+            }
+        ],
+        "status": 1,
+        "location": {
+            "id": 10647019,
+            "gpsTime": 1737690147,
+            "gprsTime": 1737690150,
+            "latitude": 28.5510184,
+            "longitude": 77.2688553,
+            "heading": 258.0,
+            "speedKph": 1.0,
+            "address": "237, Unnamed Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Heera Cigarette Shop, Pin-110020 (India)",
+            "name": "Vandana-test",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.2688553,
+                    28.5510184
+                ]
+            },
+            "status": 5
         },
         "metadata": {
-          "myattribute": "sample text"
+            "myattribute": "sample text"
+        },
+        "positionEvents": [],
+        "closureType": 1,
+        "forceClose": true,
+        "name": "Vandana-test",
+        "summary": {
+            "startedOn": null,
+            "duration": null,
+            "distance": null,
+            "endedOn": null,
+            "delayedBy": null,
+            "plannedEndTime": 1591891234,
+            "plannedStartTime": 1737698606,
+            "plannedDuration": 3597,
+            "plannedDistance": 23.110799999999998
+        },
+        "start": {
+            "plannedTime": 1737698606
+        },
+        "links": {
+            "embedUrl": "https://intouch.mapmyindia.com/widget/trips/#/67932d2ee1b7d91042866e25?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
         }
-      }
-    ],
-    "start": {
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          77.234,
-          28.456
-        ]
-      },
-      "radius": 100,
-      "plannedTime": 0,
-      "name": "string",
-      "arrivalTime": 0,
-      "departureTime": 0,
-      "address": "string",
-      "time": 0,
-      "distance": 0,
-      "pointName": "string",
-      "jobId": "638f1045cc3758363bc89437",
-      "links": {
-        "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
-      },
-      "metadata": {
-        "myattribute": "sample text"
-      }
-    },
-    "links": {
-      "embedUrl": "https://intouch.mappls.com/widget/{type}/#/638f1045cc3758363bc89437?access_token=0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
-    },
-    "summary": {
-      "startedOn": 0,
-      "duration": 0,
-      "distance": 7876.33,
-      "endedOn": 1593157994,
-      "delayedBy": 0,
-      "plannedEndTime": null,
-      "plannedStartTime": 1593157994,
-      "plannedDuration": 0,
-      "plannedDistance": 0
     }
-  }
 }
 ```
 
