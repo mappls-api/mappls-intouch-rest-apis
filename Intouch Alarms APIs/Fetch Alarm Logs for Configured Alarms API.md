@@ -130,30 +130,63 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 ## **Sample Input**
 
 ```
-https://intouch.mappls.com/iot/api/alarm/alarmLog/?deviceId=8989&alarmType=28&startTime=1577589789&endTime=1577589988
+https://intouch.mappls.com/iot/api/alarm/alarmLog/?deviceId=10647019&alarmType=26&startTime=1737687960&endTime=1737690120
 ```
 
 ## **Sample Output**
 
 ```json
 {
-  "data": [
-    {
-      "deviceId": 8989,
-      "timestamp": 1577589789,
-      "latitude": 28.550962381896,
-      "longitude": 77.26890675033,
-      "address": "237, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Wipro BPO Corporate Office pin-110020",
-      "alarmType": 28,
-      "limit": 44,
-      "duration": 20,
-      "actualLimit": 57,
-      "actualDuration": 25,
-      "severity": 1,
-      "data": 1,
-      "geofenceId": 987876
-    }
-  ]
+    "data": [
+        {
+            "deviceId": 10647019,
+            "timestamp": 1737689727,
+            "latitude": 28.5435685,
+            "longitude": 77.2646272,
+            "address": "105, Shri Maa Anandmai Marg, Ami Chand Khand, Giri Nagar, Kalkaji, New Delhi, Delhi. 26 m from Metro Pillar No 167, Pin-110019 (India)",
+            "alarmType": 26,
+            "limit": 0,
+            "data": 2,
+            "geofenceId": 1192140,
+            "severity": 0
+        },
+        {
+            "deviceId": 10647019,
+            "timestamp": 1737689743,
+            "latitude": 28.5459278,
+            "longitude": 77.2638532,
+            "address": "Shri Maa Anandmai Marg, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 21 m from Metro Pillar No 162, Pin-110020 (India)",
+            "alarmType": 26,
+            "limit": 0,
+            "data": 3,
+            "geofenceId": 1192140,
+            "severity": 0
+        },
+        {
+            "deviceId": 10647019,
+            "timestamp": 1737689858,
+            "latitude": 28.5454886,
+            "longitude": 77.264084,
+            "address": "Shri Maa Anandmai Marg, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 23 m from Metro Pillar No 163, Pin-110020 (India)",
+            "alarmType": 26,
+            "limit": 0,
+            "data": 2,
+            "geofenceId": 1192140,
+            "severity": 0
+        },
+        {
+            "deviceId": 10647019,
+            "timestamp": 1737689973,
+            "latitude": 28.5458946,
+            "longitude": 77.2690323,
+            "address": "12C, Okhla Phase 3 Road, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 67 m from Mother Dairy, Pin-110020 (India)",
+            "alarmType": 26,
+            "limit": 0,
+            "data": 3,
+            "geofenceId": 1192140,
+            "severity": 0
+        }
+    ]
 }
 ```
 
