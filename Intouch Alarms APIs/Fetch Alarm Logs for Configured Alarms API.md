@@ -73,15 +73,15 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 ## **Response Parameters**
 
 - **`AlertObject`**
-     - **`deviceId`**(number): The ID of the device that generated the alarm. (Will come only in case of /alarmLog GET API response). `Example: 8989`
+     - **`deviceId`**(number): The ID of the device that generated the alarm. (Will come only in case of /alarmLog GET API response).
      
-     - **`timestamp`**(number): Time at which the alert got generated. `Example: 1577589789`
+     - **`timestamp`**(number): Time at which the alert got generated.
      
-     - **`latitude`**(number): The latitude of the alarm location. `Example: 28.550962381896`
+     - **`latitude`**(number): The latitude of the alarm location. 
      
-     - **`longitude`**(number): The longitude of the alarm location. `Example: 77.26890675033`
+     - **`longitude`**(number): The longitude of the alarm location.
      
-     - **`address`**(string): Location address at which the alarm got generated. `Example: "237, Okhla Industrial Estate Phase 3, New Delhi"`
+     - **`address`**(string): Location address at which the alarm got generated.
      
      - **`alarmType`**(integer): The type of alarm triggered (e.g., 28 for IDLE). Following are the alarm types & their corresponding IDs:
           - `IGNITION`: 21
@@ -103,9 +103,9 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
      
      - **`duration`**(integer): Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs.
      
-     - **`actualLimit`**(integer): The actual data received from the device at that particular moment when the alarm got generated. `Example: 57`
+     - **`actualLimit`**(integer): The actual data received from the device at that particular moment when the alarm got generated.
      
-     - **`actualDuration`**(integer): The actual duration for which the device breached the alarm limits. `Example: 25 seconds`
+     - **`actualDuration`**(integer): The actual duration for which the device breached the alarm limits.
      
      - **`severity`**(integer): The severity of the alarm.
           - `0` : Low Severity
@@ -124,7 +124,7 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
             - `3` : Leaving Geofence
             - `4` : Long Stay In Geofence
      
-     - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence. `Example: 987876`
+     - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence.
 
 
 ## **Sample Input**
