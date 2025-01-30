@@ -81,7 +81,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 - **`limit`**(integer):Only required in case of *overspeed, vehicle battery, mileage, distance covered, internal battery alarm*. 
 
-- **`geofenceId`**(array): Only required when `alarmType` is `26` (Geofence). Accepts single or multiple geofence IDs separated by commas. `Example: [23434, 45454]`
+- **`geofenceId`**(array): Only required when `alarmType` is `26` (Geofence). Accepts single or multiple geofence IDs separated by commas. 
 
 - **`severity`**(integer): This basically defines the severity of the alarm. Use `0` for normal severity and `1` for high severity.
 

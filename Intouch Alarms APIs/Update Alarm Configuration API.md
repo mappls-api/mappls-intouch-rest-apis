@@ -74,6 +74,9 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **`alarmType`**(integer): Specifies the type of alarm being updated. `Example: 26`
 - **`alarmTimeType`**(integer): Specifies the timing type of the alarm. `Example: 0`
 
+## **Response Parameters**
+The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
+
 ## **Sample cURL Request**
 
 ```bash

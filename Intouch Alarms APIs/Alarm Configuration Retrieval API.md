@@ -60,7 +60,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
   - **`type`**(integer): Values depends on the type of alarm configured.
   - **`creationTime`**(number): Timestamp when the alarm was created.
   - **`updationTime`**(integer): Timestamp when the alarm was last updated.
-  - **`geofenceId`**(number): If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured. `Example: [1001, 2002]`
+  - **`geofenceId`**(number): If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured.
   - **`severity`**(integer): Severity of the alarm (0 for normal, 1 for high severity).
 
 ## **Sample cURL Request**

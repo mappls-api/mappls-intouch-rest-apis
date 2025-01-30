@@ -48,6 +48,9 @@ Path Parameters:v
 | `401(Unauthorized Request)` | Access to the API is forbidden due to lack of proper authorization. |   `
 | `404(Not Found)` | The requested URL or group ID was not found. |
 
+## **Response Parameters**
+The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
+
 ## **Sample cURL Request**
 ```bash
 curl --location 'https://intouch.mappls.com/iot/api/group/8228#027853' \
@@ -66,11 +69,7 @@ curl --location 'https://intouch.mappls.com/iot/api/group/8228#027853' \
             "colorCode": null
         }'
 ```
-## **Sample output**
 
-```json
-{}
-```
 
 <br></br>
 
