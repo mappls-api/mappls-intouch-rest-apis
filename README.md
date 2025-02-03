@@ -2,9 +2,9 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Comprehensive Route & Fleet Management APIs
+# Intouch Route & Fleet Management APIs
 
-This repository provides comprehensive documentation for APIs designed to streamline route planning, fleet management, and associated operations. These APIs enable efficient tracking, reporting, and optimization of workflows, ensuring seamless integration into logistics systems.
+This repository contains documentation for *`Intouch APIs`*, designed to streamline and optimize fleet and route management. With a focus on real-time tracking, reporting, and performance optimization, these APIs help businesses simplify logistics operations. They integrate critical data like trip details, device statuses, alarms, and geofences, ensuring seamless communication and better decision-making. By leveraging Intouch APIs, companies can automate complex workflows, improve operational efficiency, and gain valuable insights for proactive management of their fleets. Whether it’s monitoring charging events or tracking driver behavior, these APIs offer a comprehensive solution for efficient fleet management.
 
 ## Table Of Content
 
