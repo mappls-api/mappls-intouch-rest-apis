@@ -6,31 +6,31 @@ info:
     related to their devices such as live location,trails,alarms etc. These
     telematics APIs are powered by MapmyIndia's own INTOUCH platform. MapmyIndia InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can
     find out more about Intouch  at
-    [http://mapmyindia.com/intouch](http://mapmyindia.com/intouch)
-  termsOfService: 'https://www.mapmyindia.com/about/terms-conditions'
+    [http://mappls.com/intouch](http://mappls.com/intouch)
+  termsOfService: 'https://www.mappls.com/about/terms-conditions'
   contact:
-    email: apisupport@mapmyindia.com
+    email: apisupport@mappls.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  version: 1.0.0
+  version: 2.0.0
 externalDocs:
   description: More About Telematics APIs.
-  url: 'https://www.mapmyindia.com/intouch/#telematics-tracking'
+  url: 'https://about.mappls.com/intouch-platform/#telematics-tracking'
   
 servers:
-  - url: 'https://intouch.mappls.com/iot/api'
+  - url: 'https://intouch.mappls.com/iot/api/v2.0'
 tags:
   # - name: Telematics APIs
   #   description: Everything about your Devices
   #   externalDocs:
-  #     description: Find out more
-  #     url: 'https://www.mapmyindia.com/intouch/#telematics-tracking'
+    #     description: Find out more
+    #     url: 'https://about.mappls.com/intouch-platform/#telematics-tracking'
   - name: Intouch IoT Apps
     description: Everything about IoT apps powered by Intouch
     externalDocs:
       description: Find out more
-      url: 'https://www.mapmyindia.com/intouch/'
+      url: 'https://about.mappls.com/intouch-platform/'
 paths:
   /device:
     get:

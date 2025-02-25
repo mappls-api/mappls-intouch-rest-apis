@@ -13,7 +13,7 @@ This API follows OAuth2 based security. To know more on how to create your autho
 
 ## **Request Headers**
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`"{token_type} {access_token}”`.**
+The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`{token_type} {access_token}`.**
 
 - **Authorization: `{token_type} {access_token}.`**
 - **Content-Type: `application/json`**
@@ -45,11 +45,11 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 1. **`id`**(Integer): This is the device's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all active devices in the account.
 
-2. **`includeInActive`**(Boolean): Non mandatory boolean field. If this field is not sent then by default API response will send all active devices. If `true` then API reponse will have inactive devices along with active devices. If `false` then API will return only active devices
+2. *`includeInActive`*(Boolean): Non mandatory boolean field. If this field is not sent then by default API response will send all active devices. If `true` then API reponse will have inactive devices along with active devices. If `false` then API will return only active devices
 
-3. **`ignoreBeacon`**(Boolean): INon mandatory field. If set to true then API will return all devices except those whose device type is beacon(mobile).
+3. *`ignoreBeacon`*(Boolean): Non mandatory field. If set to true then API will return all devices except those whose device type is beacon(mobile).
 
-4. **`state`**(Number): Non mandatory field. Input timestamp in this field to fetch only those live locations of devices which have come after the input timestamp. If `state` is sent then by default only active devices will be fetched irrespective of the status of `includeInActive` attribute.
+4. *`state`*(Number): Non mandatory field. Input timestamp in this field to fetch only those live locations of devices which have come after the input timestamp. If `state` is sent then by default only active devices will be fetched irrespective of the status of `includeInActive` attribute.
 
 ## **Response Parameter**
 
