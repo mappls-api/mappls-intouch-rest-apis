@@ -59,31 +59,31 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 
 ## **Response Parameters**
 
-- **`driveDistance`**(number): Distance traveled based on drive-specific metrics. `Example: 18.590760091268244`
+- **`driveDistance`**(number): Distance traveled based on drive-specific metrics. `Example: 16.891951380075835`
 
-- **`distance`** (number): Total distance traveled during the specified period. `Example: 18.590760091268244`
+- **`distance`** (number): Total distance traveled during the specified period. `Example: 16.891951380075835`
 
-- **`totalEvents`** (integer): The total number of events recorded during the period. `Example: 4976`
+- **`totalEvents`** (integer): The total number of events recorded during the period. `Example: 1195`
 
-- **`movementTime`**(integer): The total duration (in seconds) of device movement. `Example: 2086`
+- **`movementTime`**(integer): The total duration (in seconds) of device movement. `Example: 1353`
 
-- **`nogps`** (integer): Number of instances where no GPS signal was available. `Example: 2611`
+- **`nogps`** (integer): Number of instances where no GPS signal was available. `Example: 211`
 
 - **`type`** (integer): The type of device for which data is returned. `Example: 0`
 
-- **`idleTime`** (integer): Total idle time (in seconds) during the period. `Example: 14636`
+- **`idleTime`** (integer): Total idle time (in seconds) during the period. `Example: 18013`
 
-- **`duration`** (integer): Total duration (in seconds) of the time period. `Example: 19333`
+- **`duration`** (integer): Total duration (in seconds) of the time period. `Example: 19577`
 
 - **`obdConnection`** (integer/null): Represents the state of OBD (On-Board Diagnostics) connection. `Example: null`
 
-- **`idealEvents`**(integer): The number of ideal (expected) events recorded. `Example: 1944`
+- **`idealEvents`**(integer): The number of ideal (expected) events recorded. `Example: 1190`
 
-- **`startTime`**(integer): The epoch timestamp representing the start of the period. `Example: 1709619447`
+- **`startTime`**(integer): The epoch timestamp representing the start of the period. `Example: 1735183361`
 
-- **`endTime`** (integer): The epoch timestamp representing the end of the period. `Example: 1709638780`
+- **`endTime`** (integer): The epoch timestamp representing the end of the period. `Example: 1735202938`
 
-- **`nogpsDistance`**(number): Distance traveled when GPS signal was unavailable. `Example: 0.36677663593731297`
+- **`nogpsDistance`**(number): Distance traveled when GPS signal was unavailable. `Example: 0.5468242487884609`
 
 ## **Sample Input**
 

@@ -18,7 +18,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **Authorization: `{token_type} {access_token}.`**
 - **Content-Type: `application/json`**
 
-
 ## **Input Method:** 
 - GET
 
@@ -54,78 +53,88 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 ## **Response Parameter**
 
 - **`DeviceData`**
-    - **`id`**(integer)($int64): Unique identifier for the device.
+    - **`id`**(integer): Unique identifier for the device.
 
-    - **`active`**(string): Indicates if the device is active. `Example: true`  
+    - **`active`**(string): Indicates if the device is active.
          - **`Enum Value`s**: [ true, false ]
 
-    - **`status`**(number) : Represents the device's movement status:
-         - `1`: moving
-         - `2` : idle i.e. ignition is on and speed <= 7km/hr
-         - `3` : stopped i.e. engine is off
-         - `4` : towing i.e. ignition is off, but vehicle speed
-         - `5` : no data i.e. no communication of device with intouch server or no    GPRS signal
-         - `6` : power off
-         - `7` : no gps i.e. satellite count is less than 4
-         - `8` : on trip i.e. device is currently on an active trip
-         - `9` : free vehicle i.e. device is not on any active trip
+    - **`status`**(number): Represents the device's movement status:
+         - `1` : Moving
+         - `2` : Idle i.e. ignition is on and speed <= 7km/hr
+         - `3` : Stopped i.e. engine is off
+         - `4` : Towing i.e. ignition is off, but vehicle speed
+         - `5` : No data i.e. no communication of device with intouch server or no    GPRS signal
+         - `6` : Power off
+         - `7` : No GPS i.e. satellite count is less than 4
+         - `8` : On trip i.e. device is currently on an active trip
+         - `9` : Free vehicle i.e. device is not on any active trip
 
-    - **vehicleBattery**(number): Battery voltage of the vehicle. `Example: 13568.98`
+    - **vehicleBattery**(number): Battery voltage of the vehicle.
 
-- **`location`**
-    - **`gpsTime`**(number): GPS timestamp. Example: `1574736922`  
+- **`location`**:
+    - **`gpsTime`**(number): GPS timestamp.
     
-    - **`gprsTime`**(number): GPRS timestamp. `Example: 1574736922` 
+    - **`gprsTime`**(number): GPRS timestamp.
 
-    - **`latitude`**: `number` Device's latitude. `Example: 28.551255163434`  
+    - **`latitude`**(number): Device's latitude.
         
+    - **`longitude`**(number):  Device's longitude.
 
-    - **`longitude`**: `number`  Device's longitude. `Example: 77.2687`      
-
-    - **`address`**: `string` Location address of the device. `Example: "244, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 2 m from Usha Exim Pvt Ltd pin-110020"`  
+    - **`address`**(string): Location address of the device.
       
-
-    - **`altitude`** (number): Device altitude in meters. `Example: 234`   
+    - **`altitude`**(number): Device altitude in meters.  
       
-    - **`heading`** (number): Direction of movement in degrees.` Example: 196.868` 
+    - **`heading`**(number): Direction of movement in degrees.
        
-    - **`speedKph`** (number): Speed in kilometers per hour. `Example: 27.85`  
+    - **`speedKph`**(number): Speed in kilometers per hour.
         
-    - **`odometer`**(number): Total distance covered by the vehicle. `Example: 12548.22`  
+    - **`odometer`**(number): Total distance covered by the vehicle.
       
-- **`deviceDetails`**
-    - **`name`**: `string` Device name.Example: `DL3CCM8097x
+- **`deviceDetails`**:
+    - **`name`**(string): Name of the Device.
 
-    - **`registrationNumber`**: `string`  Vehicle registration number. `Example: DL3CCM8097`  
+    - **`registrationNumber`**(string): Vehicle registration number.
 
-    - **`deviceType`**(string): Type of device. `Example: car`  
+    - **`deviceType`**(string): Type of device.
     - **`Enum Values`**: `[ car, truck, bus, bike, tractor, JCB, excavator ]`
 
 -  **``AlertObject``**
-   - **`deviceId`**(number): Device ID that generated the alert(Will come only in case of /alarmLog GET API response). `Example: 8989`
+   - **`deviceId`**(number): Device ID that generated the alert(Will come only in case of /alarmLog GET API response).
 
-   - **`timestamp`**(number): Time at which the alert got generated `Example: 1577589789`  
+   - **`timestamp`**(number): Time at which the alert got generated.
 
-   - **`latitude`**(number): Latitude at the time of alert. `Example: 28.550962381896`  
+   - **`latitude`**(number): Latitude at the time of alert.
     
-   - **`longitude`**(number): Longitude at the time of alert. `Example: 77.26890675033`  
+   - **`longitude`**(number): Longitude at the time of alert.  
     
-   - **`address`**(string): Location address at which the alarm got generated. `Example: "237, Okhla Industrial Estate Phase 3, New Delhi, Delhi. 19 m from Wipro BPO Corporate Office pin-110020"`
+   - **`address`**(string): Location address at which the alarm got generated.
    
-   - **`alarmType`**(integer): Type of alarm to create. Following are the alarm types & their corresponding IDs. 
-IGNITION: `21`, OVERSPEED: `22`, UNPLUGGED: `23`, PANIC: `24`, GEOFENCE: `26`, STOPPAGE: `27`, IDLE: `28`, TOWING: `29`, GPRS CONNECTIVITY: `126`, VEHICLE BATTERY: `129, MILEAGE: 133`, GPS CONNECTIVITY: `146`, DISTANCE COVERED: `151`, INTERNAL BATTERY VOLTAGE:`161`.  `Example: 28`
+   - **`alarmType`**(integer): Type of alarm to create. Following are the alarm types & their corresponding IDs:
+       - `IGNITION` : `21`
+       - `OVERSPEED` : `22`
+       - `UNPLUGGED` : `23`
+       - `PANIC` : `24`
+       - `GEOFENCE` : `26`
+       - `STOPPAGE` : `27`
+       - `IDLE` : `28`
+       - `TOWING` : `29`
+       - `GPRS CONNECTIVITY` : `126`
+       - `VEHICLE BATTERY` : `129, MILEAGE: 133`
+       - `GPS CONNECTIVITY` : `146`
+       - `DISTANCE COVERED` : `151`
+       - `INTERNAL BATTERY VOLTAGE` : `161`.
 
-   - **`limit`**(integer): Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr. `Example: 44`
+   - **`limit`**(integer): Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr. 
   
-   - **`duration`**(integer): Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs. `Example: 20`
+   - **`duration`**(integer): Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs. 
    
-   - **`actualLimit`**(integer): The actual data received from the device at that particular moment when the alarm got generated. `Example: 57`
+   - **`actualLimit`**(integer): The actual data received from the device at that particular moment when the alarm got generated. 
 
-   - **`actualDuration`**(integer): Actual duration for which the device breached the alarm config limit. `Example: 25`
+   - **`actualDuration`**(integer): Actual duration for which the device breached the alarm config limit. 
 
-   - **`severity`**(integer): 0 - Low Severity. 1 - High Severity. `Example: 1`
+   - **`severity`**(integer): Indicates the level of seriousness of an alarm, where `0` is low severity and `1` is high severity, helping classify how critical the alarm event is.
 
-   - **`data`**:(integer) Describes the state of the alarm. `Example: 1`
+   - **`data`**:(integer) Describes the state of the alarm. 
         - `For IGNITION(type = 21)`
            - `0` : OFF
            - `1` : ON
@@ -138,91 +147,85 @@ IGNITION: `21`, OVERSPEED: `22`, UNPLUGGED: `23`, PANIC: `24`, GEOFENCE: `26`, S
            - `3` : Leaving Geofence
            - `4` : Long Stay In Geofence.
 
-   - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence. `Example: 987876`
-
+   - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence. 
 -  **`canInfo`**
-   - **`calcEngineVal`**(integer): `Example: 0`
+   - **`calcEngineVal`**(integer) 
 
-   - **`greenDriveType`**(string): Driving behavior type. `Example: HA` Possible values:  
+   - **`greenDriveType`**(string): Driving behavior type.  Possible values:  
        - `HA` : Harsh Acceleration  
        - `HB` : Harsh Braking  
        - `HC` : Harsh Cornering.
 
-   - **`canTimestamp`**(number): Exact time at which the CAN data got generated by the device. `Example: 1568362645`  
+   - **`canTimestamp`**(number): Exact time at which the CAN data got generated by the device. 
   
-   - **`coolantTemp`**(number): Coolant temperature in degrees Celsius. `Example: 87`  
+   - **`coolantTemp`**(number): Coolant temperature in degrees Celsius. 
  
-   - **`engineRPM`**(integer): Revolutions per minute of the engine. `Example: 796`  
+   - **`engineRPM`**(integer): Revolutions per minute of the engine. 
     
-   - **`accelPedal`**(number): This is accelerator pedal value as a percentage. `Example: 8.4`   
+   - **`accelPedal`**(number): This is accelerator pedal value as a percentage. 
    
-   - **`parkBrake`**(number): This is parking break. `0` means parking break is disengaged & `1` means parking break is engaged. `Example: 0`  
+   - **`parkBrake`**(number): This is parking break. 
+       - `0` : means parking break is disengaged
+       - `1` : means parking break is engaged.   
   
-   - **`breakPedal`**(number): Indicates brake pedal status: `1` means break pedal is engaged & `0` means break pedal is disengaged. `Example: 0`
+   - **`breakPedal`**(number): Indicates brake pedal status: `1` means break pedal is engaged & `0` means break pedal is disengaged. 
    
-   - **`fuelLevel`**(integer): Fuel level in liters. `Example: 14` 
+   - **`fuelLevel`**(integer): Fuel level in liters. 
   
-   - **`driverDoor`**(number): Driver door status:1 means door is open & 0 means door is closed. `Example: 0` 
+   - **`driverDoor`**(number): Driver door status:1 means door is open & 0 means door is closed.  
 
    - **`headLights`**(number): Headlights status:  
-       - `0`: OFF  
-       - `1`: ON   `Example: 1`
+       - `0` : OFF  
+       - `1` : ON 
 
    - **`blinker`**: `number` Blinker status:  
-       - `0`: OFF  
-       - `1`: ON   `Example: 0`  
+       - `0` : OFF  
+       - `1` : ON   
   
    - **`gearState`**(number): Gear state:  
-       - `0`: Neutral  
-       - `1`: Drive  
-       - `2`: Sports  
-       - `3`: Reverse.  ` Example: 0`
-       
+       - `0` : Neutral  
+       - `1` : Drive  
+       - `2` : Sports  
+       - `3` : Reverse.  
 
-   - **`intakeAirTemp`**(number): This is the intake air temperature of the engine in degrees Celsius. `Example: 62`  
+   - **`intakeAirTemp`**(number): This is the intake air temperature of the engine in degrees Celsius.   
 
-   - **`intakeabsolutePress`**(number): This is the intake absolute pressure of the engine. It is defined in Pa(Pascal). `Example: 42`
+   - **`intakeabsolutePress`**(number): This is the intake absolute pressure of the engine. It is defined in Pa(Pascal). 
 
    - **`ac`**(integer): Air conditioner status:  
-       - `0`: OFF  
-       - `1`: ON  `Example: 0`
+       - `0` : OFF  
+       - `1` : ON 
 
-   - **`fuelConsAVG`**(integer): Fuel constant average. `Example: 99`  
+   - **`fuelConsAVG`**(integer): Fuel constant average. 
 
 - **`deviceFaults`**
-    - **`code`**(integer):Fault code. `Example: `1001`
+    - **`code`**(integer):Fault code. 
 
-    - **`timestamp`**(number): Timestamp when the fault was detected. `Example: 787654544` 
+    - **`timestamp`**(number): Timestamp when the fault was detected. 
 
     - **`status`**(integer): Describes the status of the fault which was detected.
-        - `0`: Open  
-        - `1`: Closed  Example: `0`
+        - `0` : Open  
+        - `1` : Closed 
 
-    - **`closedOn`**(number): Timestamp when the fault was resolved. `Example: 556567872`  
-
+    - **`closedOn`**(number): Timestamp when the fault was resolved.
 
 - **`currentGeofence`**(number): Array of geofence IDs currently associated with the device.
 
 - **`todaysDrive`**
-    - **`todayKms`**(number): Total kilometers driven today.  
-      Example: `55.67`  
-      
+    - **`todayKms`**(number): Total kilometers driven today.   
 
-    - **`todayMovementTime`**(number): Total movement time today in seconds.  
-      Example: `67654`  
-      
+    - **`todayMovementTime`**(number): Total movement time today in seconds.
 
     - **`todayIdleTime`**(number): Total idle time today in seconds.  
-      Example: `4444`  
 
-    - **`todayDriveCount`**(integer): Number of drives completed today. `Example: 5`  
+    - **`todayDriveCount`**(integer): Number of drives completed today.
 
 -  **`externalSensorObject`**
-      - **`sensorId`**(string): Identifier for the external sensor. `Example: 1`
+      - **`sensorId`**(string): Identifier for the external sensor.
 
-      - **`temperature`**(number): Temperature reading from the external sensor in degrees Celsius. `Example: 28.32`
+      - **`temperature`**(number): Temperature reading from the external sensor in degrees Celsius.
 
-- **`fuelLiters`**(number): Fuel level in liters, Value is calculated using external fuel sensor. `Example: 78.8`
+- **`fuelLiters`**(number): Fuel level in liters, Value is calculated using external fuel sensor.
 
 
 ## **Sample Input**
