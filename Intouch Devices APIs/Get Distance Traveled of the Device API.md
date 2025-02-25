@@ -69,13 +69,19 @@ The **`“bold”`** one’s are mandatory, and the *`“italic”`* one’s are
 
 - **`nogps`** (integer): Number of instances where no GPS signal was available. `Example: 211`
 
-- **`type`** (integer): The type of device for which data is returned. `Example: 0`
+- **`type`** (integer): Indicates the type of odometer data returned. `Example: 0`
+  - `0` : GPS-Based Odometer (GPS Tracking)
+  - `1` : CAN-Based Odometer (CAN Info)
+  - `2` : Hybrid Odometer (GPS + CAN Info Combined), the odometer reading is calculated using both GPS data and CAN data together.
 
 - **`idleTime`** (integer): Total idle time (in seconds) during the period. `Example: 18013`
 
 - **`duration`** (integer): Total duration (in seconds) of the time period. `Example: 19577`
 
 - **`obdConnection`** (integer/null): Represents the state of OBD (On-Board Diagnostics) connection. `Example: null`
+  - `1` : .OBD is connected.
+  - `0` : OBD is disconnected
+  - `null` : OBD data is not available (possibly a non-OBD device).
 
 - **`idealEvents`**(integer): The number of ideal (expected) events recorded. `Example: 1190`
 
