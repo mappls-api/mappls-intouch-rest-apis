@@ -23,7 +23,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Input URL**
 
-> https://intouch.mappls.com/iot/api/device​/{deviceId}​/distance?
+> https://intouch.mappls.com/iot/api/device​/{deviceId}​/distance
 
 ## **Response Type**
 - JSON

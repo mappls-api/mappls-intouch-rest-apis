@@ -21,7 +21,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - GET
 ## **Input URL:**
 
- > https://intouch.mappls.com/iot/api/geofence/?ignoreGeometry=
+ > https://intouch.mappls.com/iot/api/geofence/
 
 ## **Response Type**
 - JSON
