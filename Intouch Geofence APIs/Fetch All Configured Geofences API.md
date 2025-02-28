@@ -28,15 +28,15 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Response Codes {as HTTP response code}**
 
-- 200 `OK` - The request was successfully processed, and the operation was successful.
+- `200(OK)` : The request was successfully processed, and the operation was successful.
 
-- 203 `Device Not Found` - No device found with the provided ID.
+- `203(Device Not Found)` : No device found with the provided ID.
 
-- 400 `Bad Request` - User made an error while creating a valid request.
+- `400(Bad Request)` : User made an error while creating a valid request.
 
-- 401 `Unauthorized Request` - Access to API is forbidden.
+- `401(Unauthorized Request)` : Access to API is forbidden.
 
-- 404 `URL Not Found` - URL Not Found
+- `404(URL Not Found)` : URL Not Found
 
 ## **Request Parameters**
 
