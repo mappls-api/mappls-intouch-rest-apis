@@ -55,23 +55,23 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 - **`DriveData parameters:`**: The `DriveData` encapsulates the details of a single drive instance, including location, movement metrics, and driving behavior counts.
      - **`deviceId`**(number): The unique identifier of the device for which the drive details are provided. `Example: 67790`
      - **`location parameters:`**: Details about the start and end points of the drive, along with the average speed.
-          - `startAddress`(string): The address where the drive starts. `Example: 3605, 13th G Main Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 35 m from Supraja Meru pin-560038 (India)`
-          - `startTimestamp`(number): The epoch timestamp indicating the start time of the drive. `Example: 1574913781`
-          - `endAddress`(string): The address where the drive ends. `Example: 1139, Sweth Ambara, 1st Cross Road, HAL Stage 2, Indiranagar, Bengaluru, Karnataka. 32 m from AMC Cookware India Pvt Ltd pin-560038`
-          - `endTimestamp`(number): Epoch timestamp indicating when the drive ended. `Example: 1574914046`
-          - `avgSpeed`(number): The average speed during the drive in km/h. `Example: 45.34`
+          - `startAddress`(string): The address where the drive starts. `Example: Acharya Shree Tulsi Das Marg, Aravalli Biodiversity Park, Gurugram, Haryana. 2 m from Metro Pillar No 9, Pin-122002 (India)`
+          - `startTimestamp`(number): The epoch timestamp indicating the start time of the drive. `Example: 1736388443`
+          - `endAddress`(string): The address where the drive ends. `Example: Lado Sarai, New Delhi, Delhi. 248 m from Delhi Jal Board Government of NCT (India) `
+          - `endTimestamp`(number): Epoch timestamp indicating when the drive ended. `Example: 1736389221`
+          - `avgSpeed`(number): The average speed during the drive in km/h. `Example: 42.39`
           
      - **`movement parameters:`**: Metrics related to the movement of the vehicle during the drive.
-        - `duration`(number): Total duration of the drive in seconds.`Example: 265`
-        - `distance`(number): The distance traveled in kilometers.`Example: 12.34`
-        - `idleTime`(number): The time the vehicle was stationary in seconds`Example: 265`
-        - `movementTime`(number): Time spent moving in seconds.`Example: 800`
-        - `stoppageTime`(number): Stoppages time in seconds. `Example: 1300`
+        - `duration`(number): Total duration of the drive in seconds.`Example: 778`
+        - `distance`(number): The distance traveled in kilometers.`Example: 12.71`
+        - `idleTime`(number): The time the vehicle was stationary in seconds`Example: 130`
+        - `movementTime`(number): Time spent moving in seconds.`Example: 466`
+        - `stoppageTime`(number): Stoppages time in seconds. `Example: 182`
         
      - **`drivingBehaviourCount parameters:`**: Counts of specific driving behavior events observed during the drive.
-        - `haCount`(integer): Count of harsh acceleration events. `Example: 2`
-        - `hbCount`(integer): Count of harsh braking events. `Example: 5`
-        - `hcCount`(integer): Count of harsh cornering events. `Example: 1`
+        - `haCount`(integer): Count of harsh acceleration events. `Example: 0`
+        - `hbCount`(integer): Count of harsh braking events. `Example: 0`
+        - `hcCount`(integer): Count of harsh cornering events. `Example: 0`
 
 ## **Sample Input**
 
