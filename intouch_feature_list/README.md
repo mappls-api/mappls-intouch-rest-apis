@@ -18,7 +18,6 @@ enabling accurate telematics, location intelligence, and device activity trackin
 ### 1. **Device Initialization**
 - Before using any tracking features, the Device must be initialized.
 - **`InTouch SDK supports two ways to initialize a device`**:
-
    1. SDK initializes with device name, and self generated deviceId - useful when tracking devices when there is no unique userId available from the consuming application.
    2. SDK initializes with device name and client app's uniqueId (which can be that user's ID); thereby ensuring that even if the user changes his device, the same device name persists for that user's data.
 
