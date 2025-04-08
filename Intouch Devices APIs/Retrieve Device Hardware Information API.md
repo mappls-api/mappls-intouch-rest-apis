@@ -40,37 +40,37 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 | Parameter | Type | Location | Description | Example |
 | --- | --- | --- | --- | --- |
-| `id` | integer | query | This is the physical device's ID, a non-mandatory parameter. If not passed, the API will return hardware info of all active devices in the account. | `1363489` |
+| `id` | integer | query | This is the physical device's ID, a non-mandatory parameter. If not passed, the API will return hardware info of all active devices in the account. | `4734899` |
 
 ## **Response Parameters**
 - ***`devicehardwareinfoobject`***
   - **`data`**(array): Contains hardware details of the device(s).
-      - **`id`**(integer): Id of the physical hardware device. `Example: 0`
+      - **`id`**(integer): Id of the physical hardware device. `Example: 4734899`
 
-      - **`name`**(string): The name of the physical hardware device. `Example: MMI314295`
+      - **`name`**(string): The name of the physical hardware device. `Example: pixel 7`
         
-      - **`deviceType`**(integer): type of device for eg; drivate, vt etc. `Example: 868728030749458`
+      - **`deviceType`**(integer): type of device for eg; drivate, vt etc. `Example: 35`
 
-      - **`deviceTypeName`**(string): Name of the type of device. `Example: drive mate pro`
+      - **`deviceTypeName`**(string): Name of the type of device. `Example: Beacon`
 
-      - **`trackingCode`**(string): Tracking code/unique code number of the device. `Example: 868728030749458`
+      - **`trackingCode`**(string): Tracking code/unique code number of the device. `Example: 9835012644DB5D66BC004231A4732F61D330E2AF83D7FCA0`
 
-      - **`deviceCode`**(string): Another unique number, genrally same as tracking code. `Example: 868728030749458`
+      - **`deviceCode`**(string): Another unique number, genrally same as tracking code. `Example: a9cb09062e7002b3`
 
       - **`active`**(boolean): Indicates whether the device is active. `Example: true`
            - `true`: nactive
            - `false`: inactive
 
-      - **`mappedDeviceIds`**(number): The ids of the entities which are linked to the id of the physical hardware device. `Example: 887876`
+      - **`mappedDeviceIds`**(number): The ids of the entities which are linked to the id of the physical hardware device. `Example: 8801670`
 
-      - **`odometerType`**(integer): Specifies the type of odometer used by the device. `Example: 2`
+      - **`odometerType`**(integer): Specifies the type of odometer used by the device. `Example: 0`
           - `0`: Odometer not supported
           - `1`: GPS-based odometer (comes from the device)
           - `2`: CAN-based odometer (comes from vehicle's CAN bus)
 
-      - **`installDate`**(number): Timestamp representing when the device was installed. `Example: 1581273000`
+      - **`installDate`**(number): Timestamp representing when the device was installed.
 
-      - **`expiryDate`**(number): Timestamp representing when the device will expire or no longer be valid. `Example: 1600713000`
+      - **`expiryDate`**(number): Timestamp representing when the device will expire or no longer be valid. `Example: 1749298148`
 
 ## **Sample Input**  
 
