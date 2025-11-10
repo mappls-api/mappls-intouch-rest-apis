@@ -10,7 +10,7 @@ The Intouch Devices APIs include a set of APIs that enable interaction with devi
 - <u>[Get Device Live Data API](./Get%20Device%20Live%20Data%20API.md)</u>
 - <u>[Nearby Device Locator API](./Nearby%20Device%20Locator%20API.md)</u>
 - <u>[Retrieve Device Hardware Information API](./Retrieve%20Device%20Hardware%20Information%20API.md)</u>
-- <u>[Retrieve Basic Information of Device API.md](./Retrieve%20Basic%20Information%20of%20Device%20API.md)</u>
+- <u>[Retrieve Basic Information of Device API](./Retrieve%20Basic%20Information%20of%20Device%20API.md)</u>
 - <u>[Get Distance Traveled of the Device API](./Get%20Distance%20Traveled%20of%20the%20Device%20API.md)</u>
 
 
