@@ -8,7 +8,7 @@
 ## **Introduction**
 
 The *`Delete Configured Alarm API`* is used to delete a specific alarm configuration from the system. This API requires the unique identifier (ID) of the alarm configuration that you wish to remove. It performs a DELETE operation, which, once successfully executed, removes the specified alarm from the system.
-> **Note:** Ensure the alarm exists before attempting deletion. Use the [Alarm Configuration Retrieval API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Alarms%20APIs/Alarm%20Configuration%20Retrieval%20API.md) to obtain the corresponding `alarm Id`.
+> **Note:** Ensure the alarm exists before attempting deletion. Use the [Alarm Configuration Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Alarms%20APIs/Alarm%20Configuration%20Retrieval%20API.md) to obtain the corresponding `alarm Id`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
