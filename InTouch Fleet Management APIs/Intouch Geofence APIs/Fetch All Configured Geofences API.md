@@ -3,13 +3,13 @@
 
 # Fetch All Configured Geofences API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Fetch All Configured Geofences API` allows users to retrieve the list of geofences configured under their account. It provides detailed information such as geofence ID, name, type, creation time, and other associated attributes.
 
 The API also supports the option to include or exclude geofence geometry details (Point, Polygon, or Circle) using the `ignoreGeometry` parameter. If no specific geofence ID is provided, the API returns all geofences configured for the user.
-> **Note:** Ensure the required geofences are already created. If not, Use the [Geofence Creation API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) 
+> **Note:** Ensure the required geofences are already created. If not, Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) 
  to create them.
 
 ## **Security Type**

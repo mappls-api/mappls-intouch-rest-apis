@@ -3,7 +3,7 @@
 
 # Create Device API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction** 
 The `Create Device API` registers a new device in the InTouch system by creating a unique device record. This device can then be used for tracking and monitoring through web and mobile platforms. By providing details like tracking code, device type, and registration number, it creates a unique device record for tracking and monitoring across web and mobile platforms.

@@ -3,7 +3,7 @@
 
 # Get Device Distance API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Get Device Distance API` retrieves the total distance traveled by a specific device within a defined time range. It calculates key travel metrics such as total distance, drive distance, movement duration, idle time, and GPS availability using telematics data collected from connected devices, vehicles, or mobile applications.
@@ -12,7 +12,7 @@ This API is commonly used in fleet management and asset tracking systems to moni
 
 ### **Device Identification Requirements**
 - Certain InTouch APIs require a valid `entityId` to retrieve device-specific data.
-- If the `entityId` is not available, it can be obtained using the [Retrieve Basic Information of Device API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
+- If the `entityId` is not available, it can be obtained using the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
 - The `entityId` returned by that API can then be used to make subsequent API calls that require device-specific identifiers.
 
 ## **Security Type**

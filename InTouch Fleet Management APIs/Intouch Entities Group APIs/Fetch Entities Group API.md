@@ -1,13 +1,13 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Fetch Entities Groups API
+# Fetch Entities Group API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Fetch Entities Groups API` allows you to retrieve a list of all entities groups associated with a specific user. Users can specify a particular group’s details by passing the groupId, if not provided, the API returns all entity groups associated with the account. By providing the necessary token key, this API returns details about each group, including group names, IDs, device associations, and timestamps for creation and updates. With this API, you can easily track, organize, and review your device groups, ensuring smooth management across your platform. Whether you need to retrieve all groups or filter by specific criteria, this API provides a quick and efficient way to get the information you need.
-> **Note:** Ensure the required groups are already created. If not, use the [Create Entities Group API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Create%20Entities%20Group%20API.md) to create them.
+> **Note:** Ensure the required groups are already created. If not, use the [Create Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Create%20Entities%20Group%20API.md) to create them.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

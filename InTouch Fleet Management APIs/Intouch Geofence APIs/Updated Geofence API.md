@@ -3,7 +3,7 @@
 
 # Updated Geofence API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 
@@ -28,7 +28,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - POST
 
 ## **Input URL:**
-> https://intouch.mappls.com/iot/api/geofence/{id}
+`https://intouch.mappls.com/iot/api/geofence/{id}`
 
 ## **Response Type**
 - JSON

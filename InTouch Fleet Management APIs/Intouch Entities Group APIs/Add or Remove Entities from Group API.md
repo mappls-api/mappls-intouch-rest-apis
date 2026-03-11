@@ -3,12 +3,12 @@
 
 # Add or Remove Entities from Group API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Add or Remove Entities from Group API` allows you to manage entity membership within an existing group, where an entity refers to a device. Using this API, you can either add entities to a group or remove them by simply controlling the `isAdd` flag in the request. This helps maintain accurate and up-to-date group configurations as your fleet changes over time. The API is especially useful for dynamically organizing entities without recreating groups. It ensures efficient group management and operational flexibility.
 
-> **Note:** Ensure the required entityId and groupId are valid and already exist. Use the [Retrieve Basic Information of Device](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) API to obtain the required `entityId` and the [Fetch Entities Groups API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Groups%20API.md) to obtain the corresponding `groupId`.
+> **Note:** Ensure the required entityId and groupId are valid and already exist. Use the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) to obtain the required `entityId` and the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) to obtain the corresponding `groupId`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

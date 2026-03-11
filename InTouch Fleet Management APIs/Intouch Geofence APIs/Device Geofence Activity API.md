@@ -3,17 +3,17 @@
 
 # Device Geofence Activity API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Device Geofence Activity API` retrieves detailed activity records of devices in relation to configured geofences. It provides information such as geofence entry time, exit time, and total stay duration within a specified date and time range.
 
 The API also supports filtering based on minimum stay duration, allowing short or accidental geofence visits to be excluded from the response.
-- **Geofence Prerequisite:** Ensure the required geofences are already created. Use the [Geofence Creation API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) to create geofences and the [Fetch All Configured Geofences API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofenceId.
+- **Geofence Prerequisite:** Ensure the required geofences are already created. Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) to create geofences and the [Fetch All Configured Geofences API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofenceId.
 
 ### **Device Identification Requirements**
 - Certain APIs require a deviceId to be passed as part of the path parameters or query parameters.
-- If the deviceId is not already available, users can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](./Retrieve%20Basic%20Information%20of%20Device%20API.md).
+- If the deviceId is not already available, users can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
 - The device details obtained from the Retrieve Basic Information of Device API can then be used to make subsequent API calls that depend on device-specific identifiers.
 
 

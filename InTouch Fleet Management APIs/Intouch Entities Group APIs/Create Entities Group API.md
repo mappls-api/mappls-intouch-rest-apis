@@ -3,12 +3,12 @@
 
 # Create Entities Group API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Create Entities Group API` allows you to create and manage logical groups of entities (devices) within the platform. By providing the required parameters, you can create a new group and assign one or multiple entity IDs in a single request. You can also associate a hex color code with the group for easy visual identification in the application interface. This API helps streamline device organization, monitoring, and operational management, especially when handling large fleets of devices.
 
-> **Note:** Ensure that valid device IDs are available before creating a group. Use the [Retrieve Basic Information of Device](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) API to obtain the required `deviceId`.
+> **Note:** Ensure that valid device IDs are available before creating a group. Use the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) to obtain the required `deviceId`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
