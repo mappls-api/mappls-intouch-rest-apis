@@ -6,20 +6,20 @@
 Before consuming the InTouch APIs, ensure the following prerequisites are met:
 
 ### **Mappls Console Login**
-Users must log in to the Mappls Console to manage subscriptions and API access.
-- If the user already has a registered email ID, they can directly log in to the [Mappls Console](https://apis.mappls.com/console/#/app/project/project-details).
-- From the console, the user can [<img src="https://cdn-icons-png.flaticon.com/128/7465/7465995.png" height="36"/>](https://apis.mappls.com/console/#/freetrial-signup) **subscribe to InTouch** button from the credentials tab inside the Project.
+Developers must log in to the Mappls Console to manage subscriptions and API access.
+- If the developer already has a registered email ID, they can directly log in to the [Mappls Console](https://apis.mappls.com/console).
+- From the console, developers can click the [<img src="https://cdn-icons-png.flaticon.com/128/7465/7465995.png" height="36"/>](https://apis.mappls.com/console/#/freetrial-signup) **subscribe to InTouch** button from the credentials tab inside the Project.
 
 
 ### **Client Credentials (CI & CS)**
-After subscribing to InTouch, the user get access to the InTouch APIs and can be accessed using:
+After subscribing to InTouch, developers get access to the InTouch APIs and can be accessed using:
 - Client ID (CI)
 - Client Secret (CS)
 
 These credentials are mandatory for authenticating and accessing the InTouch APIs. They also provide access to the default enabled APIs.
 
 ### **API Access Mapping**
-- Each Client ID and Client Secret are explicitly mapped to the project and will be able to consume the API and provide the data coming from that user only.
+- Each Client ID and Client Secret is mapped to a specific project and can only consume APIs associated with that project.
 - API requests will be rejected if the requested endpoint is not enabled for the associated CI/CS.
 - Ensure all required APIs are properly mapped before starting integration.
 
@@ -32,7 +32,7 @@ Asset allocation, limit enhancement, and default access–related concerns are m
 ### **Authentication Token Generation**
 - InTouch APIs use Bearer Token–based authentication.
 - Users must generate a valid Bearer Token using their Client ID and Client Secret through the authentication endpoint by invoking the [Token Generation API](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
-- Tokens are time-bound (24H) and must be regenerated upon expiration.
+- Tokens are time-bound (24 hours) and must be regenerated upon expiration.
 
 
 # InTouch Fleet Management APIs
