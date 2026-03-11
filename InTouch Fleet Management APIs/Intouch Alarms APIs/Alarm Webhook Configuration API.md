@@ -3,7 +3,7 @@
 
 # Alarm Webhook Configuration API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Alarm Webhook Configuration API` enables real-time delivery of all configured alerts to your designated Webhook endpoint for advanced and custom data processing.

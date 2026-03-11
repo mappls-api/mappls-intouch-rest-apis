@@ -3,7 +3,7 @@
 
 # Alarm Configuration Retrieval API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction** 
 The `Alarm Configuration Retrieval API` enables users to view alarm configurations linked to their account. By passing a valid bearer token, users can fetch alarm details using optional filters such as alarmId, deviceId, or alarmType. This helps in identifying particular alarm setups for individual devices or specific alarm categories. If no filters are applied, the API returns the complete list of alarm configurations associated with the account.
