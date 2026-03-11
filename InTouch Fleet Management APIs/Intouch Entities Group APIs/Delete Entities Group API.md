@@ -1,22 +1,25 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Delete Device Group API
+# Delete Entities Group API
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
 
 ## **Introduction**
 
-The *`Delete Device Group API`* offers a quick and effective way to remove unwanted or obsolete device groups from your platform. With a simple DELETE request, you can permanently delete a specific device group using its unique group ID. This API is perfect for maintaining a clean, organized environment by eliminating device groups that are no longer necessary, ensuring that your platform remains streamlined and up to date.
+The *`Delete Entities Group API`* offers a quick and effective way to remove unwanted or obsolete entities groups from your platform. With a simple DELETE request, you can permanently delete a specific entity group using its unique group ID. This API is perfect for maintaining a clean, organized environment by eliminating entity groups that are no longer necessary, ensuring that your platform remains streamlined and up to date.
 
 Whether you need to clear up unused groups or perform administrative cleanup, this API gives you the power to manage your device groups efficiently.
+> **Note:** Ensure the group exists before attempting deletion. Use the [Fetch Entities Groups API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Groups%20API.md) to obtain the corresponding `groupId`.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
+This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
 
 ## **Request Headers**
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`{token_type} {access_token}`.**
+The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
-- **Authorization: `{token_type} {access_token}.`**
+- **Authorization: `{token_type} {access_token}`**
+
 - **Content-Type Header:** **`Optional, Not required for this API unless sending body data.`**
  
 
@@ -24,13 +27,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - DELETE
 
 ## **Input URL:**
- > https://intouch.mappls.com/iot/api/group/{id}
+> `https://intouch.mappls.com/iot/api/groups/{id}`
 
 ## **Request Parametrs**
-
-| **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- | --- | --- |
-| **`id`** | integer | path | This is the ID of the group you want to delete, and it's a mandatory parameter. | `8226` |
+| **Parameter**   | **Type** | **Location** | **Required** | **Description** | **Example** |
+| --- | --- | --- | --- | --- | --- |
+| **`id`** | integer | path | Mandatory |This is the ID of the group you want to delete. | `10087` |
 
 ## **Response Code**
 
@@ -48,8 +50,8 @@ The response of this API would be empty. Success would be denoted by the respons
 ## **Sample cURL Request**
 
 ```bash
-curl --location --request DELETE 'https://intouch.mappls.com/iot/api/group/8226' \
---header 'accept: */*' \
+curl --location --request DELETE 'https://intouch.mappls.com/iot/api/groups/10087' \
+--header 'Accept: text/plain' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'
 ```
@@ -80,7 +82,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2026 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

@@ -1,22 +1,23 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Fetch Device Groups API
+# Fetch Entities Groups API
+
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
 
 ## **Introduction**
-
-The *`Fetch Device Groups API`* allows you to *`retrieve a list of all device groups associated with a specific user`*. By providing the necessary token key, this API returns details about each group, including group names, IDs, device associations, and timestamps for creation and updates. Additionally, you can filter the results based on alarm IDs, device IDs, and alarm types, offering greater flexibility in managing your groups.
-
-With this API, you can easily track, organize, and review your device groups, ensuring smooth management across your platform. Whether you need to retrieve all groups or filter by specific criteria, this API provides a quick and efficient way to get the information you need.
+The `Fetch Entities Groups API` allows you to retrieve a list of all entities groups associated with a specific user. Users can specify a particular group’s details by passing the groupId, if not provided, the API returns all entity groups associated with the account. By providing the necessary token key, this API returns details about each group, including group names, IDs, device associations, and timestamps for creation and updates. With this API, you can easily track, organize, and review your device groups, ensuring smooth management across your platform. Whether you need to retrieve all groups or filter by specific criteria, this API provides a quick and efficient way to get the information you need.
+> **Note:** Ensure the required groups are already created. If not, use the [Create Entities Group API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Create%20Entities%20Group%20API.md) to create them.
 
 ## **Security Type**
-This API follows OAuth2 based security. To know more on how to create your authorization tokens, please use our authorization token URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api).
+This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
 
 ## **Request Headers**
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`{token_type} {access_token}`.**
+The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
-- **Authorization: `{token_type} {access_token}.`**
+- **Authorization: `{token_type} {access_token}`**
+
 - **Content-Type: `application/json`**
  
 
@@ -24,15 +25,13 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - GET
 
 ## **Input URL:**
- > https://intouch.mappls.com/iot/api/group
+> https://intouch.mappls.com/iot/api/groups
 
 ## **Request Parametrs**
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| *`id`* | string | This is the alarm's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all alarm configurations in the account. You can pass single value or comma separated alarm IDs for multiple values. |
-| *`deviceId`* | string | This is device ID. API will return data based on the configs set for the passed device IDs. You can pass a single device ID or comma seperated multiple device IDs. |
-| *`alarmType`* | string | This is alarm type. API will return data based on the passed alarm types. You can pass a single alarm type or comma seperated multiple alarm types. |
+| *`id`* | Array[long] | This is the Group ID, an `optional` parameter. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the user. |
 
 ## **Response Codes**
 
@@ -48,7 +47,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
  ## **Response Parameters** 
 
 The response from the Fetch Device Groups API returns a list of groups, with each group object containing the following attributes:
-
 - **`groupobjresponse Parameters:`**
      - *`id`*(number): This is group ID. `Example: 8232`
      - *`deviceId`*(array of numbers): List of device IDs associated with the group. Example: [10647019, 2986152, 3042309]
@@ -57,25 +55,64 @@ The response from the Fetch Device Groups API returns a list of groups, with eac
      - *`updatedOn`*(integer): Timestamp at which the group got updated. `Example: 1736924435`
      - *`colorCode`*(string): The color associated with the group, if available. `Example: #8562bf`
 
-## **Sample Input**
+## **Sample cURL Request**
+curl --location 'https://intouch.mapmyindia.in/iot/api/groups?id=2803%2C%202427%2C%201871' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+--header 'Cookie: HttpOnly'
 ```
-https://intouch.mappls.com/iot/api/group?id=8232&deviceId=10647019,2986152,3042309&alarmType=26,22
-```
-## **Sample output**
+
+## **Sample Output Response**
 ```json
 {
     "data": [
         {
-            "id": 8232,
-            "name": "MapmyIndia(testing_device)",
+            "id": 1871,
+            "name": "Test321",
             "deviceId": [
-                10647019,
-                2986152,
-                3042309
+                443187
             ],
-            "createdOn": 1736924435,
-            "updatedOn": 1736924435,
-            "colorCode": "#8562bf"
+            "createdOn": 1565152976,
+            "updatedOn": 1589867065,
+            "colorCode": "#224ae6"
+        },
+        {
+            "id": 2427,
+            "name": "Narayan",
+            "deviceId": [
+                562573,
+                562574,
+                562575,
+                562576,
+                562582,
+                562581,
+                562580,
+                562579,
+                562583,
+                562584,
+                562587,
+                562588,
+                562589,
+                562590,
+                562591,
+                562592,
+                562586,
+                562585,
+                562577,
+                562578
+            ],
+            "createdOn": 1603864761,
+            "updatedOn": 1603864761
+        },
+        {
+            "id": 2803,
+            "name": "Bangalore updated",
+            "deviceId": [
+                28411
+            ],
+            "createdOn": 1611836561,
+            "updatedOn": 1613045075,
+            "colorCode": "#4527eb"
         }
     ]
 }
@@ -107,7 +144,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2026 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

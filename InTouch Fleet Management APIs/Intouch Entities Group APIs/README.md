@@ -2,17 +2,16 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Intouch Device Group APIs
-
-The *`Intouch Device Group APIs`* provide a set of endpoints to create, retrieve, update, and delete device groups within the Intouch platform, enabling efficient management and organization of device groups.
+# Intouch Entities Group APIs
+The `Intouch Entities Group APIs` provide a comprehensive set of endpoints to create, retrieve, update, and delete entity (device) groups within the Intouch platform. These APIs help users efficiently organize and manage devices by grouping them based on operational or business needs. With support for dynamic group membership management, the APIs ensure better visibility and control over large device fleets. They are designed to simplify group operations, improve monitoring, and enhance overall fleet management workflows.
 
 ## Table of Contents
 
-- [Create Device Group API](./Create%20Device%20Group%20API.md)
-- [Fetch Device Groups API](./Fetch%20Device%20Groups%20API.md)
-- [Update Device Group API](./Update%20Device%20Group%20API.md)
-- [Delete Device Group API](./Delete%20Device%20Group%20API.md)
-
+- [Add or Remove Entities from Group API](./Add%20or%20Remove%20Entities%20from%20Group%20API.md)
+- [Create Entities Group API](./Create%20Entities%20Group%20API.md)
+- [Delete Entities Group API](./Delete%20Entities%20Group%20API.md)
+- [Fetch Entities Groups API](./Fetch%20Entities%20Group%20API.md)
+- [Update Entities Group API](./Update%20Entities%20Group%20API.md)
 
 <br></br>
 
@@ -40,7 +39,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2026 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
