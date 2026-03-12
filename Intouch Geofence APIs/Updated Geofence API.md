@@ -11,7 +11,8 @@ This API allows developers to *`update the details of existing geofence`* in the
 1. *`Point Geofence:`* Update geofence name and precise latitude/longitude coordinates.
 2. *`Circle Geofence:`* Update geofence name, latitude, longitude, and radius to define circular boundaries.
 3. *`Polygon Geofence:`* Update geofence name and the set of latitude/longitude coordinates forming the polygon boundary.
-> **Geofence Prerequisite:** Ensure the group exists before attempting an update. Use the Fetch Device Groups API and Retrieve Basic Information of Device API to obtain the corresponding groupId and deviceId, respectively.
+
+> **Geofence Prerequisite:** Ensure the group exists before attempting an update. Use the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) and [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) to obtain the corresponding groupId and deviceId, respectively.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

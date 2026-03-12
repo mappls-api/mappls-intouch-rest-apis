@@ -8,7 +8,7 @@
 ## **Introduction** 
 The `Alarm Configuration Retrieval API` enables developers to view alarm configurations linked to their account. By passing a valid bearer token, developers can fetch alarm details using optional filters such as alarmId, deviceId, or alarmType. This helps in identifying particular alarm setups for individual devices or specific alarm categories. If no filters are applied, the API returns the complete list of alarm configurations associated with the account.
 
-> **Note:** To obtain valid deviceId or groupId values, use the respective [Device](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) and [Group](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) retrieval APIs.
+> **Note:** To obtain valid deviceId or groupId values, use the respective [Device](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) and [Group](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) retrieval APIs.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

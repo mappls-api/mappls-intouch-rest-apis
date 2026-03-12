@@ -9,7 +9,7 @@
 The *`Delete Entities Group API`* offers a quick and effective way to remove unwanted or obsolete entities groups from your platform. With a simple DELETE request, you can permanently delete a specific entity group using its unique group ID. This API is perfect for maintaining a clean, organized environment by eliminating entity groups that are no longer necessary, ensuring that your platform remains streamlined and up to date.
 
 Whether you need to clear up unused groups or perform administrative cleanup, this API gives you the power to manage your device groups efficiently.
-> **Note:** Ensure the group exists before attempting deletion. Use the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) to obtain the corresponding `groupId`.
+> **Note:** Ensure the group exists before attempting deletion. Use the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) to obtain the corresponding `groupId`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
