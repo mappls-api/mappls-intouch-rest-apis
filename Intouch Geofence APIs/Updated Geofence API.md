@@ -55,7 +55,7 @@ The **Bold** Ones are Mandatory, *Italic* ones are optional parameters.
 
 ## **Sample cURL Request**
 ```bash
-curl --location --globoff --request POST 'https://intouch.mapmyindia.in/iot/api/geofences/1608509?geometry={%27type%27%3A%20%27Point%27%2C%20%27coordinates%27%3A%20[77.2923391217307%2C%2028.55736920869158]}&name=geofence_test%40123&buffer=200&uniqueRefId=233445' \
+curl --location --request POST 'https://intouch.mapmyindia.in/iot/api/geofences/1608509?geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B77.2923391217307%2C28.55736920869158%5D%7D&name=geofence_test%40123&buffer=200&uniqueRefId=233445' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
