@@ -27,7 +27,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - POST
 
 ## **Input URL:**
-> https://intouch.mappls.com/iot/api/geofence/
+> https://intouch.mappls.com/iot/api/geofences
 
 ## **Response Type**
 - JSON
@@ -44,7 +44,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Body Request Parameter**
 The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 - **`name`**(string): Name of the geofence. `Example: "geofence_test_123"`
-- **`geometry`**(string): This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence. `Example: {'type': 'Point', 'coordinates': [78.9,22.06816]}`
+- **`geometry`**(string): This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence. `Example: {"type": "Point", "coordinates": [78.9, 22.06816]}`
 - *`buffer`*(double): Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters. `Example: 200`
 - *`uniqueRefId`*(string): A unique reference ID to associate with the geofence for external system mapping or tracking purposes. `Example: 23344`
 
@@ -54,7 +54,7 @@ curl --location --request POST 'https://intouch.mappls.com/iot/api/geofences?nam
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly'"
+--header 'Cookie: HttpOnly'
 ```
 
 ## **Sample Output Response**
