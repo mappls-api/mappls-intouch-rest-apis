@@ -50,11 +50,11 @@ The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 
 ## **Sample cURL Request**
 ```bash
-curl --location --globoff --request POST 'https://intouch.mappls.com/iot/api/geofences?name=geofence_test_123&geometry={%27type%27%3A%20%27Point%27%2C%20%27coordinates%27%3A%20[78.9%2C22.06816]}&buffer=200&uniqueRefId=23344' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/geofences?name=geofence_test_123&geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B78.9%2C22.06816%5D%7D&buffer=200&uniqueRefId=23344' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly; HttpOnly'
+--header 'Cookie: HttpOnly'"
 ```
 
 ## **Sample Output Response**
