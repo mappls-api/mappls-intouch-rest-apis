@@ -31,7 +31,7 @@ Asset allocation, limit enhancement, and default access–related concerns are m
 
 ### **Authentication Token Generation**
 - InTouch APIs use Bearer Token–based authentication.
-- Users must generate a valid Bearer Token using their Client ID and Client Secret through the authentication endpoint by invoking the [Token Generation API](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
+- developers must generate a valid Bearer Token using their Client ID and Client Secret through the authentication endpoint by invoking the [Token Generation API](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
 - Tokens are time-bound (24 hours) and must be regenerated upon expiration.
 
 

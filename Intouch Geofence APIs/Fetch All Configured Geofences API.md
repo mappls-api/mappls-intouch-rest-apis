@@ -6,9 +6,9 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-The `Fetch All Configured Geofences API` allows users to retrieve the list of geofences configured under their account. It provides detailed information such as geofence ID, name, type, creation time, and other associated attributes.
+The `Fetch All Configured Geofences API` allows developers to retrieve the list of geofences configured under their account. It provides detailed information such as geofence ID, name, type, creation time, and other associated attributes.
 
-The API also supports the option to include or exclude geofence geometry details (Point, Polygon, or Circle) using the `ignoreGeometry` parameter. If no specific geofence ID is provided, the API returns all geofences configured for the user.
+The API also supports the option to include or exclude geofence geometry details (Point, Polygon, or Circle) using the `ignoreGeometry` parameter. If no specific geofence ID is provided, the API returns all geofences configured for the developer.
 > **Note:** Ensure the required geofences are already created. If not, Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) 
  to create them.
 
@@ -36,7 +36,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 - 200 `OK` - The request was successfully processed, and the operation was successful.
 - 203 `Device Not Found` - No device found with the provided ID.
-- 400 `Bad Request` - User made an error while creating a valid request.
+- 400 `Bad Request` - developer made an error while creating a valid request.
 - 401 `Unauthorized Request` - Access to API is forbidden.
 - 404 `URL Not Found` - URL Not Found
 

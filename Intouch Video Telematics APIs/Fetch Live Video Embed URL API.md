@@ -1,16 +1,26 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Geofence Creation API
+# Fetch Live Video Embed URL API
 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
+The `Fetch Live Video Embed URL API` allows you to retrieve a secure, embeddable live video streaming URL for a specified device. This API is typically used when real-time monitoring of a vehicle or asset is required through integrated camera systems.
 
-This API helps to *`create a new geofence`*. A geofence is a user-defined boundary area that triggers Entry and Exit alerts for users or vehicles. Custom areas or places can be created as geofences under your account. The Geofence Creation API allows you to create three types of geofences:
-1. **`Point Geofence`**: Input the Latitude, Longitude, and Name of the geofence. This geofence has a fixed radius of 100 meters. No radius input is required for a Point Geofence. If you need a custom radius, refer to the Circle Geofence method.
-2. **`Circle Geofence`**: Input Latitude, Longitude, Radius, and Name to create a circle-shaped geofence. You can define the radius to meet your specific requirements.
-3. **`Polygon Geofence`**: To create a polygon geofence, input a list of at least three Latitude and Longitude points. More points can be added to create a custom-shaped geofence. The points should be provided in a comma-separated format.
+By providing the required device details, the API generates a live video embed link that can be directly integrated into web applications, dashboards, or monitoring platforms using an `<iframe>` or similar embedding mechanism.
+
+- The live stream can be requested for one or multiple available camera channels associated with the device, such as:
+    - `Front` – Captures the forward road view
+    - `Cabin` – Monitors inside the vehicle cabin
+    - `Driver` – Focuses specifically on the driver
+    - `Rear`– Captures the rear-side view
+    
+### **Device Identification Requirements**
+- Certain APIs require a deviceId to be passed as part of the path parameters or query parameters.
+- If the deviceId is not already available, developers can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
+- The device details obtained from the Retrieve Basic Information of Device API can then be used to make subsequent API calls that depend on device-specific identifiers.
+
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
@@ -23,46 +33,55 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-## **Input Method:**
-- POST
+## **Input Method:** 
+- GET
 
-## **Input URL:**
-> https://intouch.mappls.com/iot/api/geofence/
+## **Input URL**
+> https://intouch.mappls.com/iot/api/devices/video/live
 
 ## **Response Type**
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
+- `200` (OK): Successful operation. Live video embed URL retrieved successfully.
+- `203` (Device Not Found): The specified device ID was not found in the system.
+- `400` (Bad Request): Invalid request parameters or incorrect data type passed (e.g., invalid channel name).
+- `401` (Unauthorized): The request is forbidden due to missing or invalid authentication/authorization.
+- `404` (Not Found): The specified URL was not found.
 
-- `201(created)`: The geofence was successfully created.
-- `203(Device Not Found)`: The device was not found.
-- `400(Bad Request)`: User made an error while creating a valid request.
-- `401(Unauthorized)`: Access to the API is forbidden.
-- `404(Not Found)`: The URL was not found.
-- `500(Internal Server Error)`, the request caused an error in our systems.
+## **Request Parameters**
 
-## **Body Request Parameter**
-The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
-- **`name`**(string): Name of the geofence. `Example: "geofence_test_123"`
-- **`geometry`**(string): This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence. `Example: {'type': 'Point', 'coordinates': [78.9,22.06816]}`
-- *`buffer`*(double): Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters. `Example: 200`
-- *`uniqueRefId`*(string): A unique reference ID to associate with the geofence for external system mapping or tracking purposes. `Example: 23344`
+The **`"bold"`** parameters are mandatory, and the *`"italic"`* parameters are optional.
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| **`deviceId`** | number | The unique ID of the device for which the live video feed is requested. |
+| **`channels`** | string | One or more camera channels for which the live feed is required. Multiple channels must be separated by commas. Channel Description: `Front=(1)`: Front-facing camera; `Cabin=(2)`: Cabin/internal camera; `Driver=(3)`: Driver-facing camera; `Rear=(4)`: Rear-facing camera|
 
-## **Sample cURL Request**
+## **Response Parameters**
+- **`embedUrl`**: The embeddable URL for accessing the live video feed of the requested device and channels. This URL can be directly embedded in a web or mobile application to stream live video.
+
+
+## **Sample cURL Resquest**  
 ```bash
-curl --location --globoff --request POST 'https://intouch.mappls.com/iot/api/geofences?name=geofence_test_123&geometry={%27type%27%3A%20%27Point%27%2C%20%27coordinates%27%3A%20[78.9%2C22.06816]}&buffer=200&uniqueRefId=23344' \
---header 'Content-Type: application/json' \
+curl --location 'https://intouch.mappls.com/iot/api/devices/video/live?channels=Front%2C%20Rear%2C%20Cabin%2C%20Driver&deviceId=14414276' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'
 ```
 
-## **Sample Output Response**
+## **Sample Output Response** 
 ```json
 {
-    "id": 1608509
+    "data": {
+        "embedUrl": "https://intouch.mappls.com/widget/video/live/#/14414276?access_token=0498703b-8a77-4c3f-91dd-0d0a4b5c9dd3&channels=1,2,3"
+    }
 }
 ```
+
+
+
+
+
 
 
 <br></br>

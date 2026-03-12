@@ -1,14 +1,15 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Alarm Configuration Retrieval API
-
+# Create Alarm Configuration API
+ 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction** 
-The `Alarm Configuration Retrieval API` enables users to view alarm configurations linked to their account. By passing a valid bearer token, users can fetch alarm details using optional filters such as alarmId, deviceId, or alarmType. This helps in identifying particular alarm setups for individual devices or specific alarm categories. If no filters are applied, the API returns the complete list of alarm configurations associated with the account.
 
-> **Note:** To obtain valid deviceId or groupId values, use the respective [Device](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) and [Group](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) retrieval APIs.
+The `Alarm Configuration API` enables developers to create alarm configurations for one or multiple devices using the specified input parameters. It supports multiple alarm types and customizable conditions to facilitate effective device and vehicle monitoring.
+
+Supported alarm types include `Geofence, IGNITION, OVERSPEED, Unplugged, Panic, Stoppage, Idle, Towing, GPRS Connectivity, Vehicle Battery, Mileage, GPS Connectivity, Distance Covered, and INTERNAL BATTERY VOLTAGEe`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
@@ -18,13 +19,16 @@ This API follows OAuth2 based security. To generate the authorization token, ple
 The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
 - **Authorization: `{token_type} {access_token}`**
+
+
 - **Content-Type: `application/json`**
 
 ## **Input Method:** 
-- GET
+- POST
 
 ## **Input URL**
-> https://intouch.mappls.com/iot/api/alarm
+
+> https://intouch.mappls.com/iot/api/alarms
 
 ## **Response Type**
 - JSON
@@ -33,67 +37,73 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 | **Status Code** | **Description** |
 | --- | --- |
-| `200(OK)` | Successful operation. |
+| `201(OK)` | Alarm created successfully. |
 | `203(Device Not Found)` | The specified device(s) could not be located. |
 | `400(Bad Request)` | Invalid ID supplied or invalid data type. |
-| `401(Unauthorized Request)` | Access to API is forbidden. |
+| `401(Unauthorized)` | Invalid token or Access to the API is forbidden. |
 | `404(Not Found)` | Specified device or URL Not Found. |
 
 ## **Request Parameters**
-All the below parameters are `optional`.
-| **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- |--- | --- |
-| *`id`* | Array[long] | Query | Alarm ID(s). If not provided, the API returns all alarm configurations associated with the account. Accepts a single value or multiple comma-separated alarm IDs. | `14849029` |
-| *`deviceId`* | Array[long] | Query | Device ID(s) for which alarm configurations are to be retrieved. Accepts a single device ID or multiple comma-separated device IDs. | `14414276` |
-| *`groupId`* | Array[long] | Query | Group ID(s) associated with the user. Returns alarm configurations applicable to all devices within the specified group(s). | `1413` |
-| *`alarmType`* | Array[long] | Query | Alarm type ID(s). Returns alarm configurations based on the specified alarm type(s). Accepts a single value or multiple comma-separated values. | `26` |
-
+The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
+- **`alarmType`**(integer): Type of alarm to create. Below are the alarm types and their corresponding IDs:
+  - `21`: IGNITION
+  - `22`: OVERSPEED
+  - `23`: UNPLUGGED
+  - `24`: PANIC
+  - `26`: GEOFENCE
+  - `27`: STOPPAGE
+  - `28`: IDLE
+  - `29`: TOWING
+  - `126`: GPRS CONNECTIVITY
+  - `129`: MILEAGE
+  - `133`: VEHICLE BATTERY
+  - `146`: GPS CONNECTIVITY
+  - `151`: DISTANCE COVERED
+  - `161`: INTERNAL BATTERY VOLTAGE 
+- *`deviceId`*(Array[long]): Device IDs of those devices for which the alarm configuration is done.
+- *`groupId`*(Array[long]): Group ID(s) of device groups associated with the developer. The alarm configuration will apply to all devices within the specified groups.
+- *`type`*(integer): Specifies the type of alarm configuration. The values depend on the alarmType: 
+    - For `Geofence(alarmType = 26)`:  
+      - `2` : Entry  
+      - `3` : Exit  
+      - `1` : Entry & Exit  
+      - `4` : Long stay in geofence  
+    - For `IGNITION(alarmType = 21)`:  
+      - `1` : Both ON & OFF  
+      - `2` : IGNITION On  
+      - `3` : IGNITION Off  
+      - `5` : Day's First IGNITION ON  
+    - For `Mileage(alarmType = 133)`:  
+      - `0` : Daily  
+      - `1` : Monthly  
+    - For `Distance Covered(alarmType = 151)`:  
+      - `1` : At Least  
+      - `2` : At Most  
+- *`duration`*(integer): Only required in case of OVERSPEED, stoppage, idle, towing, GPRS connectivity, vehicle battery, GPS connectivity, distance covered, internal battery alarm.
+- *`limit`*(integer): Only required in case of OVERSPEED, vehicle battery, mileage, distance covered, internal battery alarm. 
+- *`geofenceId`*(array): Only required when `alarmType` is `26` (Geofence). Accepts single or multiple geofence IDs separated by commas. `Example: [23434, 45454]`
+- *`severity`*(integer): This basically defines the severity of the alarm. Use `0` for normal severity and `1` for high severity.
+- *`webhookURL`*(string): URL where real-time alarm notifications will be sent when the alarm is triggered.
 
 ## **Response Parameters**
-
-### **`data`**
-  - **`id`**(number): The unique ID of the alarm.
-  - **`deviceId`**(number): Device ID(s) on which the alarm config got created.
-  - **`alarmType`**(integer): Type of alarm (e.g., IGNITION, OVERSPEED, etc.).
-  - **`limit`**(integer): Limit value associated with the alarm.
-  - **`duration`**(integer): Duration value associated with the alarm.
-  - **`alarmType`**(integer): Values depends on the type of alarm configured.
-  - **`creationTime`**(number): Timestamp when the alarm was created.
-  - **`updationTime`**(integer): Timestamp when the alarm was last updated.
-  - **`geofenceId`**(number): If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured. `Example: [1001, 2002]`
-  - **`severity`**(integer): Severity of the alarm (0 for normal, 1 for high severity).
+- **`id`**: Unique Id of the created alarm configuration. This ID can be used for future operations such as updating or deleting the alarm.
 
 ## **Sample cURL Request**
 ```bash
-curl --location 'https://intouch.mappls.com/iot/api/alarms?id=14849029&deviceId=14414276&groupId=1413&alarmType=26' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/alarms?deviceId=14414276&groupId=1413&alarmType=26&type=1&duration=120&geofenceId=438138%2C438132&severity=0' \
+--header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly'
 ```
 
 ## **Sample Output Response**
+
 ```json
 {
-    "data": [
-        {
-            "id": 14849029,
-            "deviceId": [
-                14414276
-            ],
-            "alarmType": 26,
-            "type": 1,
-            "creationTime": 1771393896,
-            "updationTime": 1771393896,
-            "severity": 0,
-            "geofenceId": [
-                438138,
-                438132
-            ]
-        }
-    ]
+    "id": 14847139
 }
 ```
-
 
 
 <br></br>
@@ -127,4 +137,5 @@ Need support? contact us!
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>
+
 

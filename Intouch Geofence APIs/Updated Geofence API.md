@@ -1,15 +1,17 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Delete Geofence API
+# Updated Geofence API
 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 
-The `Delete Geofence API` allows users to delete one or more geofences by providing the corresponding `geofenceId`. A single geofence ID can be passed for individual deletion, or multiple geofence IDs can be provided in a single request.
-- **Geofence Prerequisite:** Ensure the required geofences are already created. Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) to create geofences and the [Fetch All Configured Geofences API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofenceId.
-
+This API allows developers to *`update the details of existing geofence`* in the system. Using the unique Geofence ID, you can modify attributes such as the geofence name, latitude, longitude, and radius based on the type of geofence (point, circle, or polygon).
+1. *`Point Geofence:`* Update geofence name and precise latitude/longitude coordinates.
+2. *`Circle Geofence:`* Update geofence name, latitude, longitude, and radius to define circular boundaries.
+3. *`Polygon Geofence:`* Update geofence name and the set of latitude/longitude coordinates forming the polygon boundary.
+> **Geofence Prerequisite:** Ensure the group exists before attempting an update. Use the Fetch Device Groups API and Retrieve Basic Information of Device API to obtain the corresponding groupId and deviceId, respectively.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
@@ -19,41 +21,53 @@ This API follows OAuth2 based security. To generate the authorization token, ple
 The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
 - **Authorization: `{token_type} {access_token}`**
-- **Content-Type:** *`Optional, Not required for this API unless sending body data.`*
+- **Content-Type: `application/json`**
 
 
 ## **Input Method:**
-- DELETE
+- POST
 
 ## **Input URL:**
-`https://intouch.mappls.com/iot/api/geofences/{id}`
+`https://intouch.mappls.com/iot/api/geofence/{id}`
 
-## Response Messages (as HTTP response message)
-- `200`(deleted): The geofence was successfully deleted.: Success
-- `203`(Device Not Found): No device found with the provided ID.
-- `400`(Bad Request): User made an error while creating a valid request.
-- `401`(Unauthorized Request): Access to API is forbidden.
-- `404`(Not Found): URL Not Found
-- `500`(Internal Server Error): The request caused an error in our systems.
-- `503`(Service Unavailable): during our maintenance break or server downtimes.
+## **Response Type**
+- JSON
 
-## **Resquest Parameters**
+## **Response Codes (HTTP Status Codes)**
+
+- `200(Updated)`: The geofence was successfully updated.
+- `400(Bad Request)`: developer made an error while creating a valid request.
+- `401(Unauthorized)`: Access to the API is forbidden.
+- `404(Not Found)`: The URL was not found.
+- `500(Internal Server Error)`, the request caused an error in our systems.
+
+## **Mandatory Request Parameter**
+The **Bold** Ones are Mandatory, *Italic* ones are optional parameters.
 
 | **Parameter** | **Type** | **Description** | **Example** |
 | --- | --- | --- | --- |
-| **`id `** | long (path) | Unique ID of the geofence that needs to be deleted. This parameter is mandatory. | `438144` |
+| **`ID`** | integer (Path) | Mandatory field, Id of the existing geofence. | `1608509` |
+| *`geometry`* | string (query) | GeoJSON string defining the updated geofence shape. Supports `Point` (circular geofence) or `Polygon` (multi-point geofence). | `{'type': 'Point', 'coordinates': [77.2923391217307, 28.55736920869158]}` |
+| *`name`* | string (query) | Updated name of the geofence. | `geofence_test@123` |
+| *`buffer`* | double (query) | Radius in meters for circular geofence. If provided, the system creates/updates it as a circular geofence. | `200` |
+| *`uniqueRefId`* | string (query) | Unique reference ID mapped to the geofence for external tracking or identification. | `233445`|
 
-## **Response Parameters**
-The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
 
 ## **Sample cURL Request**
 ```bash
-curl --location --request DELETE 'https://intouch.mappls.com/iot/api/geofences/438144' \
+curl --location --globoff --request POST 'https://intouch.mapmyindia.in/iot/api/geofences/1608509?geometry={%27type%27%3A%20%27Point%27%2C%20%27coordinates%27%3A%20[77.2923391217307%2C%2028.55736920869158]}&name=geofence_test%40123&buffer=200&uniqueRefId=233445' \
+--header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly'
+--header 'Cookie: HttpOnly; HttpOnly'
 ```
 
+## **Sample Output Response**
+```json
+{
+    "message": " Geofence Updated"
+}
+```
 
 
 <br></br>

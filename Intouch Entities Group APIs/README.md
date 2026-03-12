@@ -1,30 +1,17 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Intouch Devices APIs
 
-The `Intouch Devices APIs` include a set of APIs that enable interaction with devices, tracking their data, and retrieving hardware and location information. Using these APIs, users can create and register devices, access live device data, calculate travel distance, retrieve device hardware and basic details, and locate nearby devices.
+# Intouch Entities Group APIs
+The `Intouch Entities Group APIs` provide a comprehensive set of endpoints to create, retrieve, update, and delete entity (device) groups within the Intouch platform. These APIs help developers efficiently organize and manage devices by grouping them based on operational or business needs. With support for dynamic group membership management, the APIs ensure better visibility and control over large device fleets. They are designed to simplify group operations, improve monitoring, and enhance overall fleet management workflows.
 
-These APIs support real-time location tracking, hardware information, and distance-traveled metrics for assets, vehicles, and personnel. They are designed for use in logistics, asset management, and personnel monitoring, and can be integrated into both web and mobile platforms.
+## Table of Contents
 
-## Table Of Content
-
-- [Advanced Distance API](./Advanced%20Distance%20API.md)
-- [Create Device API](./Create%20Device%20API.md)
-- [Get Device Distance API](./Get%20Device%20Distance%20API.md)
-- [Get Device Live Data API](./Get%20Device%20Live%20Data%20API.md)
-- [Nearby Device Locator API](./Nearby%20Device%20Locator%20API.md)
-- [Retrieve Basic Information of Device API](./Retrieve%20Basic%20Information%20of%20Device%20API.md)
-- [Retrieve Device Hardware Information API](./Retrieve%20Device%20Hardware%20Information%20API.md)
-
-
-
-
-
-
-
-
-
+- [Add or Remove Entities from Group API](./Add%20or%20Remove%20Entities%20from%20Group%20API.md)
+- [Create Entities Group API](./Create%20Entities%20Group%20API.md)
+- [Delete Entities Group API](./Delete%20Entities%20Group%20API.md)
+- [Fetch Entities Groups API](./Fetch%20Entities%20Group%20API.md)
+- [Update Entities Group API](./Update%20Entities%20Group%20API.md)
 
 <br></br>
 

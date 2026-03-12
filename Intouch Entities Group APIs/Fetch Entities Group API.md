@@ -6,7 +6,7 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-The `Fetch Entities Groups API` allows you to retrieve a list of all entities groups associated with a specific user. Users can specify a particular group’s details by passing the groupId, if not provided, the API returns all entity groups associated with the account. By providing the necessary token key, this API returns details about each group, including group names, IDs, device associations, and timestamps for creation and updates. With this API, you can easily track, organize, and review your device groups, ensuring smooth management across your platform. Whether you need to retrieve all groups or filter by specific criteria, this API provides a quick and efficient way to get the information you need.
+The `Fetch Entities Groups API` allows you to retrieve a list of all entities groups associated with a specific developer. developers can specify a particular group’s details by passing the groupId, if not provided, the API returns all entity groups associated with the account. By providing the necessary token key, this API returns details about each group, including group names, IDs, device associations, and timestamps for creation and updates. With this API, you can easily track, organize, and review your device groups, ensuring smooth management across your platform. Whether you need to retrieve all groups or filter by specific criteria, this API provides a quick and efficient way to get the information you need.
 > **Note:** Ensure the required groups are already created. If not, use the [Create Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Entities%20Group%20APIs/Create%20Entities%20Group%20API.md) to create them.
 
 ## **Security Type**
@@ -31,7 +31,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| *`id`* | Array[long] | This is the Group ID, an `optional` parameter. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the user. |
+| *`id`* | Array[long] | This is the Group ID, an `optional` parameter. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the developer. |
 
 ## **Response Codes**
 

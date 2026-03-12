@@ -50,7 +50,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 | `201 - OK`         | Alarm created successfully. |
 | `400 - Bad Request` | Invalid parameters in the request body. |
 | `401 - Unauthorized` | Missing or invalid Bearer Token. |
-| `403 - Forbidden`   | User lacks permission for the requested action. |
+| `403 - Forbidden`   | developer lacks permission for the requested action. |
 | `404 - Not Found`   | Specified device or Geofence not found. |
 | `500 - Internal Server Error` | Server encountered an unexpected error. |
 

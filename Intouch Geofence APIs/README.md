@@ -2,16 +2,21 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Intouch Entities Group APIs
-The `Intouch Entities Group APIs` provide a comprehensive set of endpoints to create, retrieve, update, and delete entity (device) groups within the Intouch platform. These APIs help users efficiently organize and manage devices by grouping them based on operational or business needs. With support for dynamic group membership management, the APIs ensure better visibility and control over large device fleets. They are designed to simplify group operations, improve monitoring, and enhance overall fleet management workflows.
+# Intouch Geofence APIs
 
-## Table of Contents
+The `Intouch Geofence APIs` provide a comprehensive solution for creating, managing, and monitoring geofences. With these APIs, developers can define geofences of various geometries like circles or polygons and fetch details of single or multiple geofences, whether configured or newly created. Updates to existing geofences are supported to refine boundaries or attributes, while geofences can also be deleted as needed.
 
-- [Add or Remove Entities from Group API](./Add%20or%20Remove%20Entities%20from%20Group%20API.md)
-- [Create Entities Group API](./Create%20Entities%20Group%20API.md)
-- [Delete Entities Group API](./Delete%20Entities%20Group%20API.md)
-- [Fetch Entities Groups API](./Fetch%20Entities%20Group%20API.md)
-- [Update Entities Group API](./Update%20Entities%20Group%20API.md)
+Additionally, the APIs allow tracking of device activities within geofences, such as entry and exit times, offering valuable insights across a defined timeframe. These capabilities make the APIs ideal for fleet management, access control, and location-based monitoring.
+
+## Table Of Content
+
+- [Geofence Creation API](./Geofence%20Creation%20API.md)
+- [Fetch All Configured Geofences API](./Fetch%20All%20Configured%20Geofences%20API.md)
+- [Updated Geofence API.md](./Updated%20Geofence%20API.md)
+- [Delete Geofence API](./Delete%20Geofence%20API.md)
+- [Device Geofence Activity API](./Device%20Geofence%20Activity%20API.md)
+
+
 
 <br></br>
 

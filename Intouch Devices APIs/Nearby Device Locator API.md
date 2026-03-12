@@ -7,7 +7,7 @@
 
 ## **Introduction**
 
-The `Nearby Device Locator API` retrieves the live location and associated data of all nearby vehicles, assets, or personnel tracking devices within a specified buffer range. Leveraging connected devices, sensors, and mobile technology, the API ensures precise location awareness for app users. It provides real-time visibility of tracked objects, delivering not only location data but also additional attributes that enhance application functionality. This API is suitable for multiple use cases, including transportation, logistics, and personnel information services, across web and mobile development platforms.
+The `Nearby Device Locator API` retrieves the live location and associated data of all nearby vehicles, assets, or personnel tracking devices within a specified buffer range. Leveraging connected devices, sensors, and mobile technology, the API ensures precise location awareness for app developers. It provides real-time visibility of tracked objects, delivering not only location data but also additional attributes that enhance application functionality. This API is suitable for multiple use cases, including transportation, logistics, and personnel information services, across web and mobile development platforms.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

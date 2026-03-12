@@ -10,7 +10,7 @@ This API enables `retrieval of comprehensive historical location data for a vehi
 
 ### **Device Identification Requirements**
 - Certain APIs require a deviceId to be passed as part of the path parameters or query parameters.
-- If the deviceId is not already available, users can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
+- If the deviceId is not already available, developers can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
 - The device details obtained from the Retrieve Basic Information of Device API can then be used to make subsequent API calls that depend on device-specific identifiers.
 
 ## **Security Type**
@@ -101,8 +101,8 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
         - `1` : GPS connected, accuracy < 50 meters.
         - `2` : GPRS connected, accuracy > 50 meters.
     - *`mockLocation`*(integer): Indicates if the location being sent is real or a mock location.
-        - `0` : Real location being sent by the user.
-        - `1` : Mock location being sent by the user.
+        - `0` : Real location being sent by the developer.
+        - `1` : Mock location being sent by the developer.
     - *`isAirplanemode`*(boolean): Checks whether the mobile's airplane mode is ON or OFF.
         - `true` : Airplane mode is ON.
         - `false` : Airplane mode is OFF.
@@ -119,7 +119,7 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
         - `5` : TILTING
         - `6` : WALKING
         - `7` : RUNNING           
-    - *`phoneEvent`*(integer): Checks the location permission that the user enables/disables in the mobile phone.
+    - *`phoneEvent`*(integer): Checks the location permission that the developer enables/disables in the mobile phone.
         - `5` for location permission denied
         - `6` for location provider off etc
 - **`alerts parameters:`**
