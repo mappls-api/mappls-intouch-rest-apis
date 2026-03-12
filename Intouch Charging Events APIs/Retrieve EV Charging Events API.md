@@ -63,9 +63,10 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 
 ## **Sample cURL Request**
 ```bash
-curl --location 'https://intouch.mappls.com/iot/api/devices/chargingEvents/devices/chargingEvents?deviceId=10647019&startTime=1661026455&endTime=1661029580' \
+curl --location 'https://intouch.mappls.com/iot/api/devices/chargingEvents?startTime=1661026455&endTime=1661029580&deviceId=14385087' \
+--header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly; HttpOnly; HttpOnly'
+--header 'Cookie: HttpOnly; HttpOnly'
 ```
 
 ## **Sample Output Response**
