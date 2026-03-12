@@ -10,7 +10,6 @@ These APIs support real-time location tracking, hardware information, and distan
 ## Table Of Content
 
 - [Advanced Distance API](./Advanced%20Distance%20API.md)
-- [Create Device API](./Create%20Device%20API.md)
 - [Get Device Distance API](./Get%20Device%20Distance%20API.md)
 - [Get Device Live Data API](./Get%20Device%20Live%20Data%20API.md)
 - [Nearby Device Locator API](./Nearby%20Device%20Locator%20API.md)
