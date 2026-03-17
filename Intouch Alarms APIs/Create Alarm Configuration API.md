@@ -7,7 +7,7 @@
 
 ## **Introduction** 
 
-The `Alarm Configuration API` enables developers to create alarm configurations for one or multiple devices using the specified input parameters. It supports multiple alarm types and customizable conditions to facilitate effective device and vehicle monitoring.
+The `Create Alarm Configuration API` enables developers to create alarm configurations for one or multiple devices using the specified input parameters. It supports multiple alarm types and customizable conditions to facilitate effective device and vehicle monitoring.
 
 Supported alarm types include `Geofence, IGNITION, OVERSPEED, Unplugged, Panic, Stoppage, Idle, Towing, GPRS Connectivity, Vehicle Battery, Mileage, GPS Connectivity, Distance Covered, and INTERNAL BATTERY VOLTAGEe`.
 
@@ -85,8 +85,10 @@ The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 - *`severity`*(integer): This basically defines the severity of the alarm. Use `0` for normal severity and `1` for high severity.
 - *`webhookURL`*(string): URL where real-time alarm notifications will be sent when the alarm is triggered.
 
-## **Response Parameters**
-- **`id`**: Unique Id of the created alarm configuration. This ID can be used for future operations such as updating or deleting the alarm.
+## **Response Parameter** 
+| **Field** | **Type** | **Description** | **Example** |
+| --- | --- | --- | --- |
+| `id` | number | Unique Id of the created alarm configuration. This ID can be used for future operations such as updating or deleting the alarm. | `14847139` |
 
 ## **Sample cURL Request**
 ```bash
