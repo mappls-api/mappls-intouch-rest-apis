@@ -6,8 +6,7 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
-The *`Fetch Alarm Logs for Configured Alarms API`* enables developers to retrieve alarm logs for configured alarms within a specified time range. By providing a valid start time and end time, along with optional parameters such as device ID and alarm type, this API allows developers to filter and fetch detailed alarm log information. *The API returns a list of alarm configurations, and the logs contain key details about each alarm event, such as the alarm type, device ID, location, severity, and actual data received.* This facilitates efficient monitoring, troubleshooting, and management of devices and alarm configurations.
+The `Fetch Alarm Logs for Configured Alarms API` enables users to retrieve alarm logs for configured alarms within a specified time range. By providing a valid start time and end time, along with optional parameters such as device ID and alarm type, this API allows users to filter and fetch detailed alarm log information. The API returns a list of alarm configurations, and the logs contain key details about each alarm event, such as the alarm type, device ID, location, severity, and actual data received. This facilitates efficient monitoring, troubleshooting, and management of devices and alarm configurations.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
