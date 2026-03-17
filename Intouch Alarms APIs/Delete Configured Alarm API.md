@@ -40,11 +40,11 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 | `401 (Unauthorized)` | The request is forbidden due to lack of authentication or authorization. |
 | `404 (Not Found)` | The specified URL was not found. |
 
-## **Request Mandatory Parameters**
 
-| **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- |--- | --- |
-| **`id`** | integer | Path | The unique ID of the alarm configuration that you want to delete. | `13401425` |
+## **Request Parameters**
+| **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
+| --- | --- | --- |--- | --- | --- |
+| `id` | integer | Path | Yes | The unique ID of the alarm configuration that you want to delete. | `13401425` |
 
 
 ## **Sample cURL Request**
