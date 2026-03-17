@@ -8,14 +8,14 @@
 ## **Introduction**
 The `Fetch Live Video Embed URL API` allows you to retrieve a secure, embeddable live video streaming URL for a specified device. This API is typically used when real-time monitoring of a vehicle or asset is required through integrated camera systems.
 
-By providing the required device details, the API generates a live video embed link that can be directly integrated into web applications, dashboards, or monitoring platforms using an `<iframe>` or similar embedding mechanism.
+By providing the device ID and required channels, the API generates a live video embed URL that can be directly integrated into web applications, dashboards, or monitoring platforms using an `<iframe>` or similar embedding mechanism.
 
 - The live stream can be requested for one or multiple available camera channels associated with the device, such as:
     - `Front` – Captures the forward road view
     - `Cabin` – Monitors inside the vehicle cabin
     - `Driver` – Focuses specifically on the driver
-    - `Rear`– Captures the rear-side view
-    
+    - `Rear` – Captures the rear-side view
+
 ### **Device Identification Requirements**
 - Certain APIs require a deviceId to be passed as part of the path parameters or query parameters.
 - If the deviceId is not already available, developers can retrieve a list of registered devices by invoking the [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md).
@@ -33,7 +33,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-## **Input Method** 
+## **Input Method**
 - GET
 
 ## **Input URL**
@@ -50,18 +50,19 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - `404` (Not Found): The specified URL was not found.
 
 ## **Request Parameters**
+| **Fields** | **Type** | **Required** | **Description** |
+| :--- | :--- | :--- | :--- |
+| **`deviceId`** | number | Yes | The unique ID of the device for which the live video feed is requested. |
+| **`channels`** | string | Yes | One or more camera channels for which the live feed is required. Multiple channels must be separated by commas. Supported values: `Front (1)`: Front-facing camera `Cabin (2)`: Cabin/internal camera `Driver (3)`: Driver-facing camera & `Rear (4)`: Rear-facing camera |
 
-The **`"bold"`** parameters are mandatory, and the *`"italic"`* parameters are optional.
-| **Parameter** | **Type** | **Description** |
-| --- | --- | --- |
-| **`deviceId`** | number | The unique ID of the device for which the live video feed is requested. |
-| **`channels`** | string | One or more camera channels for which the live feed is required. Multiple channels must be separated by commas. Channel Description: `Front=(1)`: Front-facing camera; `Cabin=(2)`: Cabin/internal camera; `Driver=(3)`: Driver-facing camera; `Rear=(4)`: Rear-facing camera|
 
 ## **Response Parameters**
-- **`embedUrl`**: The embeddable URL for accessing the live video feed of the requested device and channels. This URL can be directly embedded in a web or mobile application to stream live video.
+| **Fields** | **Type** | **Description** |
+| :--- | :--- | :--- |
+| **`embedUrl`** | string | The embeddable URL for accessing the live video feed of the requested device and channels. This URL can be directly embedded in a web or mobile application to stream live video. |
 
 
-## **Sample cURL Resquest**  
+## **Sample cURL Request**  
 ```bash
 curl --location 'https://intouch.mappls.com/iot/api/devices/video/live?channels=Front%2C%20Rear%2C%20Cabin%2C%20Driver&deviceId=14414276' \
 --header 'Accept: application/json' \

@@ -6,7 +6,7 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-This `Get Historical Video Embed URL API` allows you to fetch the embedded video URL for historical footage of a specific device. The history feed can be requested for one or more available channels (Front, Rear, Cabin, or Driver) by providing the deviceId along with the start time and end time.
+The `Get Historical Video Embed URL API` allows you to fetch an embeddable historical video URL for historical footage of a specific device. The historical video feed can be requested for one or more camera channels (Front, Rear, Cabin, or Driver) by providing the deviceId along with the start time and end time.
 
 ### **Device Identification Requirements**
 - Certain APIs require a deviceId to be passed as part of the path parameters or query parameters.
@@ -31,30 +31,30 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 > https://intouch.mappls.com/iot/api/devices/video/history
 
 ## **Response Codes**
-* `200` (Successful operation): Historical video embed URL retrieved successfully.
-* `203` (Non-Authoritative Information): Returned when the device is not permitted to access historical video (e.g., `{"error": "Device not allowed"}`).
-* `400` (Unauthorized): Missing device Id. e.g., `{"status": "BAD_REQUEST", "message": "Required Long parameter 'deviceId' is not present", z"error": "deviceId parameter is missing"}`
-* `401` (Unauthorized): Missing or invalid authentication.
-* `403` (Forbidden): Access not allowed for the provided credentials.
-* `404` (Not Found): Device or requested data not available.
-* `500` (Internal Server Error): Returned when the server fails to process the request due to a server-side issue (e.g., `{"error": "timeout"}`).
+- `200` (Successful operation): Historical video embed URL retrieved successfully.
+- `203` (Non-Authoritative Information): Returned when the device is not permitted to access historical video (e.g., `{"error": "Device not allowed"}`).
+- `400` (Bad Request): Missing deviceId or invalid parameters. e.g., `{"status": "BAD_REQUEST", "message": "Required Long parameter 'deviceId' is not present", "error": "deviceId parameter is missing"}`
+- `401` (Unauthorized): Missing or invalid authentication.
+- `403` (Forbidden): Access not allowed for the provided credentials.
+- `404` (Not Found): Device or requested data not available.
+- `500` (Internal Server Error): Returned when the server fails to process the request due to a server-side issue (e.g., `{"error": "timeout"}`).
 
 ## **Request Parameters**
 | **Parameter** | **Type** | **Mandatory** | **Description** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | **deviceId** | number (long) | Yes | Unique ID of the device for which historical video is requested. |
-| **channels** | array[string] | Yes | One or more camera channels. Multiple values must be comma-separated. Available channels: `Front`, `Rear`, `Cabin`, `Driver`. |
-| **startTime** | long | Yes | Start time of the video in Unix timestamp format. |
-| **endTime** | long | Yes | End time of the video in Unix timestamp format. |
+| **channels** | string | Yes | One or more camera channels. Multiple values must be comma-separated. Supported values: `Front` `Rear` `Cabin` & `Driver` |
+| **startTime** | long | Yes | Start time of the video in Unix timestamp format (seconds). |
+| **endTime** | long | Yes | End time of the video in Unix timestamp format (seconds). |
 
 ## **Response Type**
 - JSON
 
 ## **Response Parameters**
-| **Parameter** | **Description** |
-| --- | --- |
-| **embedUrl** | A link that can be directly added (embedded) into your web or mobile app to play the historical video. |
-| **shareUrl** | A link that can be shared with others to view the historical video in a browser. |
+| **Parameter** | **Type** | **Description** |
+| :--- | :--- | :--- |
+| **embedUrl** | string | A link that can be directly added (embedded) into your web or mobile app to play the historical video. |
+| **shareUrl** | string | A link that can be shared with others to view the historical video in a browser. |
 
 
 ## **Sample cURL Request**

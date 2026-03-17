@@ -24,9 +24,8 @@ This API follows OAuth2 based security. To generate the authorization token, ple
 
 The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: **`{token_type} {access_token}`.**
 
-- **Authorization: `"{token_type} {access_token}”.`**
+- **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
-
 
 ## **Input Method** 
 - GET
@@ -38,7 +37,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
-
 | **HTTP Code** | **Message** | **Description** |
 | --- | --- | --- |
 | `200` | OK | Alarm logs retrieved successfully. |
@@ -52,8 +50,8 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 - **`startTime`**(long, query): The start timestamp (in seconds) for the alarm log search. This is a required field.
 - **`endTime`**(long, query): The end timestamp (in seconds) for the alarm log search. This is a required field.
-- *`deviceId`*(Array[long], query): The ID(s) of the device(s) for which the alarm log is need to be fetched. You can pass single device ID or multiple device IDs separated by commas.
-- *`alarmType`*(Array[long], query): This is the type of alarm for which the alarm log need to be fetched. single or Multiple alarm types can be separated by commas. Alarm types and their corresponding IDs are as follows:
+- *`deviceId`*(string, query): The ID(s) of the device(s) for which the alarm logs need to be fetched. You can pass single device ID or multiple device IDs separated by commas.
+- *`alarmType`*(Array[long], query): Type(s) of alarm to filter results. Multiple values must be comma-separated. Supported values:
     | **Alarm Type** | **Alert Name** |
     | --- | --- |
     | `391` | (DMS) No Driver Alert |
@@ -84,20 +82,21 @@ Parameters marked in **`bold`** are mandatory, and those in *`italics`* are opti
      - **`actualDuration`**(integer): The actual duration for which the device breached the alarm limits.    
      - **`severity`**(integer): The severity of the alarm.
           - `0` : Low Severity
-          - `1` : High Severity     
-     - **`data`**(integer): The state of the alarm.
+          - `1` : High Severity
+          - `2` :     
+     - **`data`**(integer): Represents the state/value associated with the alarm (varies by alarm type).
           - `IGNITION(type = 21)`
              - 0: OFF
              - 1: ON
-          - `AC(type=25)`
-          - `0` : OFF
-          - `1` : ON
+          - `AC (type = 25)`
+            - `0` : OFF
+            - `1` : ON
           - `GEOFENCE(type=26)`
             - `1` : Entry & Exit Geofence
             - `2` : Entry Geofence
             - `3` : Leaving Geofence
             - `4` : Long Stay In Geofence     
-     - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i,e geofence.
+     - **`geofenceId`**(number): This is the ID of the geofence for which the alarm got generated. This will come only when the 'type' field return 26 i.e., geofence.
      - **`eventFileName`**(string): Evidence File Names (comma separated). Files can be downloaded from the https://iotstreaming.mappls.com/videos `<fileName>`
 
 
