@@ -27,12 +27,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - DELETE
 
 ## **Input URL:**
-> `https://intouch.mappls.com/iot/api/groups/{id}`
+`https://intouch.mappls.com/iot/api/groups/{id}`
 
 ## **Request Parametrs**
 | **Parameter**   | **Type** | **Location** | **Required** | **Description** | **Example** |
 | --- | --- | --- | --- | --- | --- |
-| **`id`** | integer | path | Mandatory |This is the ID of the group you want to delete. | `10087` |
+| **`id`** | integer | path | Yes |This is the ID of the group you want to delete. | `10087` |
 
 ## **Response Code**
 
