@@ -32,16 +32,17 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Response Codes**
 | **Status Code** | **Description** |
 | --- | --- |
-| `200 OK` | Successful operation. |
-| `400 Bad Request` | Invalid ID supplied or invalid data type. |
-| `401 Unauthorized` | Access to the API is forbidden. |
-| `403 Forbidden` | The provided ID was not found. |
-| `404 Not Found` | The specified URL was not found. |
+| `200` (OK) | Alarm configuration updated successfully. |
+| `203` (Non-Authoritative Information) | Alarm does not exist for the given ID.<br>*Example:* `{ "error": "Alarm does not exist in this account" }` |
+| `400` (Bad Request) | Invalid request. This may occur due to incorrect ID, missing required parameters, or invalid data types. |
+| `401` (Unauthorized) | Authentication failed due to missing or invalid Bearer token. |
+| `403` (Forbidden) | Access denied. The user does not have permission to update this alarm. |
+| `404` (Not Found) | The specified resource or endpoint could not be found. |
 
 ## **Request Parameters**
-| **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- |--- | --- |
-| **`id`** | number | query | The unique ID of the alarm configuration to be updated. | `14814369` |
+| **Parameter**   | **Type** | **Location** | **Required** | **Description** | **Example** |
+| --- | --- | --- | --- |--- | --- |
+| `id` | number | query | Yes | The unique ID of the alarm configuration to be updated. | `14814369` |
 
 ## **Request Body Parameters**
 - **`deviceId`**(number): ID of the device for which the alarm config has to be updated. If there are multiple devices then you can pass them separated by comma.
