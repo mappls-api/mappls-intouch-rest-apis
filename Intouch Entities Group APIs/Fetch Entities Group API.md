@@ -29,12 +29,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Parametrs**
 | **Name** | **Type** | **Required** | **Description** |
-| --- | --- | --- | --- |
-| *`id`* | Array[long] | No | This is the Group ID. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the developer. |
+| :--- | :--- | --- | :--- |
+| `id` | Array[long] | No | This is the Group ID. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the developer. |
 
 ## **Response Codes**
 | **Code** | **Description** |
-| --- | --- |
+| :--- | :--- |
 | `200(Successful operation)` | The request was successful, and a list of device groups is returned in JSON format. |
 | `203(Device Not Found)` | No device matches the specified criteria. |
 | `204(No Content)` | The request was successful, but there is no content to return. |
