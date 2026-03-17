@@ -50,18 +50,18 @@ All the below parameters are `optional`.
 
 
 ## **Response Parameters**
-
-### **`data`**
+- **`data`**(Array of Objects): List of alarm configurations associated with the account.
   - **`id`**(number): The unique ID of the alarm.
   - **`deviceId`**(number): Device ID(s) on which the alarm config got created.
   - **`alarmType`**(integer): Type of alarm (e.g., IGNITION, OVERSPEED, etc.).
+  - **`type`**(integer): Internal classification of alarm type (system-defined)
   - **`limit`**(integer): Limit value associated with the alarm.
   - **`duration`**(integer): Duration value associated with the alarm.
-  - **`alarmType`**(integer): Values depends on the type of alarm configured.
   - **`creationTime`**(number): Timestamp when the alarm was created.
   - **`updationTime`**(integer): Timestamp when the alarm was last updated.
-  - **`geofenceId`**(number): If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured. `Example: [1001, 2002]`
   - **`severity`**(integer): Severity of the alarm (0 for normal, 1 for high severity).
+  - **`geofenceId`**(number): If returned alarm type is geofence, then this will return the list of geofences for which alarms were configured.
+
 
 ## **Sample cURL Request**
 ```bash
