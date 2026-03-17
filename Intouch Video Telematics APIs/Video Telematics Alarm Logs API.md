@@ -28,7 +28,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **Content-Type: `application/json`**
 
 
-## **Input Method:** 
+## **Input Method** 
 - GET
 
 ## **Input URL**

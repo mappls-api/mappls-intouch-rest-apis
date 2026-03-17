@@ -6,8 +6,7 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
-This API allows developers to *`update the details of existing geofence`* in the system. Using the unique Geofence ID, you can modify attributes such as the geofence name, latitude, longitude, and radius based on the type of geofence (point, circle, or polygon).
+This API allows developers to `update the details of existing geofence` in the system. Using the unique Geofence ID, you can modify attributes such as the geofence name, latitude, longitude, and radius based on the type of geofence (point, circle, or polygon).
 1. *`Point Geofence:`* Update geofence name and precise latitude/longitude coordinates.
 2. *`Circle Geofence:`* Update geofence name, latitude, longitude, and radius to define circular boundaries.
 3. *`Polygon Geofence:`* Update geofence name and the set of latitude/longitude coordinates forming the polygon boundary.
@@ -25,38 +24,35 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-## **Input Method:**
+**Input Method**
 - POST
 
-## **Input URL:**
+## **Input URL**
 `https://intouch.mappls.com/iot/api/geofence/{id}`
 
 ## **Response Type**
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
-
 - `200(Updated)`: The geofence was successfully updated.
 - `400(Bad Request)`: developer made an error while creating a valid request.
 - `401(Unauthorized)`: Access to the API is forbidden.
 - `404(Not Found)`: The URL was not found.
 - `500(Internal Server Error)`, the request caused an error in our systems.
 
-## **Mandatory Request Parameter**
-The **Bold** Ones are Mandatory, *Italic* ones are optional parameters.
-
-| **Parameter** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
-| **`ID`** | integer (Path) | Mandatory field, Id of the existing geofence. | `1608509` |
-| *`geometry`* | string (query) | GeoJSON string defining the updated geofence shape. Supports `Point` (circular geofence) or `Polygon` (multi-point geofence). | `{'type': 'Point', 'coordinates': [77.2923391217307, 28.55736920869158]}` |
-| *`name`* | string (query) | Updated name of the geofence. | `geofence_test@123` |
-| *`buffer`* | double (query) | Radius in meters for circular geofence. If provided, the system creates/updates it as a circular geofence. | `200` |
-| *`uniqueRefId`* | string (query) | Unique reference ID mapped to the geofence for external tracking or identification. | `233445`|
+## **Request Parameter**
+| **Parameter** | **Type** | **Location** |  **Required** |**Description** | **Example** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`ID`** | integer | Path | No | Id of the existing geofence. | `1608509` |
+| `geometry` | string | query | No | GeoJSON string defining the updated geofence shape. Supports `Point` (circular geofence) or `Polygon` (multi-point geofence). | `{'type': 'Point', 'coordinates': [77.2923391217307, 28.55736920869158]}` |
+| `name` | string | query | No | Updated name of the geofence. | `geofence_test@123` |
+| `buffer` | double | query | No | Radius in meters for circular geofence. If provided, the system creates/updates it as a circular geofence. | `200` |
+| `uniqueRefId` | string | query | No | Unique reference ID mapped to the geofence for external tracking or identification. | `233445`|
 
 
 ## **Sample cURL Request**
 ```bash
-curl --location --request POST 'https://intouch.mapmyindia.in/iot/api/geofences/1608509?geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B77.2923391217307%2C28.55736920869158%5D%7D&name=geofence_test%40123&buffer=200&uniqueRefId=233445' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/geofences/1608509?geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B77.2923391217307%2C28.55736920869158%5D%7D&name=geofence_test%40123&buffer=200&uniqueRefId=233445' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \

@@ -20,10 +20,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
 
-## **Input Method:** 
+## **Input Method** 
 - POST
 
-## **Input URL:**
+## **Input URL**
 > https://intouch.mappls.com/iot/api/group/addRemoveEntity
 
 ## **Response Type**

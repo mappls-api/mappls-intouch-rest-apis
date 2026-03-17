@@ -7,7 +7,7 @@
 
 ## **Introduction**
 
-The *`Update Entities Group API`* provides a simple yet powerful way to *`modify existing enity groups`*. By passing the *group ID along with the new details, you can update the group’s name, associated devices, and color code. Whether you want to change the name of the group, add new devices to it, or update its visual representation with a new color code*, this API enables you to do so efficiently.
+The *`Update Entities Group API`* provides a simple yet powerful way to *`modify existing enity groups`*. By passing the group ID along with the new details, you can update the group’s name, associated devices, and color code. Whether you want to change the name of the group, add new devices to it, or update its visual representation with a new color code, this API enables you to do so efficiently.
 
 With just a few parameters, you can ensure your entity groups are kept up-to-date and properly organized for optimal management. This API is ideal for maintaining dynamic group configurations and adapting to evolving device setups.
 > **Note:** Ensure the group exists before attempting an update. Use the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) and [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) API to obtain the corresponding `groupId` and `entityId`, respectively.
@@ -23,27 +23,23 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
  
 
-## **Input Method:** 
+## **Input Method** 
 - POST
 
-## **Input URL:**
-> `https://intouch.mappls.com/iot/api/group/{id}`
+## **Input URL**
+`https://intouch.mappls.com/iot/api/group/{id}`
 
 ## **Request Parametrs**
-
-The **“bold”** one's are mandatory, and the *“italic”* one's are optional.
-
-| **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- | --- | --- |
-| **`id`** | number | path | This the ID of the group which you want to update. | `10084` |
-| *`name`* | string | query | This the name of the group which you want to update. | `vandana_test` |
-| *`entityId`* | number | query | These are the IDs of the entity which you want to update in this group. You can pass a single entity id or a set of multiple ids separated by comma. | `5547807`, `5547876`, `14414276` |
-| *`colorCode`* | string | query | This the color code(in hex format) which you want to associated with the group. | #027853 |
+| **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`id`** | number | path | Yes | This the ID of the group which you want to update. | `10084` |
+| `name` | string | query | No | This the name of the group which you want to update. | `vandana_test` |
+| `entityId` | number | query | No | These are the IDs of the entity which you want to update in this group. You can pass a single entity id or a set of multiple ids separated by comma. | `5547807`, `5547876`, `14414276` |
+| `colorCode` | string | query | No | This the color code(in hex format) which you want to associated with the group. | #027853 |
 
 ## **Response Code**
-
 | **Code** | **Description** |
-| --- | --- |
+| :--- | :--- |
 | `200(Successful operation)` | The group has been successfully updated. |
 | `203(Device Not Allowed)` | The specified devices are not allowed to be associated with the group. |
 | `400(Bad Request)` | Invalid ID or invalid data type provided. |
@@ -51,11 +47,11 @@ The **“bold”** one's are mandatory, and the *“italic”* one's are optiona
 | `404(Not Found)` | The requested URL or group ID was not found. |
 
 ## **Response Parameters**
-The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
+The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a `400: bad request` would be a part of the response headers message.
 
 ## **Sample cURL Request**
 ```bash
-curl --location --request POST 'https://intouch.mapmyindia.in/iot/api/groups/10084?colorCode=%23027853&name=vandana_test&deviceId=5547807%2C%205547876%2C%2014414276' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/groups/10084?colorCode=%23027853&name=vandana_test&deviceId=5547807%2C%205547876%2C%2014414276' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \

@@ -23,7 +23,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 - **Content-Type: `application/json`**
 
-## **Input Method:** 
+## **Input Method** 
 - POST
 
 ## **Input URL**

@@ -23,10 +23,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type Header:** **`Optional, Not required for this API unless sending body data.`**
  
 
-## **Input Method:** 
+## **Input Method** 
 - DELETE
 
-## **Input URL:**
+## **Input URL**
 `https://intouch.mappls.com/iot/api/groups/{id}`
 
 ## **Request Parametrs**

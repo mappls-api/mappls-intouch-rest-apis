@@ -22,10 +22,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type:** *`Optional, Not required for this API unless sending body data.`*
 
 
-## **Input Method:**
+**Input Method**
 - DELETE
 
-## **Input URL:**
+## **Input URL**
 `https://intouch.mappls.com/iot/api/geofences/{id}`
 
 ## Response Messages (as HTTP response message)

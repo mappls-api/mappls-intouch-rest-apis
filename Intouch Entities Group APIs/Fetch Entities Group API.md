@@ -53,7 +53,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Sample cURL Request**
 ```bash
-curl --location 'https://intouch.mapmyindia.in/iot/api/groups?id=2803%2C%202427%2C%201871' \
+curl --location 'https://intouch.mappls.com/iot/api/groups?id=2803%2C%202427%2C%201871' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly'

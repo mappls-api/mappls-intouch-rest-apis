@@ -21,7 +21,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 - **Content-Type:** *`Optional, Not required for this API unless sending body data.`*
 
-## **Input Method:** 
+## **Input Method** 
 - DELETE
 
 ## **Input URL**
