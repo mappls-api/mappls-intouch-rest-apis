@@ -180,7 +180,7 @@ All the parameters listed below are *`optional`*:
 ```bash
 curl --location 'https://intouch.mappls.com/iot/api/devices?id=53451&name=KA03MX6275_GPS&ignoreBeacon=false&ignoreLiveData=false&includeInActive=false' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer bd0279e8-3940-4e46-a5df-6a3cd13495c1' \
+--header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly'
 ```
 ## **Sample Output Response**
