@@ -58,7 +58,7 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 
 ## **Sample cURL**
 ```bash
-curl --location --request POST 'https://intouch.mapmyindia.in/iot/api/groups?name=Test_vandana&colorCode=%239CBF63&deviceId=5547807%2C%205547876' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/groups?name=Test_vandana&colorCode=%239CBF63&deviceId=5547807%2C%205547876' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
