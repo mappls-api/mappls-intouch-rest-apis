@@ -52,7 +52,6 @@ The **`bold`** one's are mandatory, and the *`italic`* one's are optional.
 7. *`filterDistance`* (integer): Removes location records where the distance between two points is less than the specified value (in meters).
 
 ## **Response Parameters** 
-
 - **`drivingBehaviourCount parameters`**: Driving behavior count in the selected device.
     - *`haCount`*(integer): Count of harsh acceleration events. `Example: 2`
     - *`hbCount`*(integer): Count of harsh braking events. `Example: 1`

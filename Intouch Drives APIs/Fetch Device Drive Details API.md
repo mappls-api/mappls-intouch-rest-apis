@@ -6,7 +6,6 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
 This API *`retrieves the drive details of a vehicle`* associated with an account on our telematics platform. A vehicle can be a device or sensor directly connected to the platform, or it could be linked via a third-party data aggregator that uses our telematics services. A "drive" consists of a list of geo-positions reported for any object (such as vehicles, assets, or people), based on pre-defined conditions.
 
 ## **Security Type**
@@ -40,7 +39,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - 500 `Internal Server error` - Server-side error due to invalid date input. Error: `{ "error": "invalid date combination" }` or `{ "error": "invalid date range" }`
 
 ## **Request Parameters**
-
 The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
 1. **`deviceId`**(integer): The ID of the device for which the drives details need to be fetched.
 2. **`startTime`**(number): The starting timestamp from which the drive details need to be fetched.
@@ -49,7 +47,6 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 
   
  ## **Response Parameters** 
-
 - **`DriveData parameters:`**: The `DriveData` encapsulates the details of a single drive instance, including location, movement metrics, and driving behavior counts.
      - **`deviceId`**(number): The unique identifier of the device for which the drive details are provided.
      - **`location parameters:`**: Details about the start and end points of the drive, along with the average speed.
@@ -77,8 +74,8 @@ curl --location 'https://intouch.mappls.com/iot/api/devices/drives?deviceId=1080
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'
 ```
-## **Sample Output Response**
 
+## **Sample Output Response**
 ```json
 {
     "data": [

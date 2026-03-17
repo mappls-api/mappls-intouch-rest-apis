@@ -23,14 +23,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - GET
 
 ## **Input URL**
-
 > https://intouch.mappls.com/iot/api/alarms/alarmLogs/
 
 ## **Response Type**
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
-
 - `200(OK)`: Successful operation. Alarm logs retrieved successfully.
 - `203(Device Not Found)`: The specified device ID(s) were not found in the system.
 - `400(Bad Request)`: Invalid parameters or an incorrect data type was passed (e.g., string instead of integer).
@@ -44,9 +42,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - `404(Not Found)`: The specified URL was not found.
 
 ## **Request Parameters**
-
 Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
-
 - **`startTime`**(long, query): The start timestamp (in seconds) for the alarm log search. This is a required field.
 - **`endTime`**(long, query): The end timestamp (in seconds) for the alarm log search. This is a required field.
 - *`deviceId`*(Array[long], query): The ID(s) of the device(s) for which the alarm log is need to be fetched. You can pass single device ID or multiple device IDs separated by commas.

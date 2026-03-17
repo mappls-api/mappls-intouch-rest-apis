@@ -64,6 +64,7 @@ curl --location --request POST 'https://intouch.mappls.com/iot/api/groups?name=T
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly; HttpOnly'
 ```
+
 ## **Sample Output Response**
 ```json
 {

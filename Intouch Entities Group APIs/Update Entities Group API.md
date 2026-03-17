@@ -6,7 +6,6 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
 The *`Update Entities Group API`* provides a simple yet powerful way to *`modify existing enity groups`*. By passing the group ID along with the new details, you can update the group’s name, associated devices, and color code. Whether you want to change the name of the group, add new devices to it, or update its visual representation with a new color code, this API enables you to do so efficiently.
 
 With just a few parameters, you can ensure your entity groups are kept up-to-date and properly organized for optimal management. This API is ideal for maintaining dynamic group configurations and adapting to evolving device setups.
@@ -22,7 +21,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
  
-
 ## **Input Method** 
 - POST
 

@@ -6,7 +6,6 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
 The `Delete Geofence API` allows developers to delete one or more geofences by providing the corresponding `geofenceId`. A single geofence ID can be passed for individual deletion, or multiple geofence IDs can be provided in a single request.
 - **Geofence Prerequisite:** Ensure the required geofences are already created. Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) to create geofences and the [Fetch All Configured Geofences API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofenceId.
 
@@ -22,7 +21,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type:** *`Optional, Not required for this API unless sending body data.`*
 
 
-**Input Method**
+## **Input Method**
 - DELETE
 
 ## **Input URL**
@@ -39,12 +38,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Resquest Parameters**
 
-| **Parameter** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
-| **`id `** | long (path) | Unique ID of the geofence that needs to be deleted. This parameter is mandatory. | `438144` |
+| **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
+| --- | --- | --- | --- | --- | --- |
+| `id` | long | path | Yes | Unique ID of the geofence that needs to be deleted. | `438144` |
 
 ## **Response Parameters**
-The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
+The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a `400: bad request` would be a part of the response headers message.
 
 ## **Sample cURL Request**
 ```bash

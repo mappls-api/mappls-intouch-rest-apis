@@ -6,7 +6,6 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
 The `Update Alarm Configuration API` allows developers to update an existing alarm configuration. Using a valid bearer token and the ID of the alarm configuration, developers can modify various parameters such as device IDs, geofence IDs, alarm type, severity, and more.
 > **Note:** Ensure the alarm exists before attempting an update. Use the [Alarm Configuration Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Alarms%20APIs/Alarm%20Configuration%20Retrieval%20API.md) to obtain the corresponding `alarm Id`.
 

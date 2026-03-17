@@ -7,7 +7,6 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
 The `Retrieve Device Hardware Information API` is used to fetch hardware details of registered devices in your InTouch account. It returns information such as IMEI number, GSM number, device type, tracking code, installation details, and expiry information. 
 
 This API helps in managing and monitoring device inventory, validating hardware mappings, and tracking device lifecycle information. Hardware details can be retrieved for a specific device, multiple devices, or all active devices in the account.

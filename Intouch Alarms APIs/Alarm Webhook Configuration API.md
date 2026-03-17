@@ -22,7 +22,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Input URL**
 > https://intouch.mappls.com/iot/api/alarm/
 
-### **Input Method** 
+## **Input Method** 
 - POST
 
 ## **Request Type** 

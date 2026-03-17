@@ -1,7 +1,6 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-
 # Get Device Live Data API
 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
@@ -23,9 +22,7 @@ This API follows OAuth2 based security. To generate the authorization token, ple
 The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
 - **Authorization: `{token_type} {access_token}`**
-
 - **Content-Type: `application/json`**
-
 
 ## **Input Method** 
 - GET

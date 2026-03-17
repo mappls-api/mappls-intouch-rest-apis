@@ -6,9 +6,8 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-
-This API helps to *`create a new geofence`*. A geofence is a developer-defined boundary area that triggers Entry and Exit alerts for developers or vehicles. Custom areas or places can be created as geofences under your account. The Geofence Creation API allows you to create three types of geofences:
-1. **`Point Geofence`**: Input the Latitude, Longitude, and Name of the geofence. This geofence has a fixed radius of 100 meters. No radius input is required for a Point Geofence. If you need a custom radius, refer to the Circle Geofence method.
+This API `creates a new geofence`. A geofence is a developer-defined boundary area that triggers Entry and Exit alerts for developers or vehicles. Custom areas or places can be created as geofences under your account. The Geofence Creation API allows you to create three types of geofences:
+1. **`Point Geofence`**: Provide longitude and latitude, and name of the geofence. This geofence has a fixed radius of 100 meters. No radius input is required for a Point Geofence. If you need a custom radius, refer to the Circle Geofence method.
 2. **`Circle Geofence`**: Input Latitude, Longitude, Radius, and Name to create a circle-shaped geofence. You can define the radius to meet your specific requirements.
 3. **`Polygon Geofence`**: To create a polygon geofence, input a list of at least three Latitude and Longitude points. More points can be added to create a custom-shaped geofence. The points should be provided in a comma-separated format.
 
@@ -23,7 +22,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-**Input Method**
+## **Input Method**
 - POST
 
 ## **Input URL**
@@ -33,20 +32,36 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
+| **Status Code** | **Description** |
+| --- | --- |
+| `201` (Created) | Geofence created successfully. |
+| `400` (Bad Request) | Invalid request parameters or malformed geometry. |
+| `401` (Unauthorized) | Missing or invalid authentication token. |
+| `404` (Not Found) | Endpoint not found. |
+| `500` (Internal Server Error) | Server encountered an unexpected error. |
 
-- `201(created)`: The geofence was successfully created.
-- `203(Device Not Found)`: The device was not found.
-- `400(Bad Request)`: developer made an error while creating a valid request.
-- `401(Unauthorized)`: Access to the API is forbidden.
-- `404(Not Found)`: The URL was not found.
-- `500(Internal Server Error)`, the request caused an error in our systems.
-
-## **Body Request Parameter**
+## **Request Parameter**
 The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 - **`name`**(string): Name of the geofence. `Example: "geofence_test_123"`
-- **`geometry`**(string): This is a geoJSON string. You can pass here either 'Point' or 'Polygon'. Point is used for circular geofence, and Polygon is used for a multiple point polygon geofence. `Example: {"type": "Point", "coordinates": [78.9, 22.06816]}`
-- *`buffer`*(double): Buffer is nothing but radius in meters. If passed then by default the system will create a circle geofence. If buffer is not passed then by default the system will create a 'point' type geofence with radius as 50 meters. `Example: 200`
-- *`uniqueRefId`*(string): A unique reference ID to associate with the geofence for external system mapping or tracking purposes. `Example: 23344`
+- **`geometry`**(object): GeoJSON object that defines the shape and location of the geofence.
+    - **`Polygon`**: Polygon requires at least 3 coordinate points to form a valid shape.
+    - **`Point`**: Represents the center of the geofence. When used with the `buffer` parameter, it creates a circular geofence.
+    - **Example:**
+        ```
+        {
+        "type": "Point",
+        "coordinates": [78.9, 22.06816]
+        }
+        ```
+    > **Note:** Coordinates must be in [longitude, latitude] format.
+- *`buffer`*(double): Radius of the geofence in meters. If not provided, default radius is 100 meters. `Example: 200`
+- *`uniqueRefId`*(string): Unique reference ID to associate with the geofence for mapping or tracking. `Example: 23344`
+
+
+## **Response Parameter** 
+| **Field** | **Type** | **Description** | **Example** |
+| --- | --- | --- | --- |
+| `id` | number | Unique ID of the created geofence. | `1608509` |
 
 ## **Sample cURL Request**
 ```bash
