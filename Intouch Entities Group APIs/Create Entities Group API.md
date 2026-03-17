@@ -24,8 +24,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - POST
 
 ## **Input URL:**
-
- > https://intouch.mappls.com/iot/api/group
+> https://intouch.mappls.com/iot/api/group
 
 ## **Response Type**
 - JSON
@@ -54,8 +53,8 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 - **`entityId`**(number): These are the IDs of the entities that you want to include in this group. You can pass a single entity ID or multiple IDs separated by commas. `Example: 5547807, 5547876`
 - *`colorCode`*(string): This the color code(in hex format) which you want to associated with the group. `Example: #9CBF63`
    
-## **Response Body Parametrs**
-- *`groupId`*: This is the generated group Id.
+## **Response Parametrs**
+- **`groupId`**: This is the generated group Id.
 
 ## **Sample cURL**
 ```bash
