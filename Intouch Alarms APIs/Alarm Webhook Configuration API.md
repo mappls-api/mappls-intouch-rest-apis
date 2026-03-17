@@ -28,30 +28,33 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Request Type** 
 - **Content-Type:** *`application/x-www-form-urlencoded`*
 
-## **Body Parameters**
-
-
-| **Parameter**  | **Type**          | **Required** | **Description** |
-| -------------- | ----------------- | ------------ | --------------- |
-| `alarmType`    | Integer           | Yes          | The type of alarm to create. Each alarm type has a constant value: IGNITION (`21`), OVERSPEED (`22`), Unplugged (`23`), Panic (`24`), AC (`25`), Geofence (`26`), Stoppage (`27`), Idle (`28`), Towing (`29`), GPRS Connectivity (`126`), Vehicle Battery (`129`), Mileage (`133`), GPS Connectivity (`146`), Distance Covered (`151`), INTERNAL BATTERY VOLTAGEe (`161`). |
-| `geofenceId`   | Array\[String\]   | No           | Geofence ID(s). Required only for the Geofence alarm (`alarmType = 26`). You can pass a single Geofence ID or multiple Geofence IDs in an array. Example: `["GF1", "GF2"]`. |
-| `type`         | Integer           | No           | Specifies additional context for alarms. Required for `alarmType = 21 (IGNITION)`, `26 (Geofence)`, `133 (Mileage)`, and `151 (Distance Covered)`. Example: For Geofence alarms, use `InTouchConstants.ALARM_GEOFENCE_ENTRY` (value: `2`). |
-| `deviceId`     | Array\[Long\]     | Yes          | Device ID(s). You can pass a single device ID or multiple device IDs in an array. Example: `[1782]` for a single ID or `[1782, 1783, 1784]` for multiple IDs. |
-| `duration`     | Integer           | No           | Time duration in seconds. Required only for the following alarms: `OVERSPEED`, `Stoppage`, `Idle`, `Towing`, `GPRS Connectivity`, `Vehicle Battery`, `GPS Connectivity`, `Distance Covered`, and `INTERNAL BATTERY VOLTAGEe`. Example: `60` for 1 minute. |
-| `webhookURL`   | String            | No           | A webhook URL to receive real-time alarm updates. Example: `https://webhook.site/your-custom-url`. |
+## **Request Body Parameters**
+| **Parameter** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `alarmType` | Integer | Yes | The type of alarm to create. Each alarm type has a constant value: IGNITION (`21`), OVERSPEED (`22`), Unplugged (`23`), Panic (`24`), AC (`25`), Geofence (`26`), Stoppage (`27`), Idle (`28`), Towing (`29`), GPRS Connectivity (`126`), Vehicle Battery (`129`), Mileage (`133`), GPS Connectivity (`146`), Distance Covered (`151`), INTERNAL BATTERY VOLTAGEe (`161`). |
+| `geofenceId` | Array\[String\] | No | Geofence ID(s). Required only for the Geofence alarm (`alarmType = 26`). You can pass a single Geofence ID or multiple Geofence IDs in an array. Example: `["GF1", "GF2"]`. |
+| `type` | Integer | No | Specifies additional context for alarms. Required for `alarmType = 21 (IGNITION)`, `26 (Geofence)`, `133 (Mileage)`, and `151 (Distance Covered)`. Example: For Geofence alarms, use `InTouchConstants.ALARM_GEOFENCE_ENTRY` (value: `2`). |
+| `deviceId` | Array\[Long\] | Yes | Device ID(s). You can pass a single device ID or multiple device IDs in an array. Example: `[1782]` for a single ID or `[1782, 1783, 1784]` for multiple IDs. |
+| `duration` | Integer | No | Time duration in seconds. Required only for the following alarms: `OVERSPEED`, `Stoppage`, `Idle`, `Towing`, `GPRS Connectivity`, `Vehicle Battery`, `GPS Connectivity`, `Distance Covered`, and `INTERNAL BATTERY VOLTAGEe`. Example: `60` for 1 minute. |
+| `webhookURL` | String | No | A webhook URL to receive real-time alarm updates. Example: `https://webhook.site/your-custom-url`. |
 
 ## **Response Type** 
-- *`JSON`*
+- JSON
+
+## **Response Parameter** 
+| **Field** | **Type** | **Description** |
+| --- | --- | --- |
+| `id` | number | Unique ID of the created alarm configuration |
+
 
 ## **Response Codes**
-
 | **Status Code** | **Description** |
-| ---------------- | --------------- |
-| `201 - OK`         | Alarm created successfully. |
+| --- | --- |
+| `201 - OK` | Alarm created successfully. |
 | `400 - Bad Request` | Invalid parameters in the request body. |
 | `401 - Unauthorized` | Missing or invalid Bearer Token. |
-| `403 - Forbidden`   | developer lacks permission for the requested action. |
-| `404 - Not Found`   | Specified device or Geofence not found. |
+| `403 - Forbidden` | developer lacks permission for the requested action. |
+| `404 - Not Found` | Specified device or Geofence not found. |
 | `500 - Internal Server Error` | Server encountered an unexpected error. |
 
 
@@ -70,7 +73,7 @@ curl --location 'https://intouch.mappls.com/iot/api/alarm/' \
 
 ```
 ## **Sample Payloads**
-### **IGNITION Off**
+### IGNITION Off
 
 ```json
 {
@@ -95,7 +98,7 @@ curl --location 'https://intouch.mappls.com/iot/api/alarm/' \
 }
 
 ```
-### **IGNITION On**
+### IGNITION On
 
 ```json
 {
