@@ -28,13 +28,11 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 > https://intouch.mappls.com/iot/api/groups
 
 ## **Request Parametrs**
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| *`id`* | Array[long] | This is the Group ID, an `optional` parameter. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the developer. |
+| **Name** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| *`id`* | Array[long] | No | This is the Group ID. If provided, the API returns details of the specified device group. If not provided, the API returns a list of all device groups associated with the developer. |
 
 ## **Response Codes**
-
 | **Code** | **Description** |
 | --- | --- |
 | `200(Successful operation)` | The request was successful, and a list of device groups is returned in JSON format. |
@@ -44,18 +42,17 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 | `401(Unauthorized Request)` | The request is forbidden due to lack of proper authorization. |
 | `404(Not Found)` | The URL was not found. |
 
- ## **Response Parameters** 
-
-The response from the Fetch Device Groups API returns a list of groups, with each group object containing the following attributes:
-- **`groupobjresponse Parameters:`**
+ ## **Response Parameters**
+- **`data`** (array of objects): List of entity groups associated with the developer.
      - *`id`*(number): This is group ID. `Example: 8232`
-     - *`deviceId`*(array of numbers): List of device IDs associated with the group. Example: [10647019, 2986152, 3042309]
+     - *`deviceIds`* (array[number]): List of device IDs associated with the group. Example: [10647019, 2986152, 3042309]
      - *`name`*(string): Name of the group. `Example: "MapmyIndia(testing_device)"`
-     - *`createdOn`*(number): Timestamp at which the group got created. `Example: 1736924435`
-     - *`updatedOn`*(integer): Timestamp at which the group got updated. `Example: 1736924435`
+     - *`createdOn`*(number): Unix timestamp when the group was created. `Example: 1736924435`
+     - *`updatedOn`*(number): Unix timestamp when the group was last updated. `Example: 1736924435`
      - *`colorCode`*(string): The color associated with the group, if available. `Example: #8562bf`
 
 ## **Sample cURL Request**
+```bash
 curl --location 'https://intouch.mapmyindia.in/iot/api/groups?id=2803%2C%202427%2C%201871' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
