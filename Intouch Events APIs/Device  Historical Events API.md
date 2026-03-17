@@ -33,7 +33,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - JSON
 
 ## **Response Messages (as HTTP response messages)**
-
 1. `200` (Success): Historical location events retrieved successfully.
 2. `203` (Device Not Found): The specified deviceId was not found (e.g., `{"error": "Device not allowed"}`).
 3. `400` (Bad Request): Invalid time range, or incorrect parameter format (e.g., `{"error": "future date selected"}`).
@@ -43,7 +42,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 
 ## **Request Parameters**
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+The **`bold`** one's are mandatory, and the *`italic`* one's are optional.
 1. **`deviceId`** (long): ID of the device for which the location data needs to be fetched.
 2. **`startTime`** (long): Start Epoch timestamp in seconds from which the events need to be fetched.
 3. **`endTime`** (long): End Epoch timestamp in seconds till which the events need to be fetched.
