@@ -12,7 +12,7 @@ Additionally, the APIs allow tracking of device activities within geofences, suc
 
 - [Geofence Creation API](./Geofence%20Creation%20API.md)
 - [Fetch All Configured Geofences API](./Fetch%20All%20Configured%20Geofences%20API.md)
-- [Updated Geofence API.md](./Updated%20Geofence%20API.md)
+- [Update Geofence API.md](./Update%20Geofence%20API.md)
 - [Delete Geofence API](./Delete%20Geofence%20API.md)
 - [Device Geofence Activity API](./Device%20Geofence%20Activity%20API.md)
 

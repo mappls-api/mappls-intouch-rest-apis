@@ -6,7 +6,7 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-The `Device Geofence Activity API` retrieves detailed activity records of devices in relation to configured geofences. It provides information such as geofence entry time, exit time, and total stay duration within a specified date and time range.
+The `Device Geofence Activity API` retrieves geofence activity records for devices, including entry time, exit time, and total stay duration within a specified time range.
 
 The API also supports filtering based on minimum stay duration, allowing short or accidental geofence visits to be excluded from the response.
 - **Geofence Prerequisite:** Ensure the required geofences are already created. Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) to create geofences and the [Fetch All Configured Geofences API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofenceId.
@@ -28,49 +28,44 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-**Input Method**
+## **Input Method**
 - GET
 
 ## **Input URL**
-
- > https://intouch.mappls.com/iot/api/geofences/activities
+> https://intouch.mappls.com/iot/api/geofences/activities
 
 ## **Response Type**
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
-
--  `200(OK)`: The request was successfully processed, and the operation was successful.
-- `203(Device Not Found)`: No device found with the provided ID.
-- `400(Bad Request)`: Invalid ID supplied or invalid data type.
-- `401(Unauthorized Request)`: Access to API is forbidden.
-- `404(Not Found)`: URL Not Found
+- `200 (OK)`: The request was successfully processed, and the operation was successful.
+- `400 (Bad Request)`: Invalid ID supplied or invalid data type.
+- `401 (Unauthorized Request)`: Access to API is forbidden.
+- `404 (Not Found)`: No device found with the provided ID.
 
 ## **Request Parameters**
-The **Bold** Ones are Mandatory, *Italic* ones are optional parameters.
-
-| **Parameter** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
-| **`deviceId `** | Array[long] | Id of the device(s) for which you want to fetch the geofence activities. For multiple devices, you can pass comma separated device ids as well in the query string. | `14414276` |
-| **`startTime`**  | long | Value in timestamp. Start time from where you want to fetch the geofence activities | `1771234317` |
-| **`endTime`**  | long | Value in timestamp. End time till where you want to fetch the geofence activities. | `1771245387` |
-| *`geofenceId`* | Array[long] | Id of the geofence(s) for which you want to fetch the geofence activities done by the device. For multiple geofences, you can pass comma separated geofence ids as well in the query string. | `1489132`, `1487695`, `1224324` |
-| *`stayDuration`* | long | Minimum duration (in seconds) that the device must stay inside the geofence to be included in the response. Used to filter out very short visits. | `120` |
+| **Parameter** | **Type** | **Required** | **Description** | **Example** |
+| :--- | :--- | :--- | :--- | :--- |
+| **`deviceId`** | Array[long] | Yes | ID(s) of the device(s) for which geofence activities are to be fetched. Multiple IDs can be passed as comma-separated values. | `14414276` |
+| **`startTime`**  | long | Yes | Unix timestamp (in seconds) indicating the start time for fetching geofence activities. | `1771234317` |
+| **`endTime`**  | long | Yes | Unix timestamp (in seconds) indicating the end time for fetching geofence activities. | `1771245387` |
+| *`geofenceId`* | Array[long] | No | Id of the geofence(s) for which you want to fetch device geofence activities. For multiple geofences, you can pass comma separated geofence ids as well in the query string. | `1489132`, `1487695`, `1224324` |
+| *`stayDuration`* | number | No | Minimum duration (in seconds) the device must stay inside the geofence to be included in the response. | `120` |
 
 
 ## **Response Parameters**
 
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
-|`entryLongitude` | number | longitude where the particular device entered the geofence. |
-|`entryLatitude` | number | latitude where the particular device entered the geofence.|
-|`exitLongitude` | number | longitude where the particular device exited the geofence.|
-|`exitLatitude` | number | latitude where the particular device exited the geofence.|
-|`entryTimestamp` | number | time at which the device entered the particular geofence.|
-|`exitTimestamp` | number | time at which the device exited the particular geofence.|
-|`geofenceName` | string | name of the geofence |
+| :--- | :--- | :--- |
+|`entryLongitude` | number | Longitude at which the device entered the geofence. |
+|`entryLatitude` | number | Latitude at which the device entered the geofence. |
+|`exitLongitude` | number | Longitude at which the device exited the geofence. |
+|`exitLatitude` | number | Latitude at which the device exited the geofence.  |
+|`entryTimestamp` | number | Time at which the device entered the geofence. |
+|`exitTimestamp` | number | Time at which the device exited the geofence. |
+|`geofenceName` | string | Name of the geofence. |
 |`geofenceId` | number | the id of the geofence where the activity took place. |
-|`deviceId` | number | the id of the device which is performing the activities w.r.t the geofence. |
+|`deviceId` | number | ID of the device associated with the geofence activity. |
 
 ## **Sample cURL Request**
 ```bash

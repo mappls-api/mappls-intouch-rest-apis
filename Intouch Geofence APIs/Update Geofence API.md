@@ -1,17 +1,16 @@
 
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Updated Geofence API
+# Update Geofence API
 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-This API allows developers to `update the details of existing geofence` in the system. Using the unique Geofence ID, you can modify attributes such as the geofence name, latitude, longitude, and radius based on the type of geofence (point, circle, or polygon).
+This API allows developers to `update the details of an existing geofence` in the system. Using the unique Geofence ID, you can modify attributes such as the geofence name, latitude, longitude, and radius based on the type of geofence (point, circle, or polygon).
 1. *`Point Geofence:`* Update geofence name and precise latitude/longitude coordinates.
 2. *`Circle Geofence:`* Update geofence name, latitude, longitude, and radius to define circular boundaries.
 3. *`Polygon Geofence:`* Update geofence name and the set of latitude/longitude coordinates forming the polygon boundary.
-
-> **Geofence Prerequisite:** Ensure the group exists before attempting an update. Use the [Fetch Entities Group API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Entities%20Group%20APIs/Fetch%20Entities%20Group%20API.md) and [Retrieve Basic Information of Device API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Devices%20APIs/Retrieve%20Basic%20Information%20of%20Device%20API.md) to obtain the corresponding groupId and deviceId, respectively.
+> **Note:** Ensure the geofence exists before attempting an update. Use the [Fetch All Configured Geofences API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Fetch%20All%20Configured%20Geofences%20API.md) to obtain the corresponding geofence ID.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
@@ -24,11 +23,11 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type: `application/json`**
 
 
-**Input Method**
+## **Input Method:**
 - POST
 
 ## **Input URL**
-`https://intouch.mappls.com/iot/api/geofence/{id}`
+`https://intouch.mappls.com/iot/api/geofences/{id}`
 
 ## **Response Type**
 - JSON

@@ -9,7 +9,7 @@
 The `Fetch All Configured Geofences API` allows developers to retrieve the list of geofences configured under their account. It provides detailed information such as geofence ID, name, type, creation time, and other associated attributes.
 
 The API also supports the option to include or exclude geofence geometry details (Point, Polygon, or Circle) using the `ignoreGeometry` parameter. If no specific geofence ID is provided, the API returns all geofences configured for the developer.
-> **Note:** Ensure the required geofences are already created. If not, Use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) 
+> **Note:** Ensure the required geofences are already created. If not, use the [Geofence Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Geofence%20APIs/Geofence%20Creation%20API.md) 
  to create them.
 
 ## **Security Type**
@@ -22,43 +22,39 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
 
-
-**Input Method**
+## **Input Method:**
 - GET
-## **Input URL**
 
- > https://intouch.mappls.com/iot/api/geofences
+## **Input URL**
+> https://intouch.mappls.com/iot/api/geofences
 
 ## **Response Type**
 - JSON
 
 ## **Response Codes (HTTP Status Codes)**
-
 - 200 `OK` - The request was successfully processed, and the operation was successful.
-- 203 `Device Not Found` - No device found with the provided ID.
-- 400 `Bad Request` - developer made an error while creating a valid request.
+- 203 `No Data Found` - No geofences found for the given input.
+- 400 `Bad Request` - User made an error while creating a valid request.
 - 401 `Unauthorized Request` - Access to API is forbidden.
-- 404 `URL Not Found` - URL Not Found
+- 404 `Not Found` - The requested URL was not found.
 
 ## **Request Parameters**
-All listed parameters are `non-mandatory` for this API.
-| **Parameter** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
-| `id` | Array[long] (query) | Unique ID(s) of the geofence(s) to retrieve. If not provided, all configured geofences will be returned. Multiple IDs can be passed as comma-separated values. | `1190907`,`1191004` |
-| `ignoreGeometry` | boolean (query) | Determines whether the geofence shape details (Point, Polygon, Circle) should be excluded from the response. Default value is `false`. | `true` |
+| **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `id` | Array[long] | query | No | Unique ID(s) of the geofence(s) to retrieve. If not provided, all configured geofences will be returned. Multiple IDs can be passed as comma-separated values. | `1190907`,`1191004` |
+| `ignoreGeometry` | boolean | query | No | Determines whether the geofence shape details (Point, Polygon, Circle) should be excluded from the response. Default value is `false`. | `true` |
 
 
 ## **Response Parameters**
-
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `id` | integer | Geofence ID |
 | `name` | string | Name of the geofence |
-| `geometry` | object | Defines the geofence type (e.g., Point or Polygon) and includes coordinates as a list of numbers (e.g., [77.456, 28.2345]). |
-| `type` | string | Depending on the type of geofence this value can be Circle(buffer > 50 meters), Polygon or Point(buffer = 50 mtrs) |
-| `buffer` | number | Radius(in meters) of a circlular geofence |
-| `creationTime` | number | epoch timestamp in seconds at which the geofence was created. |
-| `updatedTime` | number | epoch timestamp in seconds at which the geofence was updated. |
+| `geometry` | object | Defines the geofence type (e.g., Point or Polygon) and includes coordinates as a list of longitude and latitude values (e.g., [longitude, latitude]). |
+| `type` | string | Indicates the geofence type: Circle (buffer > 50 meters), Polygon & Point (buffer = 50 meters) |
+| `buffer` | number | Radius(in meters) of a circular geofence |
+| `creationTime` | number | Unix timestamp (in seconds) at which the geofence was created. |
+| `updatedTime` | number | Unix timestamp (in seconds) at which the geofence was updated. |
 
 ## **Sample cURL Request**
 ```bash
@@ -67,8 +63,8 @@ curl --location 'https://intouch.mappls.com/iot/api/geofences?id=438127%2C%20438
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'
 ```
-## **Sample Output Response**
 
+## **Sample Output Response**
 ```json
 {
     "data": [

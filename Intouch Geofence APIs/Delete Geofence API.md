@@ -37,7 +37,6 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - `503`(Service Unavailable): during our maintenance break or server downtimes.
 
 ## **Resquest Parameters**
-
 | **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
 | --- | --- | --- | --- | --- | --- |
 | `id` | long | path | Yes | Unique ID of the geofence that needs to be deleted. | `438144` |
