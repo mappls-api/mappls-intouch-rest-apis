@@ -32,7 +32,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 
 | **Name** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **`startTime`** | number | Start time in Unix timestamp (seconds). |
 | **`endTime`** | number | End time in Unix timestamp (seconds). |
 | *`deviceId`* | number | The unique ID of the device. |
@@ -43,16 +43,15 @@ Parameters marked in **`bold`** are mandatory, and those in *`italics`* are opti
 ## **Response Codes**
 
 | **Code** | **Description** |
-| --- | --- |
-| `200(Successful operation)` | The request was successful, returning trip data including summary details, GPS coordinates, and road-snapping metadata. |
-| `203(Device Not Found)` | Non-Authoritative Information. {"error":"Device not allowed"} |
-| `204(No Content)` | The request was successful, but there is no content to return. |
-| `400(Bad Request)` | Invalid ID supplied or invalid data type. |
-| `401(Unauthorized Request)` | The request is forbidden due to lack of proper authorization. |
-| `404(Not Found)` | The URL was not found. |
+| :--- | :--- |
+| `200` (Successful operation) | The request was successful, returning trip data including summary details, GPS coordinates, and road-snapping metadata. |
+| `203` (Device Not Found) | Non-Authoritative Information. {"error":"Device not allowed"} |
+| `204` (No Content) | The request was successful, but there is no content to return. |
+| `400` (Bad Request) | Invalid ID supplied or invalid data type. |
+| `401` (Unauthorized Request) | The request is forbidden due to lack of proper authorization. |
+| `404` (Not Found) | The URL was not found. |
 
- ## **Response Parameters** 
-
+## **Response Parameters** 
 - **`data`**: Contains details related to the tracked device, including summary information, route geometry, and metadata.
     - *`deviceId`*(Integer): The unique ID of the device.
 - **`summary`**: Provides an overview of the journey recorded by the device.
