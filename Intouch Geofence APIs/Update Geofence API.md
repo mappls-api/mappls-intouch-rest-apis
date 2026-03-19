@@ -42,10 +42,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Request Parameter**
 | **Parameter** | **Type** | **Location** |  **Required** |**Description** | **Example** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`ID`** | integer | Path | No | Id of the existing geofence. | `1608509` |
+| **`ID`** | integer | Path | Yes | Id of the existing geofence. | `1608509` |
 | `geometry` | string | query | No | GeoJSON string defining the updated geofence shape. Supports `Point` (circular geofence) or `Polygon` (multi-point geofence). | `{'type': 'Point', 'coordinates': [77.2923391217307, 28.55736920869158]}` |
 | `name` | string | query | No | Updated name of the geofence. | `geofence_test@123` |
-| `buffer` | double | query | No | Radius in meters for circular geofence. If provided, the system creates/updates it as a circular geofence. | `200` |
+| `buffer` | double | query | No | Radius in meters for circular geofence. If provided, the system updates it as a circular geofence. | `200` |
 | `uniqueRefId` | string | query | No | Unique reference ID mapped to the geofence for external tracking or identification. | `233445`|
 
 
