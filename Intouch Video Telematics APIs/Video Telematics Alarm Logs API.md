@@ -81,9 +81,9 @@ Parameters marked in **`bold`** are mandatory, and those in *`italics`* are opti
      - **`actualLimit`**(integer): The actual data received from the device at that particular moment when the alarm got generated.
      - **`actualDuration`**(integer): The actual duration for which the device breached the alarm limits.    
      - **`severity`**(integer): The severity of the alarm.
-          - `0` : Low Severity
-          - `1` : High Severity
-          - `2` :     
+          - `0` : general
+          - `1` : Crtical 
+          - `2` : warning
      - **`data`**(integer): Represents the state/value associated with the alarm (varies by alarm type).
           - `IGNITION(type = 21)`
              - 0: OFF
