@@ -25,7 +25,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - DELETE
 
 ## **Input URL**
-`https://intouch.mappls.com/iot/api/alarm/{id}`
+`https://intouch.mappls.com/iot/api/alarms/{id}`
 
 ## **Response Type**
 - JSON
@@ -49,7 +49,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Sample cURL Request**
  ```bash
- curl --location --request DELETE 'https://intouch.mappls.com/iot/api/alarm/13401425' \
+ curl --location --request DELETE 'https://intouch.mappls.com/iot/api/alarms/13401425' \
 --header 'accept: */*' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'

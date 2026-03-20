@@ -17,16 +17,13 @@ This API follows OAuth2 based security. To generate the authorization token, ple
 The API leverages OAuth 2.0 based security. Hence, the developer needs to send a request for an access token using their client_id and client_secret to the OAuth API. Once validated by the OAuth API, the `access_token` and `token_type` must be sent in the Authorization header with the value: **`{token_type} {access_token}`.**
 
 - **Authorization: `{token_type} {access_token}`**
-- **Content-Type: `application/form-data`**
+- **Content-Type: `application/json`**
 
 ## **Input Method** 
 - POST
 
 ## **Input URL**
-`https://intouch.mappls.com/iot/api/alarm/{id}`
-
-## **Response Type**
-- JSON
+`https://intouch.mappls.com/iot/api/alarms/{id}`
 
 ## **Response Codes**
 | **Status Code** | **Description** |
@@ -39,37 +36,17 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 | `404` (Not Found) | The specified resource or endpoint could not be found. |
 
 ## **Request Parameters**
-| **Parameter**   | **Type** | **Location** | **Required** | **Description** | **Example** |
-| --- | --- | --- | --- |--- | --- |
-| `id` | number | query | Yes | The unique ID of the alarm configuration to be updated. | `14814369` |
-
-## **Request Body Parameters**
-- **`deviceId`**(number): ID of the device for which the alarm config has to be updated. If there are multiple devices then you can pass them separated by comma.
-- **`type`**(integer): Specifies the type based on the alarm type.  
-    - **For `Geofence (alarmType = 26)`**  
-        - `2` : Entry
-        - `3` : Exit
-        - `1` : Entry & Exit
-        - `4` : Long stay in geofence  
-    - **For `IGNITION (alarmType = 21)`**  
-        - `1` : Both ON & OFF
-        - `2` : ignition On
-        - `3` : ignition Off
-        - `5` : Day's First ignition ON  
-    - **For `Mileage (alarmType = 133)`**  
-        - `0` : Daily
-        - `1` : Monthly  
-    - **For `Distance Covered (alarmType = 151)`**
-        - `1` : At Least
-        - `2` : At Most
-- **`duration`**(integer): Only required for certain alarm types like overspeed, stoppage, idle, towing, GPRS connectivity, vehicle battery, GPS connectivity, etc.
-- **`limit`**(integer): Only required for alarm types such as overspeed, vehicle battery, mileage, distance covered, and internal battery alarm.
-- **`geofenceId`**(number): Only Required when alarmType is 26 (Geofence). Pass a single or multiple geofence IDs separated by comma.
-- **`severity`**(integer): This basically defines the severity of the alarm.  
-    - `0` : Normal severity  
-    - `1` : High severity
-- **`alarmType`**(integer): Specifies the type of alarm being updated.
-- **`alarmTimeType`**(integer): Specifies the timing type of the alarm.
+| **Parameter**   | **Type** | **Location** | **Required** | **Description** |
+| --- | --- | --- | --- |--- |
+| **`id`** | number | path | Yes | The unique ID of the alarm configuration to be updated. |
+| `deviceId` | array[number] | query | No | ID(s) of the device(s) for which the alarm config has to be updated. Multiple IDs can be passed separated by comma. |
+| `groupId` | array[number] | query | No | Optional group IDs to filter which devices the alarm configuration applies to. |
+| `type` | number | query | No | Specifies subtype based on the alarm type: `26` = Geofence, `21` = Ignition, `133` = Mileage, `151` = Distance Covered. |
+| `duration` | number | query | No | Required for certain alarm types like overspeed, stoppage, idle, towing, GPRS connectivity, vehicle battery, GPS connectivity, etc. |
+| `limit` | number | query | No | Required for alarm types such as overspeed, vehicle battery, mileage, distance covered, or internal battery alarms. |
+| `geofenceId` | array[number] | query | No | Required when alarmType is 26 (Geofence). Multiple IDs can be passed separated by comma. |
+| `severity` | number | query | No | Defines severity of alarm: `0` = Normal, `1` = High. |
+| `webhookURL` | string | query | No | Webhook URL to notify when the alarm triggers. Example: `"https://example.com/webhook"` |
 
 
 ## **Response Parameters**
@@ -77,16 +54,11 @@ The response of this API would be empty in case of success. A successful update 
 
 ## **Sample cURL Request**
 ```bash
-curl --location 'https://intouch.mappls.com/iot/api/alarm/14814369' \
---header 'accept: */*' \
+curl --location --request POST 'https://intouch.mappls.com/iot/api/alarms/14887320?deviceId=14414276&duration=100&geofenceId=438138' \
+--header 'Content-Type: application/json' \
+--header 'Accept: text/plain' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly; HttpOnly; HttpOnly' \
---form 'entityIds="10647019,12779360"' \
---form 'geofenceIds="1192256"' \
---form 'alarmType="26"' \
---form 'severity="0"' \
---form 'type="1"' \
---form 'alarmTimeType="0"'
+--header 'Cookie: HttpOnly'
 ```
 
 

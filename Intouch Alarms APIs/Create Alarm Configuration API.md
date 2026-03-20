@@ -9,7 +9,7 @@
 
 The `Create Alarm Configuration API` enables developers to create alarm configurations for one or multiple devices using the specified input parameters. It supports multiple alarm types and customizable conditions to facilitate effective device and vehicle monitoring.
 
-Supported alarm types include `Geofence, IGNITION, OVERSPEED, Unplugged, Panic, Stoppage, Idle, Towing, GPRS Connectivity, Vehicle Battery, Mileage, GPS Connectivity, Distance Covered, and INTERNAL BATTERY VOLTAGEe`.
+Supported alarm types include `Geofence, IGNITION, OVERSPEED, Unplugged, Panic, Stoppage, Idle, Towing, GPRS Connectivity, Vehicle Battery, Mileage, GPS Connectivity, Distance Covered, and INTERNAL BATTERY VOLTAGE`.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

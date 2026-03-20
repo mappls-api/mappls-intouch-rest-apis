@@ -64,7 +64,7 @@ Parameters marked in **`bold`** are mandatory, and those in *`italics`* are opti
     | `MILEAGE (133)`| `(MDVR) Camera Covering Alert (1102)` |
     | `GPS CONNECTIVITY (146)`| |
     | `DISTANCE COVERED (151)`| |
-    | `INTERNAL BATTERY VOLTAGEE (161)`| |
+    | `INTERNAL BATTERY VOLTAGE (161)`| |
 
 ## **Response Parameters**
 - **`data`**

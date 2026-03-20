@@ -141,7 +141,7 @@ The **`bold`** one's are mandatory, and the *`italic`* one's are optional.
         - `133` : MILEAGE
         - `146` : GPS CONNECTIVITY
         - `151` : DISTANCE COVERED
-        - `161` : INTERNAL BATTERY VOLTAGEE 
+        - `161` : INTERNAL BATTERY VOLTAGE 
     - *`limit`*(integer): Alarm limit as set in the config. For example, if an overspeed alarm set on limit of 44 km/hr in the alarm config setting, then this attribute will return 44 km/hr
     - *`duration`*(integer): Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs.
     - *`actualLimit`*(integer): The actual data received from the device at that particular moment when the alarm got generated.
