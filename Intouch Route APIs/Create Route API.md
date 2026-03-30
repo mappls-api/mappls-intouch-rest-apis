@@ -3,7 +3,7 @@
 
 # Create Route API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Create Route API` allows you to create a new route for an InTouch user by defining a route name and associating it with one or more geofences. A route represents a predefined path or sequence of geofences that can be used for tracking or monitoring movement.

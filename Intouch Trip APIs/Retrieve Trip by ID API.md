@@ -3,7 +3,7 @@
 
 # Retrieve Trip by ID API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Retrieve Trip by ID API` allows users to access complete details of a specific trip using its unique `tripId`. It provides insights into the trip’s status, route, timing, destination, geofences, device location, and associated metadata, making it ideal for real-time tracking, monitoring, and trip analysis. This API is particularly useful for verifying trip completion, analyzing deviations, and integrating precise trip information into fleet management systems or dashboards.

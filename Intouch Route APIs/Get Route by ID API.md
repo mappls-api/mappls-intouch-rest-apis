@@ -4,7 +4,7 @@
 
 # Get Route by ID API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Get Route by ID` API allows users to retrieve detailed information about a specific route using its unique `routeId`. The API returns complete route configuration including route name, start and end points, intermediate geofence points, total distance, total time, polyline coordinates, and other route attributes.

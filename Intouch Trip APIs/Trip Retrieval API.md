@@ -3,7 +3,7 @@
 
 # Trip Retrieval API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The *`Trip Retrieval API`* allows you to fetch a comprehensive list of trips associated with one or more users. By providing a valid token key, this API returns detailed information about each trip, including `status`, `destination`, `geofence data`, `start and end details`, and the `associated device information`.

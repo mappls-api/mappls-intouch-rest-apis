@@ -4,7 +4,7 @@
 
 # Routes Retrieval API
 
-> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
+> **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
 The `Routes Retrieval API` allows you to retrieve route details associated with an InTouch user. By providing one or more route IDs, this API returns information such as the `route name`, `creation and update timestamps`, `route type,` and the list of associated `geofence IDs`. If no route ID is passed, the API will return all routes associated with the user. This API is useful for viewing, managing, or validating configured routes within the InTouch platform. 
