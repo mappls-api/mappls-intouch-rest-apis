@@ -7,6 +7,13 @@ This `Intouch Trip APIs` documentation is designed to streamline trip management
 
 ## Table Of Content
 
+- []()
+- [](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md)
+- []()
+- []()
+
+
+
 - [Trip Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Creation%20API.md)
 - [Trips Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md)
 - [Retrieve Trip by ID API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Retrieve%20Trip%20by%20ID%20API.md)
