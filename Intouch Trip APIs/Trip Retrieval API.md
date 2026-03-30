@@ -1,12 +1,12 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 
-# Trips Retrieval API
+# Trip Retrieval API
 
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/vandana-gupta8020/Intouch-APIs/tree/main/InTouch%20Fleet%20Management%20APIs).**
 
 ## **Introduction**
-The *`Trips Retrieval API`* allows you to fetch a comprehensive list of trips associated with one or more users. By providing a valid token key, this API returns detailed information about each trip, including `status`, `destination`, `geofence data`, `start and end details`, and the `associated device information`.
+The *`Trip Retrieval API`* allows you to fetch a comprehensive list of trips associated with one or more users. By providing a valid token key, this API returns detailed information about each trip, including `status`, `destination`, `geofence data`, `start and end details`, and the `associated device information`.
 
 It enables users to retrieve active or completed trips within a specified time frame and filter the data based on various parameters such as device ID and trip status.
 
