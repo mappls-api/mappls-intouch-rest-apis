@@ -6,7 +6,7 @@
 
 ## **Introduction**
 The `Delete Route API` allows users to permanently delete an existing route using its unique route ID. This API ensures that the specified route is removed from the system and will no longer be available for retrieval or association.
-> **Note:** Ensure the route exists before attempting deletion. Use the [Routes Retrieval API](./Routes%20Retrieval%20API.md) to obtain the corresponding routeId.
+> **Note:** Ensure the route exists before attempting deletion. Use the [Routes Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Routes%20Retrieval%20API.md) to obtain the corresponding routeId.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

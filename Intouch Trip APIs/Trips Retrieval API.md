@@ -10,7 +10,7 @@ The *`Trips Retrieval API`* allows you to fetch a comprehensive list of trips as
 
 It enables users to retrieve active or completed trips within a specified time frame and filter the data based on various parameters such as device ID and trip status.
 
-> **Note:**  Ensure that the trips already exist. If not, use the [Trip Creation API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Trip%20Creation%20API.md) to create them.
+> **Note:**  Ensure that the trips already exist. If not, use the [Trip Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Creation%20API.md) to create them.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

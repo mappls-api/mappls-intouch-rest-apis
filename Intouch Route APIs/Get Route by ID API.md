@@ -10,7 +10,7 @@
 The `Get Route by ID` API allows users to retrieve detailed information about a specific route using its unique `routeId`. The API returns complete route configuration including route name, start and end points, intermediate geofence points, total distance, total time, polyline coordinates, and other route attributes.
 
 This API is useful for viewing complete route details after creation or for validating route configuration before updating or deleting it.
-> **Note:** Ensure the route already exists. Use the [Routes Retrieval API](./Routes%20Retrieval%20API.md) to obtain valid routeId values.
+> **Note:** Ensure the route already exists. Use the [Routes Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Routes%20Retrieval%20API.md) to obtain valid routeId values.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

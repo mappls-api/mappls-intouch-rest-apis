@@ -4,17 +4,17 @@
 
 # Intouch Route APIs
 
-The `InTouch Route APIs` provide a complete set of endpoints to `create, retrieve, update, and delete routes` within the InTouch platform. These APIs also support route assignments and consignment management, enabling users to associate routes with devices or users, manage consignments, and retrieve related details including images and assignment information.
+The `InTouch Route APIs` provide a complete set of endpoints to `create, retrieve, update, and delete routes` within the InTouch platform.
 
 The APIs are designed to help users efficiently manage route lifecycles, track operational movements, and organize route-based workflows for logistics, fleet operations, and location-driven use cases.
 
 ## **Table Of Content**
 
-- [Create Route API](./Create%20Route%20API.md)
-- [Routes Retrieval API](./Routes%20Retrieval%20API.md)
-- [Get Route by ID API](./Get%20Route%20by%20ID%20API.md)
-- [Update Route API](./Update%20Route%20API.md)
-- [Delete Route API](./Delete%20Route%20API.md)
+- [Create Route API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Create%20Route%20API.md)
+- [Routes Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Routes%20Retrieval%20API.md)
+- [Get Route by ID API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Get%20Route%20by%20ID%20API.md)
+- [Update Route API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Update%20Route%20API.md)
+- [Delete Route API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Delete%20Route%20API.md)
 
 
 

@@ -8,7 +8,7 @@
 
 ## **Introduction**
 The `Update Route API` allows you to modify an existing route associated with an InTouch user. By providing the route ID, you can update route details such as the route name, associated geofences, route type, distance, and other configurable attributes. This API is used when route information needs to be edited or refined after creation.
-> **Note:** Ensure the route exists before attempting an update. Use the [Routes Retrieval API](./Routes%20Retrieval%20API.md) to obtain the corresponding routeId.
+> **Note:** Ensure the route exists before attempting an update. Use the [Routes Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Route%20APIs/Routes%20Retrieval%20API.md) to obtain the corresponding routeId.
 
 ## **Security Type**
 

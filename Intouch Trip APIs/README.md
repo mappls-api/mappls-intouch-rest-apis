@@ -3,22 +3,14 @@
 
 
 # Intouch Trip APIs
-This `Intouch Trip APIs` documentation is designed to streamline trip management processes. It provides comprehensive details for creating, managing, retrieving, and closing trips. The APIs also support job operations such as create, update, delete, and reactivate. These capabilities enable efficient tracking, reporting, and seamless integration with fleet management systems.
+This `Intouch Trip APIs` documentation is designed to streamline trip management processes. It provides comprehensive details for creating, managing, retrieving, and closing trips. These capabilities enable efficient tracking, reporting, and seamless integration with fleet management systems.
 
 ## Table Of Content
 
-- **Intouch Trip APIs**
-    - [Trip Creation API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Trip%20Creation%20API.md)
-    - [Trips Retrieval API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md)
-    - [Retrieve Trip by ID API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Retrieve%20Trip%20by%20ID%20API.md)
-    - [Trip Closure API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Trip%20Closure%20API.md)
-
-- **Intouch Job APIs**
-    - [Create Job API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Create%20Job%20API.md)
-    - [Get Job by ID API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Get%20Job%20by%20ID%20API.md)
-    - [Job Reactivation API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Job%20Reactivation%20API.md)
-    - [Delete Job API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Delete%20Job%20API.md)
-    - [Update Job API](https://github.com/vandana-gupta8020/Intouch-APIs/blob/main/InTouch%20Fleet%20Management%20APIs/Intouch%20Trip%20APIs/Update%20Job%20API.md)
+    - [Trip Creation API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Creation%20API.md)
+    - [Trips Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md)
+    - [Retrieve Trip by ID API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Retrieve%20Trip%20by%20ID%20API.md)
+    - [Trip Closure API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Closure%20API.md)
 
 
 
