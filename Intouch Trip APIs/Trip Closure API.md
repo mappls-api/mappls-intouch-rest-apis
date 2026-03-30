@@ -12,7 +12,7 @@ The `Trip Closure API` is used to manually close a specific trip by providing it
 
 This operation is typically used when a trip has been completed and needs to be formally closed. Upon successful execution, the API returns the complete updated trip object, including status, summary details, and associated metadata.
 
-> **Note:** Ensure the trip exists before attempting closure. Use the [Trips Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md) to obtain the corresponding tripId.
+> **Note:** Ensure the trip exists before attempting closure. Use the [Trip Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Retrieval%20API.md) to obtain the corresponding tripId.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).

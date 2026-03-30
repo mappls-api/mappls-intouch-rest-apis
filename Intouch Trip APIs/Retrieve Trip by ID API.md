@@ -8,7 +8,7 @@
 ## **Introduction**
 The `Retrieve Trip by ID API` allows users to access complete details of a specific trip using its unique `tripId`. It provides insights into the trip’s status, route, timing, destination, geofences, device location, and associated metadata, making it ideal for real-time tracking, monitoring, and trip analysis. This API is particularly useful for verifying trip completion, analyzing deviations, and integrating precise trip information into fleet management systems or dashboards.
 
-> **Note:** Ensure the trip exists before invoking this API. You can use the [Trips Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trips%20Retrieval%20API.md) to list all trips and obtain the corresponding tripId.
+> **Note:** Ensure the trip exists before invoking this API. You can use the [Trip Retrieval API](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/Intouch%20Trip%20APIs/Trip%20Retrieval%20API.md) to list all trips and obtain the corresponding tripId.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
