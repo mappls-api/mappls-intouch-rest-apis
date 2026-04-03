@@ -43,7 +43,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Request Parameters**
 | **Parameter** | **Type** | **Location** | **Required** | **Description** | **Example** |
-| --- | --- | --- |--- | --- | --- |
+| :--- | :--- | :--- |--- | --- | --- |
 | `id` | integer | Path | Yes | The unique ID of the alarm configuration that you want to delete. | `13401425` |
 
 

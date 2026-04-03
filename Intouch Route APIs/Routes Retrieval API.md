@@ -22,7 +22,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
 
-## **Input Method:**
+## **Input Method**
 - GET
 
 ## **Input URL**
@@ -33,7 +33,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Response Codes (HTTP Status Codes)**
 | **HTTP Code** | **Message** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `200` | OK | Route details fetched successfully. |
 | `400` | Bad Request | The request is invalid or contains incorrect parameters.|
 | `401` | Unauthorized | Invalid or missing access token. |
@@ -44,14 +44,14 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Request Parameters**
 | **Parameter** | **Type**| **Required** | **Description** |  
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | *`id`* | Array[long] | No | One or more route IDs for which details need to be fetched. Multiple route IDs can be passed as a comma-separated list. |
 | *`accountId`* | long | No | AcAccount ID associated with the user. If provided, the response is filtered for the specified account. |
 
 ## **Response Parameters**
 
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **`id`** | long | Unique identifier of the route |
 | **`name`** | string | Name of the route |
 | **`createdOn`** | number | Route creation timestamp (epoch seconds) |

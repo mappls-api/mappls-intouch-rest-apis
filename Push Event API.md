@@ -29,7 +29,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Response Codes (HTTP Status Codes)**
 | **HTTP Status Code** | **Reason** | **Response Model** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | 202 | Accepted | |
 | 400 | Bad Request  | **{“error”:”Error Type”}** |
 | 401 | Unauthorized | |
@@ -41,14 +41,14 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Header Parameter:**
 
 | **Content-Type** | **Data Type** | **Application/JSON** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `trackingCode` | String | Unique identifier of the device. |
 
 
 ## **Mandatory Fields**
 
 | **S.No** | **Attributes** | **Description** | **Data Type** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | 1 | **`timestamp`** | Time stamp of the time when the data packet was generated on the device. | Long |
 | 2 | **`latitude`** | Latitude from the GNSS | Double |
 | 3 | **`longitude`** | Longitude from the GNSS | Double |
@@ -61,7 +61,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Optional fields for Mobile**
 
 | **S.no** | **Attribute**  | **Description** | **Data Type** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | 1  | *`deviceId`*  | ID of the device  | Required String  |
 | 2 | *`token`* | Token generated | Required String |
 | 3 | *`imei`* | IMEI of the device | Required String |
@@ -92,7 +92,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Optional fields for Vehicles**
 
 | **S.no** | **Attribute** | **Description** | **Data Type** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | 1 | *`digitalInput2`* | Any additional digital input | Optional Integer |
 | 2 | *`digitalOutput1`* | Immobilizer status whether '1' or '0' | Optional Integer |
 | 3 | *`analogInput1`* | Main power of vehicle | Optional Double |

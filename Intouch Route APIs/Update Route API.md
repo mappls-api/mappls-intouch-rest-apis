@@ -21,10 +21,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
 
-## **Input Method:**
+## **Input Method**
 - POST
-## **Input URL**
 
+## **Input URL**
 `https://intouch.mappls.com/iot/api/route/{id}`
 
 ## **Response Type**
@@ -32,7 +32,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Response Codes (HTTP Status Codes)**
 | **HTTP Code** | **Message** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **201** | Created | Route created successfully. |
 | **400** | Bad Request | The request is invalid or contains incorrect parameters. Example: `{"error": "Minimum number of geofenceId entered should be 2."}` or `{"error": "Please enter a valid geofenceId"}`|
 | **401** | Unauthorized | Invalid or missing authorization token. |
@@ -41,7 +41,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 
 ## **Request Parameters**
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 1. **`id`** (long, path): Unique ID of the route to be updated. 
 2. `name`(string): Updated name of the route.
 3. `geofenceId`(Array[long]): List of geofence IDs to associate with the route. Multiple values can be provided.
@@ -51,7 +51,7 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 7. `accountId`(long): Account ID associated with the route.
 
 ## **Response Parameters**
-The response of this API would be empty. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a 400: bad request would be a part of the response headers message.
+The response of this API would be empty `{}`. Success would be denoted by the response codes and error would be denoted with the response codes while information on what went wrong with the request in-case of a `400: bad request` would be a part of the response headers message.
 
 ## **Sample cURL Request**
 ```bash

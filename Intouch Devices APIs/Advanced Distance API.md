@@ -28,16 +28,14 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 > https://intouch.mappls.com/iot/api/devices/advanceDistance
 
 ## **Request Parametrs**
-Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
-
-| **Name** | **Type** | **Description** |
-| :--- | :--- | :--- |
-| **`startTime`** | number | Start time in Unix timestamp (seconds). |
-| **`endTime`** | number | End time in Unix timestamp (seconds). |
-| *`deviceId`* | number | The unique ID of the device. |
-| *`skipSnaping`* | boolean | Flag to skip the snapping process. |
-| *`skipDistanceMatrix`* | boolean | Flag to skip distance matrix. |
-| *`includeGeometry`* | boolean | Include geometry details in the response. |
+| **Name** | **Type** | **Required** | **Description** |
+| :--- | :--- | :--- | :--- |
+| **`startTime`** | number | Yes | Start time in Unix timestamp (seconds). |
+| **`endTime`** | number | Yes | End time in Unix timestamp (seconds). |
+| *`deviceId`* | number | No | The unique ID of the device. |
+| *`skipSnaping`* | boolean | No | Flag to skip the snapping process. |
+| *`skipDistanceMatrix`* | boolean | No | Flag to skip distance matrix. |
+| *`includeGeometry`* | boolean | No | Include geometry details in the response. |
 
 ## **Response Codes**
 

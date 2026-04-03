@@ -35,10 +35,10 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 5. *`404(Not Found)`*: The requested URL or resource was not found.
 
 ## **Request Parameters**
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 
 | **Parameter** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **`deviceId`** | integer | ID of the device for which the events need to be fetched. |
 | *`startTime`* | number  | The starting timestamp (in epoch format) from which the events need to be fetched. |
 | *`endTime`*   | number  | The ending timestamp (in epoch format) till which the events need to be fetched. |
@@ -46,7 +46,7 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 ## **Response Parameters**
 
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `entityId` | number | The device ID. |
 | `startTime` | number | Start time of the charging event in epoch values. |
 | `endTime` | interger | End time of the charging eventin epoch values. |

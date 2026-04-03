@@ -37,7 +37,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Parameters**
 | **Parameter**   | **Type** | **Location** | **Required** | **Description** |
-| --- | --- | --- | --- |--- |
+| :--- | :--- | :--- | --- |--- |
 | **`id`** | number | path | Yes | The unique ID of the alarm configuration to be updated. |
 | `deviceId` | array[number] | query | No | ID(s) of the device(s) for which the alarm config has to be updated. Multiple IDs can be passed separated by comma. |
 | `groupId` | array[number] | query | No | Optional group IDs to filter which devices the alarm configuration applies to. |

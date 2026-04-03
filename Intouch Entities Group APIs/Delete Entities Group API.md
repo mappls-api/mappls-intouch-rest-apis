@@ -30,7 +30,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Parametrs**
 | **Parameter**   | **Type** | **Location** | **Required** | **Description** | **Example** |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | --- | --- | --- |
 | **`id`** | integer | path | Yes |This is the ID of the group you want to delete. | `10087` |
 
 ## **Response Code**

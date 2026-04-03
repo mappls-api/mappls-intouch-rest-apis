@@ -47,7 +47,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Request Parameters**
 All parameters are `optional`. If no parameter is passed, the API returns hardware information for all active devices associated with the account.
 | **Parameter** | **Type** | **Location** | **Description** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | `id` | Array[long] | query | Physical entity ID(s) associated with the device hardware. Used to fetch hardware details for specific physical devices. |
 | `deviceId` | Array[long] | query | Mapped device ID(s). Used to retrieve hardware information based on mapped device identifiers. |
 

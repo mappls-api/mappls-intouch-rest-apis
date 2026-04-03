@@ -19,7 +19,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - **Content-Type:** *`Optional, Not required for this API unless sending body data.`*
 
 
-## **Input Method:**
+## **Input Method**
 - DELETE
 
 ## **Input URL**
@@ -37,7 +37,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Resquest Parameters**
 
 | **Parameter** | **Type** | **Required** | **Description** | **Example** |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | --- | --- |
 | **`id `** | long (path) | Mandatory | Unique ID of the route that needs to be deleted. | `438144` |
 
 ## **Sample cURL Request**

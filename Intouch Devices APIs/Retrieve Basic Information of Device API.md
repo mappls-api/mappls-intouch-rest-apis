@@ -43,7 +43,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Parameters**
 | **Parameter** | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | --- | --- |
 | `id` | integer | query | The unique identifier of the device. This parameter is `optional`. If not provided, the API returns information for all active devices. | `53450`, `53451`, `7095391` |
 
 ## **Response Parameters**

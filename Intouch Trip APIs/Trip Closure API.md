@@ -33,7 +33,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Parameters**
 | **Parameter** | **Type** | **Mandatory** | **Description** | **Example** |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | --- | --- |
 | **`tripId`** | string | Yes | This is the ID of the trip that you want to close. | `676cef71f7b03b1054a1cf8a` |
 | *`remarks`* | string | No | This field is used to record additional notes or comments while closing the trip. | `trip close` |
 

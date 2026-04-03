@@ -85,7 +85,7 @@ The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 
 ## **Response Parameter** 
 | **Field** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | `id` | number | Unique Id of the created alarm configuration. This ID can be used for future operations such as updating or deleting the alarm. | `14847139` |
 
 ## **Sample cURL Request**

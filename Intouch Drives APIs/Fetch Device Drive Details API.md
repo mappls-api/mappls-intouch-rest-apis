@@ -39,7 +39,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - 500 `Internal Server error` - Server-side error due to invalid date input. Error: `{ "error": "invalid date combination" }` or `{ "error": "invalid date range" }`
 
 ## **Request Parameters**
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 1. **`deviceId`**(integer): The ID of the device for which the drives details need to be fetched.
 2. **`startTime`**(number): The starting timestamp from which the drive details need to be fetched.
 3. **`endTime`**(number): The end timestamp up to which the drive details need to be fetched.

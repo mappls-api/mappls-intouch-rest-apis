@@ -48,7 +48,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
   
 ## **Request Body Parametrs**
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 - **`name`**(string): This the name of the group which you want to create. `Example: Test_vandana`
 - **`entityId`**(number): These are the IDs of the entities that you want to include in this group. You can pass a single entity ID or multiple IDs separated by commas. `Example: 5547807, 5547876`
 - *`colorCode`*(string): This the color code(in hex format) which you want to associated with the group. `Example: #9CBF63`

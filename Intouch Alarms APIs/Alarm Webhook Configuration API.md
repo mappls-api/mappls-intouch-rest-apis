@@ -30,7 +30,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Request Body Parameters**
 | **Parameter** | **Type** | **Required** | **Description** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | `alarmType` | Integer | Yes | The type of alarm to create. Each alarm type has a constant value: IGNITION (`21`), OVERSPEED (`22`), Unplugged (`23`), Panic (`24`), AC (`25`), Geofence (`26`), Stoppage (`27`), Idle (`28`), Towing (`29`), GPRS Connectivity (`126`), Vehicle Battery (`129`), Mileage (`133`), GPS Connectivity (`146`), Distance Covered (`151`), INTERNAL BATTERY VOLTAGE (`161`). |
 | `geofenceId` | Array\[String\] | No | Geofence ID(s). Required only for the Geofence alarm (`alarmType = 26`). You can pass a single Geofence ID or multiple Geofence IDs in an array. Example: `["GF1", "GF2"]`. |
 | `type` | Integer | No | Specifies additional context for alarms. Required for `alarmType = 21 (IGNITION)`, `26 (Geofence)`, `133 (Mileage)`, and `151 (Distance Covered)`. Example: For Geofence alarms, use `InTouchConstants.ALARM_GEOFENCE_ENTRY` (value: `2`). |
@@ -43,7 +43,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Response Parameter** 
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `id` | integer | The unique ID of the created alarm webhook. |
 
 

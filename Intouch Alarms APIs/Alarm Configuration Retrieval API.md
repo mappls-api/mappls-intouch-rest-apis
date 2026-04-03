@@ -41,7 +41,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Request Parameters**
 All the below parameters are `optional`.
 | **Parameter**   | **Type** | **Location** | **Description** | **Example** |
-| --- | --- | --- |--- | --- |
+| :--- | :--- | :--- |--- | --- |
 | *`id`* | Array[long] | Query | Alarm ID(s). If not provided, the API returns all alarm configurations associated with the account. Accepts a single value or multiple comma-separated alarm IDs. | `14849029` |
 | *`deviceId`* | Array[long] | Query | Device ID(s) for which alarm configurations are to be retrieved. Accepts a single device ID or multiple comma-separated device IDs. | `14414276` |
 | *`groupId`* | Array[long] | Query | Group ID(s) associated with the developer. Returns alarm configurations applicable to all devices within the specified group(s). | `1413` |

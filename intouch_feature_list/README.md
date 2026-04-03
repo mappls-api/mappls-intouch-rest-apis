@@ -32,7 +32,7 @@ enabling accurate telematics, location intelligence, and device activity trackin
 ### 2. **Tracking Priority Modes**
    Once initialized, you can select a Tracking Priority Mode based on your use case:
    | **Priority Mode** | **Data Sending Frequency** | **Suitable Use Case** |
-   | --- | --- | --- |
+   | :--- | :--- | :--- |
    | Fast | Every 5 seconds | Real-time logistics, delivery tracking |
    | Optimal | Every 10 seconds | Employee tracking, regular location updates |
    | Slow | Every 15 seconds | Low-power mode, occasional tracking |

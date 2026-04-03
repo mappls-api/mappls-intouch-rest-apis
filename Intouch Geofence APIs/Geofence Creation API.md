@@ -60,7 +60,7 @@ The **`Bold`** Ones are Mandatory, *`Italic`* ones are optional parameters.
 
 ## **Response Parameter** 
 | **Field** | **Type** | **Description** | **Example** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | --- |
 | `id` | number | Unique ID of the created geofence. | `1608509` |
 
 ## **Sample cURL Request**

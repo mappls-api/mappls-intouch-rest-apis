@@ -38,7 +38,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Response Codes (HTTP Status Codes)**
 | **HTTP Code** | **Message** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `200` | OK | Alarm logs retrieved successfully. |
 | `203` | Device Not Found | The specified device ID(s) were not found. |
 | `400` | Bad Request | Invalid parameters or incorrect data type passed. |

@@ -21,7 +21,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
 
-## **Input Method:**
+## **Input Method**
 - POST
 ## **Input URL**
 
@@ -32,7 +32,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Response Codes (HTTP Status Codes)**
 | **HTTP Code** | **Message** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **201** | Created | Route created successfully. |
 | **400** | Bad Request | The request is invalid or contains incorrect parameters. Example: `{"error": "Minimum number of geofenceId entered should be 2."}` or `{"error": "Please enter a valid geofenceId"}`|
 | **401** | Unauthorized | Invalid or missing authorization token. |
@@ -42,7 +42,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 
 ## **Request Parameters**
 
-The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are optional.
+Parameters marked in **`bold`** are mandatory, and those in *`italics`* are optional:
 - **`name`** (string, query): Name of the route to be created. This helps uniquely identify the route for the user.
 - **`geofenceId`** (Array[long], query): List of geofence IDs to be associated with the route. You may provide a single geofence ID or multiple comma-separated geofence IDs. These geofences will act as route touchpoints.
 - *`routeType`* (integer, query): Defines the route category or optimization behavior:
@@ -54,7 +54,7 @@ The **`“bold”`** one's are mandatory, and the *`“italic”`* one's are opt
 ## **Response Parameters**
 
 | **Field** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `id` | long | A unique identifier for the created route. |
 
 
