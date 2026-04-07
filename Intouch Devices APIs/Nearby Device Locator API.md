@@ -48,7 +48,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
         ]
         }
         ```
-- *`buffer`* (integer): The buffer distance in meters within which nearby vehicles/assets will be returned. This parameter is optional, with a default value of 50 meters if not provided.
+- *`buffer`* (integer): The buffer distance in meters within which nearby vehicles/assets will be returned. This parameter is optional, with a default value of 50 meters if not provided (max limit = 10000 m).
 - *`fields`* (string): Specifies an additional device attribute to be included in the response. Only one field can be requested per API call. If not specified, the default fields are returned. Example: `canInfo`, `deviceDetails`, or `location`.
 - *`ignoreBeacon`* (boolean): If set to `true`, devices reporting beacon-based or proximity-derived locations are excluded from the response. Default value is `false`.
 - *`ignoreLiveData`* (boolean): If set to `true`, devices with live data updates are excluded from the result set. Default value is `false`.
