@@ -201,6 +201,7 @@ curl --location --globoff 'https://intouch.mappls.com/iot/api/devices/nearby?geo
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly; HttpOnly'
 ```
+
 ## **Sample Output Response**
 ```json
 {
