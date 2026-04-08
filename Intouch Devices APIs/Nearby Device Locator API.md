@@ -196,7 +196,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
 
 ## **Sample cURL Request**
 ```bash
-curl --location --globoff 'https://intouch.mappls.com/iot/api/devices/nearby?geometry={%22type%22%3A%22Point%22%2C%22coordinates%22%3A[77.26890608948564%2C28.551177907481613]}&buffer=10000&ignoreBeacon=false&ignoreLiveData=false&includeInActive=true&state=1604728241' \
+curl --location 'https://intouch.mappls.com/iot/api/devices/nearby?geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B77.26890608948564%2C28.551177907481613%5D%7D&buffer=2000&ignoreBeacon=false&ignoreLiveData=false&includeInActive=true&state=1604728241' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Cookie: HttpOnly; HttpOnly'
