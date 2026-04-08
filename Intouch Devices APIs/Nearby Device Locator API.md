@@ -6,7 +6,8 @@
 > **Before consuming the InTouch APIs, please complete the required [Prerequisites](https://github.com/mappls-api/mappls-intouch-rest-apis/tree/main).**
 
 ## **Introduction**
-The `Nearby Device Locator API` retrieves the live location and associated data of all nearby vehicles, assets, or personnel tracking devices within a specified buffer range. Leveraging connected devices, sensors, and mobile technology, the API ensures precise location awareness for app developers. It provides real-time visibility of tracked objects, delivering not only location data but also additional attributes that enhance application functionality. This API is suitable for multiple use cases, including transportation, logistics, and personnel information services, across web and mobile development platforms.
+
+The `Nearby Device Locator API` retrieves the live location and associated data of all nearby vehicles, assets, or personnel tracking devices within a specified buffer range. Leveraging connected devices, sensors, and mobile technology, the API ensures precise location awareness for app users. It provides real-time visibility of tracked objects, delivering not only location data but also additional attributes that enhance application functionality. This API is suitable for multiple use cases, including transportation, logistics, and personnel information services, across web and mobile development platforms.
 
 ## **Security Type**
 This API follows OAuth2 based security. To generate the authorization token, please use the token generation API. More details are available [here](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy/mappls-token-generation-api).
@@ -17,6 +18,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
 
 - **Authorization: `{token_type} {access_token}`**
 - **Content-Type: `application/json`**
+
 
 ## **Input Method** 
 - GET
@@ -31,29 +33,29 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
 
 - `200(OK)`: Successful operation.
 - `203(Device Not Found)`: No devices found within the specified buffer.
-- `400(Bad Request)`: Invalid device ID supplied or invalid data type. For example, input attribute "buffer" is of type number but string value gets passed or invalid coordinates location for location type "polygon" in geometry geojson object etc.
+- `400(Bad Request)`: Invalid device ID supplied or invalid data type. For example: The "buffer" parameter expects a number, but a string value is provided or invalid coordinates location for location type "Polygon" in geometry GeoJSON object etc.
 - `401(Unauthorized)`: Access to the API is forbidden due to missing or invalid authorization.
 - `404(Not Found)`: The specified URL was not found.
 
 ## **Request Parameters**
 **`Bold`** parameters are mandatory, and *`italic`* parameters are optional.
 - **`geometry`** (string): GeoJSON-formatted location coordinates. Vehicles or assets are retrieved around this location based on the specified buffer distance.
-    - Example:-
+    - Example:
         ```json
         {
-        "type": "Point",
-        "coordinates": [
-            77.4567,
-            28.2345
-        ]
+            "type": "Point",
+            "coordinates": [
+                77.4567,
+                28.2345
+            ]
         }
         ```
 - *`buffer`* (integer): The buffer distance in meters within which nearby vehicles/assets will be returned. This parameter is optional, with a default value of 50 meters if not provided (max limit = 10000 m).
-- *`fields`* (string): Specifies an additional device attribute to be included in the response. Only one field can be requested per API call. If not specified, the default fields are returned. Example: `canInfo`, `deviceDetails`, or `location`.
-- *`ignoreBeacon`* (boolean): If set to `true`, devices reporting beacon-based or proximity-derived locations are excluded from the response. Default value is `false`.
-- *`ignoreLiveData`* (boolean): If set to `true`, devices with live data updates are excluded from the result set. Default value is `false`.
+- *`ignoreBeacon`* (boolean): If set to `true`, Devices that report beacon-based or proximity-derived locations are excluded from the response. Default: `false`.
+- *`ignoreLiveData`* (boolean): If set to `true`, devices with live data updates are excluded from the result set. Default: `false`.
 - *`includeInActive`* (boolean): If set to `true`, inactive devices are also included in the response. By default, only active devices are returned.
-- *`state`* (integer): Filters devices based on their movement status. Accepted values are the same as the `status` codes returned in the response (e.g., `1` for Moving, `2` for Idle, `3` for Stopped).
+- *`fields`* (string): Specifies an additional device attribute to be included in the response. Only one field can be requested per API call. If not specified, the default fields are returned. Example: `canInfo`, `deviceDetails`, or `location`.
+- *`state`* (long): This parameter uses a GPRS timestamp (epoch time) to filter data. For example: If `1604728241` is provided, the API returns data from that time to the present.
 
 ## **Response Parameters**
 - **`data`** (array): Contains a list of nearby devices and their associated information.
@@ -88,7 +90,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
         - **`chassisNumber`** (string): Unique chassis number of the vehicle associated with the device.
         - **`trackingCode`** (string): Unique tracking identifier assigned to the device for monitoring and identification.
     - **`canInfo`** (object): CAN (Controller Area Network) data.
-        - **`canTimestamp`** (number): Exact time at which the CAN data got generated by the device.
+        - **`canTimestamp`** (number): Exact time at which the CAN data was generated by the device.
         - **`disTravelCodes`** (number): Device-specific travel code value used internally to represent travel distance or related CAN data.
         - **`chargingStatus`** (integer): Indicates whether the battery is charging.
             - `0`: Not charging
@@ -111,7 +113,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
         - **`engineFuelRate`** (number): Fuel consumption rate of the engine.
         - **`greenDriveType`** (string): Eco-driving metrics (e.g., Harsh Acceleration).
                 - `HA`: Harsh acceleration
-                - `HB`: Harsh Breaking
+                - `HB`: Harsh Braking
                 - `HC`: Harsh Cornering
         - **`coolantTemp`** (number): Engine coolant temperature.
         - **`engineRPM`** (integer): Engine revolutions per minute.
@@ -163,7 +165,7 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
             - `MILEAGE`: 133
             - `GPS CONNECTIVITY`: 146
             - `DISTANCE COVERED`: 151
-            - `INTERNAL BATTERY VOLTAGE`:161       
+            - `INTERNAL BATTERY VOLTAGE`: 161       
         - **`duration`** (integer): Alarm duration limit as set in the alarm config section. For example, if duration of overspeed alarm is set as 20 secs, then the alarm will generate when the vehicle overspeeds for a duration of 20 secs.
         - **`actualDuration`** (integer): Actual duration for which the device breached the alarm config limit.
         - **`data`** (integer): Alarm-specific data value. The meaning of this field depends on the `alarmType`.
@@ -194,10 +196,10 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
 
 ## **Sample cURL Request**
 ```bash
-curl --location 'https://intouch.mappls.com/iot/api/devices/nearby?geometry=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B77.50567833333334%2C12.886303333333334%5D%7D&buffer=10000&ignoreBeacon=false&ignoreLiveData=false&includeInActive=false&fields=location&state=5' \
+curl --location --globoff 'https://intouch.mappls.com/iot/api/devices/nearby?geometry={%22type%22%3A%22Point%22%2C%22coordinates%22%3A[77.26890608948564%2C28.551177907481613]}&buffer=10000&ignoreBeacon=false&ignoreLiveData=false&includeInActive=true&state=1604728241' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly'
+--header 'Cookie: HttpOnly; HttpOnly; HttpOnly'
 ```
 ## **Sample Output Response**
 ```json
