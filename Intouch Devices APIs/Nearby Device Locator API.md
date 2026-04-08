@@ -112,37 +112,37 @@ The API leverages OAuth 2.0 based security. The developer must send a request fo
         - **`calcEngineVal`** (integer): Calculated engine value.
         - **`engineFuelRate`** (number): Fuel consumption rate of the engine.
         - **`greenDriveType`** (string): Eco-driving metrics (e.g., Harsh Acceleration).
-                - `HA`: Harsh acceleration
-                - `HB`: Harsh Braking
-                - `HC`: Harsh Cornering
+            - `HA`: Harsh acceleration
+            - `HB`: Harsh Braking
+            - `HC`: Harsh Cornering
         - **`coolantTemp`** (number): Engine coolant temperature.
         - **`engineRPM`** (integer): Engine revolutions per minute.
         - **`accelPedal`** (number): Accelerator pedal position expressed as a percentage.
         - **`parkBrake`** (number): This is parking brake.
-                - `0`: Parking brake disengaged
-                - `1`: Parking brake engaged
+            - `0`: Parking brake disengaged
+            - `1`: Parking brake engaged
         - **`breakPedal`** (number): Brake pedal status.
-                - `0`: Brake pedal not pressed
-                - `1`: Brake pedal pressed
+            - `0`: Brake pedal not pressed
+            - `1`: Brake pedal pressed
         - **`driverDoor`** (number): Driver door status.
-                - `0`: Door closed
-                - `1`: Door open
+            - `0`: Door closed
+            - `1`: Door open
         - **`headLights`** (number): Headlight status.
-                - `0`: Off
-                - `1`: On
+            - `0`: Off
+            - `1`: On
         - **`blinker`** (number): Blinker status.
-                - `0`: Off
-                - `1`: On
+            - `0`: Off
+            - `1`: On
         - **`gearState`** (number): Current gear state.
-                - `0`: Neutral 
-                - `1`: Drive
-                - `2`: Sport
-                - `3`: Reverse
+            - `0`: Neutral 
+            - `1`: Drive
+            - `2`: Sport
+            - `3`: Reverse
         - **`intakeAirTemp`** (number): This is the intake air temperature of the engine.
         - **`intakeabsolutePress`** (number): This is the intake absolute pressure of the engine. It is measured in Pa(Pascal)
         - **`ac`** (integer): Air conditioner status.
-                - `0`: Off
-                - `1`: On
+            - `0`: Off
+            - `1`: On
         - **`fuelConsAVG`** (integer): Average fuel consumption calculated by the device.
     - **`currentGeofence`** (array): List of active geofence IDs associated with the device.
     - **`alerts`** (object): Alert details, if any.
