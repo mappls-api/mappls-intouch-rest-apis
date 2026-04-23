@@ -23,7 +23,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - DELETE
 
 ## **Input URL**
-> https://intouch.mappls.com/iot/api/route/{id}
+`https://intouch.mappls.com/iot/api/route/{id}`
 
 ## Response Messages (as HTTP response message)
 - `200`(deleted): The geofence was successfully deleted.: Success
@@ -35,17 +35,16 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 - `503`(Service Unavailable): during our maintenance break or server downtimes.
 
 ## **Resquest Parameters**
-
 | **Parameter** | **Type** | **Required** | **Description** | **Example** |
-| :--- | :--- | :--- | --- | --- |
-| **`id `** | long (path) | Mandatory | Unique ID of the route that needs to be deleted. | `438144` |
+| :--- | :--- | :--- | :--- | :--- |
+| **`id`** | long (path) | Mandatory | Unique ID of the route that needs to be deleted. | `4515085` |
 
 ## **Sample cURL Request**
 ```bash
-curl --location --request DELETE 'https://intouch.mappls.com/iot/api/geofences/438144' \
+curl --location --request DELETE 'https://intouch.mappls.com/iot/api/route/4515085' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
---header 'Cookie: HttpOnly'
+--header 'Cookie: HttpOnly; HttpOnly'
 ```
 
 ## **Response Parameters**
