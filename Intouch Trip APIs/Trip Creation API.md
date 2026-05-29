@@ -50,7 +50,8 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 - `404` (Not Found): The requested URL endpoint does not exist.
 
 ## **Request Body Parametrs**
-- **`deviceId`**(number): The ID of the device for which the trip is being created.
+- **`deviceId`**(number): The `entityId` associated with the device for which the trip is being created.
+    - **Note:** Although this parameter represents an `entityId`, the request key must be sent as `deviceId` for backward compatibility.
 - **`name`**(string): Name of the trip.
 - **`forceClose`**(boolean): Indicates if the trip should automatically close when the device is associated with another trip.  
   Example: true
