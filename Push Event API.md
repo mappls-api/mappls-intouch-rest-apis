@@ -48,7 +48,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Mandatory Fields**
 
 | **S.No** | **Attributes** | **Description** | **Data Type** |
-| :--- | :--- | :--- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | **`timestamp`** | Time stamp of the time when the data packet was generated on the device. | Long |
 | 2 | **`latitude`** | Latitude from the GNSS | Double |
 | 3 | **`longitude`** | Longitude from the GNSS | Double |
@@ -60,9 +60,9 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 
 ## **Optional fields for Mobile**
 
-| **S.no** | **Attribute**  | **Description** | **Data Type** |
-| :--- | :--- | :--- | --- |
-| 1  | *`deviceId`*  | ID of the device  | Required String  |
+| **S.no** | **Attribute** | **Description** | **Data Type** |
+| :--- | :--- | :--- | :--- |
+| 1 | *`deviceId`*  | ID of the device  | Required String  |
 | 2 | *`token`* | Token generated | Required String |
 | 3 | *`imei`* | IMEI of the device | Required String |
 | 4 | *`simNo`* | SIM number of the device | Required String |
@@ -92,7 +92,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Optional fields for Vehicles**
 
 | **S.no** | **Attribute** | **Description** | **Data Type** |
-| :--- | :--- | :--- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | *`digitalInput2`* | Any additional digital input | Optional Integer |
 | 2 | *`digitalOutput1`* | Immobilizer status whether '1' or '0' | Optional Integer |
 | 3 | *`analogInput1`* | Main power of vehicle | Optional Double |
@@ -216,10 +216,10 @@ curl --location 'https://intouch.mappls.com/iot/api/events/pushData/' \
         "ignition": 0,
         "panic": 0,
         "ac": 0,
-        "latitude": 0,
-        "longitude": 0,
-        "numberOfSatellites": 0,
-        "timestamp": 0
+        "latitude": 28.55130034375468,
+        "longitude": 77.26382388732691,
+        "numberOfSatellites": 10,
+        "timestamp": 1790162802
     }
 ]'
 ```
