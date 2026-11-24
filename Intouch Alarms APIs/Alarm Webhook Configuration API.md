@@ -22,7 +22,7 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Input URL**
 > https://intouch.mappls.com/iot/api/alarms/
 
-## **Input Method** 
+### **Input Method** 
 - POST
 
 ## **Request Type** 
@@ -31,12 +31,12 @@ The API leverages OAuth 2.0 based security. Hence, the developer needs to send a
 ## **Request Body Parameters**
 | **Parameter** | **Type** | **Required** | **Description** |
 | :--- | :--- | :--- | --- |
-| `alarmType` | Integer | Yes | The type of alarm to create. Each alarm type has a constant value: IGNITION (`21`), OVERSPEED (`22`), Unplugged (`23`), Panic (`24`), AC (`25`), Geofence (`26`), Stoppage (`27`), Idle (`28`), Towing (`29`), GPRS Connectivity (`126`), Vehicle Battery (`129`), Mileage (`133`), GPS Connectivity (`146`), Distance Covered (`151`), INTERNAL BATTERY VOLTAGE (`161`). |
-| `geofenceId` | Array\[String\] | No | Geofence ID(s). Required only for the Geofence alarm (`alarmType = 26`). You can pass a single Geofence ID or multiple Geofence IDs in an array. Example: `["GF1", "GF2"]`. |
-| `type` | Integer | No | Specifies additional context for alarms. Required for `alarmType = 21 (IGNITION)`, `26 (Geofence)`, `133 (Mileage)`, and `151 (Distance Covered)`. Example: For Geofence alarms, use `InTouchConstants.ALARM_GEOFENCE_ENTRY` (value: `2`). |
-| `deviceId` | Array\[Long\] | Yes | Device ID(s). You can pass a single device ID or multiple device IDs in an array. Example: `[1782]` for a single ID or `[1782, 1783, 1784]` for multiple IDs. |
+| **`alarmType`** | Integer | Yes | The type of alarm to configure. See the [Alarm Constants](./Alarm%20Constants.md) for supported values. |
+| **`deviceId`** | Array[Long] | Yes | Device ID(s). You can pass a single device ID or multiple device IDs in an array. Example: `[1782]` for a single ID or `[1782, 1783, 1784]` for multiple IDs. |
+| `geofenceId` | Array[String] | No | Geofence ID(s). Required only for the Geofence alarm (`alarmType = 26`). You can pass a single Geofence ID or multiple Geofence IDs in an array. Example: `["GF1", "GF2"]`. |
+| `type` | Integer | No | The subtype of the selected `alarmType`. The available values depend on the selected alarm type. See the [Alarm Constants](./Alarm%20Constants.md) for details. |
 | `duration` | Integer | No | Time duration in seconds. Required only for the following alarms: `OVERSPEED`, `Stoppage`, `Idle`, `Towing`, `GPRS Connectivity`, `Vehicle Battery`, `GPS Connectivity`, `Distance Covered`, and `INTERNAL BATTERY VOLTAGE`. Example: `60` for 1 minute. |
-| `webhookURL` | String | No | A webhook URL to receive real-time alarm updates. Example: `https://webhook.site/your-custom-url`. |
+| **`webhookURL`** | String | Yes | A webhook URL where real-time alarm notifications will be delivered. Example: `https://webhook.site/your-custom-url`. See the [Webhook Guide](https://github.com/mappls-api/mappls-intouch-rest-apis/blob/main/webhook-guide.md) for setup instructions and payload details. |
 
 ## **Response Type** 
 - JSON
@@ -73,7 +73,7 @@ curl --location 'https://intouch.mappls.com/iot/api/alarms/' \
 
 ```
 ## **Sample Payloads**
-### IGNITION Off
+### **IGNITION Off**
 
 ```json
 {
@@ -98,8 +98,8 @@ curl --location 'https://intouch.mappls.com/iot/api/alarms/' \
 }
 
 ```
-### IGNITION On
 
+### **IGNITION On**
 ```json
 {
   "generationTime": 1724850464,
